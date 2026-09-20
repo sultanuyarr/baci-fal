@@ -1,0 +1,142 @@
+{
+  "coins-01": {
+    "ad": "Tılsımların Ası",
+    "anahtar": ["fırsat", "maddi başlangıç", "tohum", "sağlamlık"],
+    "duz": "Elle tutulur bir fırsat: iş teklifi, para girişi, yeni bir gelir kapısı ya da somut bir başlangıç. Tohum sağlam; toprağa ekip sabırla besle.",
+    "ters": "Fırsat kaçtı ya da temeli çürük. Para konusunda aceleci planlar tutmaz.",
+    "ask": "Somut adımlarla ilerleyen, güven veren bir başlangıç.",
+    "kariyer": "İş teklifi, yeni pozisyon, girişim sermayesi.",
+    "para": "Para girişi, yatırım fırsatı.",
+    "evetHayir": "evet"
+  },
+  "coins-02": {
+    "ad": "Tılsımların İkilisi",
+    "anahtar": ["denge", "esneklik", "çoklu görev", "akış"],
+    "duz": "İki topu havada tutuyorsun ve şimdilik beceriyorsun. Esneklik sayesinde ayaktasın ama bu tempo sürdürülebilir değil; öncelik sırası kur.",
+    "ters": "Denge kaçtı, işler birbirine karıştı, ödemeler sarktı. Bir şeyi bırakman gerekiyor.",
+    "ask": "Zaman ayıramama, başka önceliklerin araya girmesi.",
+    "kariyer": "Aynı anda birden fazla iş, esnek program.",
+    "para": "Nakit akışını dengeleme, borç çevirme.",
+    "evetHayir": "belki"
+  },
+  "coins-03": {
+    "ad": "Tılsımların Üçlüsü",
+    "anahtar": ["ustalık", "iş birliği", "emek", "takdir"],
+    "duz": "Emeğin ustalığa dönüşüyor ve bu görülüyor. Ekip çalışması, kaliteli iş, ustaya saygı. Tek başına yapamayacağın şeyi doğru kişilerle yapıyorsun.",
+    "ters": "Emeğin görülmemesi, uyumsuz ekip, özensiz iş. Rolleri netleştir.",
+    "ask": "Birlikte inşa etme, ortak emek.",
+    "kariyer": "Takdir edilen iş, ustalık, iş birliği.",
+    "para": "Emeğin karşılığı ödenir.",
+    "evetHayir": "evet"
+  },
+  "coins-04": {
+    "ad": "Tılsımların Dörtlüsü",
+    "anahtar": ["tutunma", "güvence", "cimrilik", "kontrol"],
+    "duz": "Elindekini sıkı sıkıya tutuyorsun. Tasarruf iyi ama kapalı yumruk yeni bir şey de alamaz. Güvence ihtiyacın kontrole dönüşmüş olabilir.",
+    "ters": "Bırakma, harcama, kontrolü gevşetme. Ya da savurganlık.",
+    "ask": "Sahiplenici tavır, duygusal cimrilik.",
+    "kariyer": "Pozisyonuna sıkı tutunma, değişime direnç.",
+    "para": "Birikim yapıyorsun ama yatırım yapmıyorsun.",
+    "evetHayir": "belki"
+  },
+  "coins-05": {
+    "ad": "Tılsımların Beşlisi",
+    "anahtar": ["yokluk", "dışlanmışlık", "zorluk", "yardım"],
+    "duz": "Maddi ya da duygusal bir darlık dönemi. Kendini dışarıda kalmış hissediyorsun; oysa aydınlık pencere hemen yanı başında. Yardım istemek gururunu değil, yükünü azaltır.",
+    "ters": "Toparlanma başlıyor; darlık aşılıyor, destek geliyor.",
+    "ask": "Yalnızlık hissi, ilişkide soğukluk.",
+    "kariyer": "İşsizlik ya da değer görmeme dönemi.",
+    "para": "Maddi sıkıntı; destek aramaktan çekinme.",
+    "evetHayir": "hayir"
+  },
+  "coins-06": {
+    "ad": "Tılsımların Altılısı",
+    "anahtar": ["paylaşım", "cömertlik", "denge", "destek"],
+    "duz": "Veren ve alan arasında bir akış var. Bir yardım, burs, destek ya da hak edilen bir ödeme geliyor. Bugün veren, yarın alan olabilir; terazi döner.",
+    "ters": "Dengesiz alışveriş, koşullu yardım ya da borçlandırma. Verdiğini başa kakma.",
+    "ask": "Eşit olmayan bir emek dağılımı.",
+    "kariyer": "Mentor desteği, adil paylaşım.",
+    "para": "Borç ödenir ya da destek alınır.",
+    "evetHayir": "evet"
+  },
+  "coins-07": {
+    "ad": "Tılsımların Yedilisi",
+    "anahtar": ["sabır", "değerlendirme", "bekleyiş", "yatırım"],
+    "duz": "Ektiğin filizlendi ama hasat vakti gelmedi. Şu an yapılacak en akıllı şey beklemek ve neyin işe yaradığını değerlendirmek. Sabırsız çiftçi kökü söker.",
+    "ters": "Sabırsızlık ya da yanlış yere yatırılmış emek. Gidişatı gözden geçir.",
+    "ask": "İlişkinin nereye gittiğini tartma.",
+    "kariyer": "Uzun vadeli yatırımın ara değerlendirmesi.",
+    "para": "Getiri yavaş ama geliyor.",
+    "evetHayir": "belki"
+  },
+  "coins-08": {
+    "ad": "Tılsımların Sekizlisi",
+    "anahtar": ["çıraklık", "disiplin", "tekrar", "gelişim"],
+    "duz": "Sabırla ve tekrar tekrar çalışarak ustalaşıyorsun. Gösterişli değil ama kalıcı bir ilerleme; her gün atılan küçük adım büyük fark yaratacak.",
+    "ters": "Özensizlik, motivasyon kaybı ya da anlamsız tekrar. Kaliteyi düşürme.",
+    "ask": "İlişkiye emek verme; alışkanlık kurma.",
+    "kariyer": "Kurs, sertifika, zanaatını geliştirme.",
+    "para": "Düzenli ve artan kazanç.",
+    "evetHayir": "evet"
+  },
+  "coins-09": {
+    "ad": "Tılsımların Dokuzlusu",
+    "anahtar": ["bağımsızlık", "refah", "öz yeterlilik", "haz"],
+    "duz": "Kendi emeğinle kurduğun bahçede duruyorsun. Maddi bağımsızlık, konfor ve kimseye muhtaç olmamanın huzuru. Emeğinin tadını çıkarmayı hak ettin.",
+    "ters": "Yalnızlıkla bağımsızlığı karıştırma; ya da başkasına maddi bağımlılık rahatsız ediyor.",
+    "ask": "Kendine yeten ama yalnız kalmayı seçen biri.",
+    "kariyer": "Serbest çalışma, kendi işi, itibar.",
+    "para": "Refah, birikim, kişisel kazanç.",
+    "evetHayir": "evet"
+  },
+  "coins-10": {
+    "ad": "Tılsımların Onlusu",
+    "anahtar": ["miras", "aile serveti", "kalıcılık", "kök"],
+    "duz": "Kurduğun şey seni aşacak kadar sağlam: aile, mülk, miras, uzun vadeli güvence. Kökler derin. Nesiller boyu sürecek bir yatırım gündemde.",
+    "ters": "Aile içi maddi anlaşmazlık, miras kavgası ya da geleneksel düzenin yükü.",
+    "ask": "Aileye karışan, kalıcı bir birliktelik.",
+    "kariyer": "Köklü kurum, aile şirketi, uzun vadeli güvence.",
+    "para": "Mülk, miras, büyük ve kalıcı kazanç.",
+    "evetHayir": "evet"
+  },
+  "coins-11": {
+    "ad": "Tılsımların Prensi",
+    "anahtar": ["öğrenme", "fırsat", "hedef", "istikrar"],
+    "duz": "Yeni bir beceri öğrenme ya da somut bir fırsatın başlangıcı. Yavaş ama ciddi ilerleyen bir öğrenci enerjisi; eğitim ve okul haberleri gelebilir.",
+    "ters": "Erteleme, dağınıklık, hedefsizlik. Öğrenmeye başla artık.",
+    "ask": "Ağır ilerleyen ama güvenilir bir yakınlaşma.",
+    "kariyer": "Staj, eğitim, yeni bir alanda ilk adım.",
+    "para": "Küçük ama düzenli birikim.",
+    "evetHayir": "evet"
+  },
+  "coins-12": {
+    "ad": "Tılsımların Şövalyesi",
+    "anahtar": ["istikrar", "sabır", "güvenilirlik", "yavaşlık"],
+    "duz": "Yavaş ama şaşmaz bir ilerleme. Heyecan verici değil ama söz verdiğini yapan, işini sağlam bitiren bir enerji. Rutin şu an dostun.",
+    "ters": "Durgunluk, sıkıcılık, fazla temkinlilik. İlerleme durmuş olabilir.",
+    "ask": "Güvenilir ama heyecanı düşük bir ilişki.",
+    "kariyer": "İstikrarlı, öngörülebilir süreç.",
+    "para": "Yavaş ve güvenli büyüme.",
+    "evetHayir": "evet"
+  },
+  "coins-13": {
+    "ad": "Tılsımların Kraliçesi",
+    "anahtar": ["pratiklik", "bereket", "bakım", "kaynak yönetimi"],
+    "duz": "Hem üretken hem şefkatli: kaynakları iyi yöneten, evini ve işini birlikte çeviren bir figür. Pratik çözümler ve maddi güvence sağlama becerisi öne çıkıyor.",
+    "ters": "Aşırı yüklenme, kendini ihmal, maddi kaygı. Önce kendi bardağını doldur.",
+    "ask": "Besleyici, ayakları yere basan bir partner.",
+    "kariyer": "Kaynak yönetimi, işletme, çok yönlü yetkinlik.",
+    "para": "Akıllı bütçe, bereketli yönetim.",
+    "evetHayir": "evet"
+  },
+  "coins-14": {
+    "ad": "Tılsımların Kralı",
+    "anahtar": ["servet", "başarı", "güvence", "deneyim"],
+    "duz": "Maddi başarının zirvesi: tecrübeyle kazanılmış servet, güvence ve itibar. Yatırım kararların isabetli; cömert davranabileceğin bir bolluk dönemi.",
+    "ters": "Para odaklılık, statü takıntısı ya da riskli genişleme. Her şey rakamla ölçülmez.",
+    "ask": "Koruyucu, sağlayıcı ama iş odaklı biri.",
+    "kariyer": "Üst düzey başarı, patronluk, yatırımcı.",
+    "para": "Büyük kazanç, sağlam yatırım.",
+    "evetHayir": "evet"
+  }
+}

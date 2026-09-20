@@ -1,0 +1,318 @@
+{
+  "source": "Wikimedia Commons — Rider-Waite-Smith Tarot (1909), kamu mali",
+  "width": 420,
+  "cards": {
+    "major-00": {
+      "name": "The Fool",
+      "commonsFile": "RWS Tarot 00 Fool.jpg"
+    },
+    "major-01": {
+      "name": "The Magician",
+      "commonsFile": "RWS Tarot 01 Magician.jpg"
+    },
+    "major-02": {
+      "name": "The Papess/High Priestess",
+      "commonsFile": "RWS Tarot 02 High Priestess.jpg"
+    },
+    "major-03": {
+      "name": "The Empress",
+      "commonsFile": "RWS Tarot 03 Empress.jpg"
+    },
+    "major-04": {
+      "name": "The Emperor",
+      "commonsFile": "RWS Tarot 04 Emperor.jpg"
+    },
+    "major-05": {
+      "name": "The Pope/Hierophant",
+      "commonsFile": "RWS Tarot 05 Hierophant.jpg"
+    },
+    "major-06": {
+      "name": "The Lovers",
+      "commonsFile": "RWS Tarot 06 Lovers.jpg"
+    },
+    "major-07": {
+      "name": "The Chariot",
+      "commonsFile": "RWS Tarot 07 Chariot.jpg"
+    },
+    "major-08": {
+      "name": "Strength",
+      "commonsFile": "RWS Tarot 08 Strength.jpg"
+    },
+    "major-09": {
+      "name": "The Hermit",
+      "commonsFile": "RWS Tarot 09 Hermit.jpg"
+    },
+    "major-10": {
+      "name": "The Wheel",
+      "commonsFile": "RWS Tarot 10 Wheel of Fortune.jpg"
+    },
+    "major-11": {
+      "name": "Justice",
+      "commonsFile": "RWS Tarot 11 Justice.jpg"
+    },
+    "major-12": {
+      "name": "The Hanged Man",
+      "commonsFile": "RWS Tarot 12 Hanged Man.jpg"
+    },
+    "major-13": {
+      "name": "Death",
+      "commonsFile": "RWS Tarot 13 Death.jpg"
+    },
+    "major-14": {
+      "name": "Temperance",
+      "commonsFile": "RWS Tarot 14 Temperance.jpg"
+    },
+    "major-15": {
+      "name": "The Devil",
+      "commonsFile": "RWS Tarot 15 Devil.jpg"
+    },
+    "major-16": {
+      "name": "The Tower",
+      "commonsFile": "RWS Tarot 16 Tower.jpg"
+    },
+    "major-17": {
+      "name": "The Star",
+      "commonsFile": "RWS Tarot 17 Star.jpg"
+    },
+    "major-18": {
+      "name": "The Moon",
+      "commonsFile": "RWS Tarot 18 Moon.jpg"
+    },
+    "major-19": {
+      "name": "The Sun",
+      "commonsFile": "RWS Tarot 19 Sun.jpg"
+    },
+    "major-20": {
+      "name": "Judgement",
+      "commonsFile": "RWS Tarot 20 Judgement.jpg"
+    },
+    "major-21": {
+      "name": "The World",
+      "commonsFile": "RWS Tarot 21 World.jpg"
+    },
+    "wands-01": {
+      "name": "ace of wands",
+      "commonsFile": "Wands01.jpg"
+    },
+    "wands-02": {
+      "name": "two of wands",
+      "commonsFile": "Wands02.jpg"
+    },
+    "wands-03": {
+      "name": "three of wands",
+      "commonsFile": "Wands03.jpg"
+    },
+    "wands-04": {
+      "name": "four of wands",
+      "commonsFile": "Wands04.jpg"
+    },
+    "wands-05": {
+      "name": "five of wands",
+      "commonsFile": "Wands05.jpg"
+    },
+    "wands-06": {
+      "name": "six of wands",
+      "commonsFile": "Wands06.jpg"
+    },
+    "wands-07": {
+      "name": "seven of wands",
+      "commonsFile": "Wands07.jpg"
+    },
+    "wands-08": {
+      "name": "eight of wands",
+      "commonsFile": "Wands08.jpg"
+    },
+    "wands-09": {
+      "name": "nine of wands",
+      "commonsFile": "Wands09.jpg"
+    },
+    "wands-10": {
+      "name": "ten of wands",
+      "commonsFile": "Wands10.jpg"
+    },
+    "wands-11": {
+      "name": "page of wands",
+      "commonsFile": "Wands11.jpg"
+    },
+    "wands-12": {
+      "name": "knight of wands",
+      "commonsFile": "Wands12.jpg"
+    },
+    "wands-13": {
+      "name": "queen of wands",
+      "commonsFile": "Wands13.jpg"
+    },
+    "wands-14": {
+      "name": "king of wands",
+      "commonsFile": "Wands14.jpg"
+    },
+    "cups-01": {
+      "name": "ace of cups",
+      "commonsFile": "Cups01.jpg"
+    },
+    "cups-02": {
+      "name": "two of cups",
+      "commonsFile": "Cups02.jpg"
+    },
+    "cups-03": {
+      "name": "three of cups",
+      "commonsFile": "Cups03.jpg"
+    },
+    "cups-04": {
+      "name": "four of cups",
+      "commonsFile": "Cups04.jpg"
+    },
+    "cups-05": {
+      "name": "five of cups",
+      "commonsFile": "Cups05.jpg"
+    },
+    "cups-06": {
+      "name": "six of cups",
+      "commonsFile": "Cups06.jpg"
+    },
+    "cups-07": {
+      "name": "seven of cups",
+      "commonsFile": "Cups07.jpg"
+    },
+    "cups-08": {
+      "name": "eight of cups",
+      "commonsFile": "Cups08.jpg"
+    },
+    "cups-09": {
+      "name": "nine of cups",
+      "commonsFile": "Cups09.jpg"
+    },
+    "cups-10": {
+      "name": "ten of cups",
+      "commonsFile": "Cups10.jpg"
+    },
+    "cups-11": {
+      "name": "page of cups",
+      "commonsFile": "Cups11.jpg"
+    },
+    "cups-12": {
+      "name": "knight of cups",
+      "commonsFile": "Cups12.jpg"
+    },
+    "cups-13": {
+      "name": "queen of cups",
+      "commonsFile": "Cups13.jpg"
+    },
+    "cups-14": {
+      "name": "king of cups",
+      "commonsFile": "Cups14.jpg"
+    },
+    "swords-01": {
+      "name": "ace of swords",
+      "commonsFile": "Swords01.jpg"
+    },
+    "swords-02": {
+      "name": "two of swords",
+      "commonsFile": "Swords02.jpg"
+    },
+    "swords-03": {
+      "name": "three of swords",
+      "commonsFile": "Swords03.jpg"
+    },
+    "swords-04": {
+      "name": "four of swords",
+      "commonsFile": "Swords04.jpg"
+    },
+    "swords-05": {
+      "name": "five of swords",
+      "commonsFile": "Swords05.jpg"
+    },
+    "swords-06": {
+      "name": "six of swords",
+      "commonsFile": "Swords06.jpg"
+    },
+    "swords-07": {
+      "name": "seven of swords",
+      "commonsFile": "Swords07.jpg"
+    },
+    "swords-08": {
+      "name": "eight of swords",
+      "commonsFile": "Swords08.jpg"
+    },
+    "swords-09": {
+      "name": "nine of swords",
+      "commonsFile": "Swords09.jpg"
+    },
+    "swords-10": {
+      "name": "ten of swords",
+      "commonsFile": "Swords10.jpg"
+    },
+    "swords-11": {
+      "name": "page of swords",
+      "commonsFile": "Swords11.jpg"
+    },
+    "swords-12": {
+      "name": "knight of swords",
+      "commonsFile": "Swords12.jpg"
+    },
+    "swords-13": {
+      "name": "queen of swords",
+      "commonsFile": "Swords13.jpg"
+    },
+    "swords-14": {
+      "name": "king of swords",
+      "commonsFile": "Swords14.jpg"
+    },
+    "coins-01": {
+      "name": "ace of coins",
+      "commonsFile": "Pents01.jpg"
+    },
+    "coins-02": {
+      "name": "two of coins",
+      "commonsFile": "Pents02.jpg"
+    },
+    "coins-03": {
+      "name": "three of coins",
+      "commonsFile": "Pents03.jpg"
+    },
+    "coins-04": {
+      "name": "four of coins",
+      "commonsFile": "Pents04.jpg"
+    },
+    "coins-05": {
+      "name": "five of coins",
+      "commonsFile": "Pents05.jpg"
+    },
+    "coins-06": {
+      "name": "six of coins",
+      "commonsFile": "Pents06.jpg"
+    },
+    "coins-07": {
+      "name": "seven of coins",
+      "commonsFile": "Pents07.jpg"
+    },
+    "coins-08": {
+      "name": "eight of coins",
+      "commonsFile": "Pents08.jpg"
+    },
+    "coins-09": {
+      "name": "nine of coins",
+      "commonsFile": "Pents09.jpg"
+    },
+    "coins-10": {
+      "name": "ten of coins",
+      "commonsFile": "Pents10.jpg"
+    },
+    "coins-11": {
+      "name": "page of coins",
+      "commonsFile": "Pents11.jpg"
+    },
+    "coins-12": {
+      "name": "knight of coins",
+      "commonsFile": "Pents12.jpg"
+    },
+    "coins-13": {
+      "name": "queen of coins",
+      "commonsFile": "Pents13.jpg"
+    },
+    "coins-14": {
+      "name": "king of coins",
+      "commonsFile": "Pents14.jpg"
+    }
+  }
+}

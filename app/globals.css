@@ -1,26 +1,121 @@
 @import "tailwindcss";
 
+@theme {
+  --color-gece-900: #08050f;
+  --color-gece-800: #0d0819;
+  --color-gece-700: #150e28;
+  --color-gece-600: #1f1638;
+  --color-gece-500: #2c2050;
+
+  --color-altin-300: #f4dfa4;
+  --color-altin-400: #e8c468;
+  --color-altin-500: #d4a840;
+  --color-altin-600: #a87f28;
+
+  --color-gul-400: #e8a0b8;
+  --color-gul-500: #c4708f;
+
+  --color-mor-400: #a98cd8;
+  --color-mor-500: #7f5fc0;
+
+  --font-baslik: var(--font-baslik), Georgia, serif;
+  --font-govde: var(--font-govde), system-ui, sans-serif;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  color-scheme: dark;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-gece-900);
+  color: #e6dff5;
+  font-family: var(--font-govde);
+  /* Gece göğü: iki sıcak halo ve üstte hafif bir mor akış */
+  background-image:
+    radial-gradient(ellipse 80% 55% at 50% -10%, rgba(127, 95, 192, 0.28), transparent 70%),
+    radial-gradient(ellipse 60% 45% at 85% 15%, rgba(212, 168, 64, 0.1), transparent 70%),
+    radial-gradient(ellipse 70% 50% at 10% 85%, rgba(196, 112, 143, 0.1), transparent 70%);
+  background-attachment: fixed;
+}
+
+/* Yıldız tozu — arka planda hafif bir parıltı katmanı */
+.yildizli::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(1px 1px at 12% 22%, rgba(255, 255, 255, 0.55), transparent),
+    radial-gradient(1px 1px at 68% 14%, rgba(255, 255, 255, 0.4), transparent),
+    radial-gradient(1.5px 1.5px at 33% 61%, rgba(244, 223, 164, 0.5), transparent),
+    radial-gradient(1px 1px at 82% 73%, rgba(255, 255, 255, 0.35), transparent),
+    radial-gradient(1px 1px at 47% 88%, rgba(255, 255, 255, 0.3), transparent),
+    radial-gradient(1.5px 1.5px at 91% 41%, rgba(233, 196, 104, 0.4), transparent),
+    radial-gradient(1px 1px at 22% 47%, rgba(255, 255, 255, 0.25), transparent),
+    radial-gradient(1px 1px at 58% 33%, rgba(255, 255, 255, 0.3), transparent);
+}
+
+@keyframes yukselerek-belir {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes kart-cevir {
+  from { transform: rotateY(90deg) scale(0.92); opacity: 0; }
+  to { transform: rotateY(0) scale(1); opacity: 1; }
+}
+
+@keyframes nabiz {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+
+.belir {
+  animation: yukselerek-belir 0.5s ease-out both;
+}
+
+.cevril {
+  animation: kart-cevir 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  transform-origin: center;
+}
+
+.nabiz {
+  animation: nabiz 1.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .belir, .cevril, .nabiz {
+    animation: none;
+  }
+}
+
+/* Form alanlarının ortak görünümü */
+.alan {
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(233, 196, 104, 0.22);
+  background-color: rgba(8, 5, 15, 0.6);
+  padding: 0.7rem 0.9rem;
+  color: #e6dff5;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.alan::placeholder { color: rgba(230, 223, 245, 0.35); }
+
+.alan:focus {
+  border-color: rgba(233, 196, 104, 0.6);
+  box-shadow: 0 0 0 3px rgba(233, 196, 104, 0.12);
+}
+
+/* Tarayıcının takvim/saat simgesini koyu temaya uydur */
+.alan::-webkit-calendar-picker-indicator {
+  filter: invert(0.85) sepia(0.6) saturate(3) hue-rotate(5deg);
+  cursor: pointer;
+}
+
+select.alan option {
+  background-color: #150e28;
+  color: #e6dff5;
 }

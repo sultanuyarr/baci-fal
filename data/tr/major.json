@@ -1,0 +1,222 @@
+{
+  "major-00": {
+    "ad": "Deli",
+    "anahtar": ["özgürlük", "inanç", "acemilik", "masumiyet"],
+    "duz": "Sıfır noktasındasın; henüz yazılmamış bir sayfa elinde. Hesabı tam çıkmayan ama içine sinen bir adımı atma vakti. Deneyimsizlik burada kusur değil, avantaj: kimsenin denemediğini deneyebilecek kadar özgürsün.",
+    "ters": "Cesaret ile pervasızlık birbirine karışmış. Ya gereken adımı erteliyor, kendini oyalıyorsun; ya da ciddiye alınması gereken bir işe hazırlıksız atlıyorsun. Bir yol haritası çizmeden çıkma.",
+    "ask": "Beklenmedik bir tanışma ya da ilişkide yeniden çocuklaşma; ama söz vermeden önce iki kez düşün.",
+    "kariyer": "Yeni bir alan, staj, sıfırdan başlangıç. Tecrübesizliğini saklama, merakını göster.",
+    "para": "Küçük ve kontrollü risk alınabilir; birikimin tamamını tek yere yatırma.",
+    "evetHayir": "evet"
+  },
+  "major-01": {
+    "ad": "Büyücü",
+    "anahtar": ["beceri", "irade", "iletişim", "eyleme geçme"],
+    "duz": "İhtiyacın olan her şey zaten masanın üstünde. Eksik olan malzeme değil, niyetin netliği. Sözünü doğru kurduğunda kapıların açıldığını göreceksin; bu kart konuşma, satış, ikna ve başlatma kartıdır.",
+    "ters": "Yetenek var ama dağınık kullanılıyor. Kendini olduğundan büyük gösterme ya da gösterenlere kanma eğilimi; vaatlerin arkasının dolu olduğundan emin ol.",
+    "ask": "Etkileyici bir çekim var; ancak sözlerin eylemlerle doğrulanması gerekiyor.",
+    "kariyer": "Girişim, sunum, yeni proje başlatma için güçlü zaman. İnisiyatif sende.",
+    "para": "Beceriden para kazanma; ek gelir kapısı açılabilir.",
+    "evetHayir": "evet"
+  },
+  "major-02": {
+    "ad": "Başrahibe",
+    "anahtar": ["sezgi", "sır", "bekleyiş", "iç bilgi"],
+    "duz": "Cevap dışarıda değil içeride ve henüz konuşmanın vakti değil. Bilmediğini sandığın şeyi aslında biliyorsun; sessiz kalıp gözlemlemek şu an en güçlü hamlen. Saklanan bir bilgi zamanla ortaya çıkacak.",
+    "ters": "Sezgilerini bastırıyor, mantıkla kendini kandırıyorsun. Ya da bir sır fazla büyüdü; saklanan şey ilişkilere zarar vermeye başladı.",
+    "ask": "Açığa çıkmamış duygular, platonik bir bağ ya da söylenmeyenler. Acele etme.",
+    "kariyer": "Araştırma, analiz, perde arkası işler. Şimdilik kartlarını açma.",
+    "para": "Bilmediğin bir detay var; sözleşmenin küçük yazılarını oku.",
+    "evetHayir": "belki"
+  },
+  "major-03": {
+    "ad": "İmparatoriçe",
+    "anahtar": ["bereket", "üretkenlik", "şefkat", "büyüme"],
+    "duz": "Emek verdiğin şey olgunlaşıyor. Bu kart doğurganlığın her türlüsüdür: çocuk, proje, ev, bahçe, sanat. Kendine ve çevrene cömert davrandığında bolluk kendiliğinden çoğalır.",
+    "ters": "Verirken kendini tüketiyorsun ya da aşırı sahiplenici bir tavır büyümeyi engelliyor. Bir şeyi zorla büyütmeye çalışma; bazı işler kendi mevsiminde açar.",
+    "ask": "Besleyici, sıcak, bedensel yakınlığı güçlü bir ilişki; hamilelik haberi olabilir.",
+    "kariyer": "Yaratıcı iş, üretim, büyüme dönemi. Ekibine annelik etme rolü sana düşebilir.",
+    "para": "Gelirde artış, bereketli dönem; konfora harcama isteği yüksek.",
+    "evetHayir": "evet"
+  },
+  "major-04": {
+    "ad": "İmparator",
+    "anahtar": ["düzen", "otorite", "sınır", "istikrar"],
+    "duz": "Yapı kurma zamanı. Kuralları, sınırları ve sorumluluğu sen belirlediğinde kaos dağılır. Bir baba figürü, patron ya da resmî kurum devrede olabilir; disiplin şu an sıkıcı değil, koruyucudur.",
+    "ters": "Katılık ya da kontrol savaşı. Ya birinin baskısı altındasın ya da kendi dediğim dedik tavrın seni yalnızlaştırıyor. Esnemeyen dal kırılır.",
+    "ask": "Güven veren ama duygusunu zor gösteren bir taraf; ilişkide netlik isteniyor.",
+    "kariyer": "Terfi, yöneticilik, resmî işler ve sözleşmeler. Sistemini kur.",
+    "para": "Bütçe disiplini kazandırır; uzun vadeli, güvenli yatırım.",
+    "evetHayir": "evet"
+  },
+  "major-05": {
+    "ad": "Aziz",
+    "anahtar": ["gelenek", "öğreti", "danışmanlık", "kurum"],
+    "duz": "Denenmiş yol şu an en güvenli yol. Bir hoca, danışman ya da yaşça büyük birinin tecrübesi işine yarayacak. Evlilik, diploma, resmî onay gibi toplumsal olarak tescillenmiş adımlar gündemde.",
+    "ters": "Kalıplar seni sıkıyor. \"Herkes böyle yapıyor\" cümlesi artık yetmiyor; kendi kuralını yazma cesareti istiyorsun. Uyumsuzluk burada sağlıklı bir işaret.",
+    "ask": "Aileye tanıtma, nişan, evlilik; ya da fazla geleneksel beklentiler.",
+    "kariyer": "Eğitim, kurumsal yapı, mentorluk. Usulüne uygun ilerle.",
+    "para": "Klasik ve güvenli seçenek; danışmanla hareket et.",
+    "evetHayir": "evet"
+  },
+  "major-06": {
+    "ad": "Aşıklar",
+    "anahtar": ["seçim", "birleşme", "uyum", "değer"],
+    "duz": "Bir seçim kapıda ve bu seçim aslında değerlerinle ilgili. Kalbin ile aklın aynı şeyi söylediğinde doğru yoldasın. Güçlü bir çekim, ortaklık ya da barışma da bu kartın altında.",
+    "ters": "Kararsızlık uzadıkça iki tarafı da kaybetme riski var. Uyumsuz bir birliktelik ya da değerlerine ters düşen bir anlaşma söz konusu olabilir.",
+    "ask": "Ciddi bir bağ, ruh eşi hissi ya da \"o mu, bu mu\" ikilemi.",
+    "kariyer": "Ortaklık, iş birliği, iki teklif arasında seçim.",
+    "para": "Ortak hesap, paylaşımlı yatırım; şartları netleştir.",
+    "evetHayir": "evet"
+  },
+  "major-07": {
+    "ad": "Savaş Arabası",
+    "anahtar": ["irade", "zafer", "yön", "kontrol"],
+    "duz": "Dizginler sende. Birbirine zıt güçleri aynı yöne sürebilirsen zafer kesin. Bu kart yolculuk, araç, taşınma ve kararlılıkla kazanılan bir mücadeleyi işaret eder.",
+    "ters": "Gaz ve fren aynı anda basılı. Yön kaybı, sabırsızlık ya da öfkeyle alınan kararlar seni savurabilir. Önce hedefi netleştir.",
+    "ask": "Isteklerinde net ol; kovalamak değil, yön göstermek işe yarar.",
+    "kariyer": "Rekabette öne geçiş, hedefe kilitlenme, iş seyahati.",
+    "para": "Kararlı adımlarla toparlanma; araç masrafı çıkabilir.",
+    "evetHayir": "evet"
+  },
+  "major-08": {
+    "ad": "Güç",
+    "anahtar": ["sabır", "şefkat", "cesaret", "öz denetim"],
+    "duz": "Kaba kuvvetle değil, sabırla kazanılan bir mücadele. İçindeki huysuz aslanı ehlileştiren şey nezaket. Zor bir insanı ya da kendi öfkeni yumuşaklıkla yönetebilirsin; dayanma gücün sandığından fazla.",
+    "ters": "Özgüven düşüşü, sabır taşmak üzere. Ya kendine fazla yükleniyorsun ya da bir korkuya teslim oldun. Küçük adımlarla gücünü geri topla.",
+    "ask": "Anlayış ve sabır ilişkiyi kurtarır; kıskançlığı besleme.",
+    "kariyer": "Zor müşteri, uzun soluklu mücadele; direncin sonuç getirir.",
+    "para": "Aceleci hamle yok; yavaş ama emin toparlanma.",
+    "evetHayir": "evet"
+  },
+  "major-09": {
+    "ad": "Ermiş",
+    "anahtar": ["yalnızlık", "arayış", "bilgelik", "geri çekilme"],
+    "duz": "Kalabalıktan uzaklaşıp kendi ışığınla yol bulma zamanı. Bu yalnızlık cezalandırma değil, arınma. Bir süre danışmadan, kimseye sormadan düşünmen gereken bir konu var.",
+    "ters": "Geri çekilme küsmeye dönüşmüş. Fazla izolasyon seni yorar; ya da yardım isteyecekken gururun engel oluyor. Kapıyı biraz arala.",
+    "ask": "Mesafe isteği, ara verme; yalnız kalan tarafa saygı gerekiyor.",
+    "kariyer": "Uzmanlaşma, tek başına çalışma, araştırma dönemi.",
+    "para": "Harcamaları kıs, sade yaşa; kimseye kefil olma.",
+    "evetHayir": "belki"
+  },
+  "major-10": {
+    "ad": "Kader Çarkı",
+    "anahtar": ["döngü", "şans", "dönüm noktası", "zamanlama"],
+    "duz": "Çark döndü; kontrolün dışında gelişen bir olay dengeleri değiştiriyor ve bu kez lehine. Beklenmedik bir haber, tesadüf ya da fırsat kapıda. Aynı döngüye düşmemek için geçmişten ders çıkar.",
+    "ters": "Talih şimdilik yavaşladı; gecikmeler ve tekrar eden aksilikler. Direnmek yerine dalganın geçmesini bekle, döngü yakında yön değiştirir.",
+    "ask": "Kaderin getirdiği bir karşılaşma ya da eski bir ismin dönüşü.",
+    "kariyer": "Ani gelişme, beklenmedik teklif, konum değişikliği.",
+    "para": "Ummadığın yerden gelir; ama şansa fazla güvenme.",
+    "evetHayir": "evet"
+  },
+  "major-11": {
+    "ad": "Adalet",
+    "anahtar": ["denge", "gerçek", "sorumluluk", "hukuk"],
+    "duz": "Ne ektiysen onu biçeceksin; terazi şaşmaz. Resmî bir işlem, dava, sözleşme ya da uzun süredir beklenen bir hakkın teslimi gündemde. Dürüst olan taraf kazanır.",
+    "ters": "Haksızlık, taraflı karar ya da sorumluluktan kaçış. Kendine karşı da adil değilsin; ya fazla suçluyorsun ya da hatayı hep dışarıda arıyorsun.",
+    "ask": "İlişkide eşitlik sorgusu; verdiğinle aldığın uyuşmuyor.",
+    "kariyer": "Sözleşme, denetim, hukuki süreç. Kayıtları düzgün tut.",
+    "para": "Hesap netleşir; borç-alacak dengelenir, vergi konusu çıkabilir.",
+    "evetHayir": "belki"
+  },
+  "major-12": {
+    "ad": "Asılan Adam",
+    "anahtar": ["askıya alma", "bakış değişimi", "fedakârlık", "teslimiyet"],
+    "duz": "Süreç askıda ve bu bekleyiş boşuna değil. Olaya ters taraftan bakmadığın sürece çözüm görünmeyecek. Küçük bir şeyden vazgeçmek büyük bir şeyi kurtarabilir.",
+    "ters": "Boş yere kendini feda ediyor ya da bitmeyecek bir beklemeye tutunuyorsun. Kurban rolünden çık; bazı şeyler senin beklemenle değişmiyor.",
+    "ask": "Karşılıksız emek ya da belirsizlikte bekleme; net cevap iste.",
+    "kariyer": "Proje durdu, onay bekleniyor. Bu arayı öğrenmeye ayır.",
+    "para": "Ödeme gecikir; yeni yükümlülük altına girme.",
+    "evetHayir": "hayir"
+  },
+  "major-13": {
+    "ad": "Ölüm",
+    "anahtar": ["bitiş", "dönüşüm", "bırakma", "yeniden doğuş"],
+    "duz": "Bir dönem gerçekten kapanıyor ve geri dönüşü yok. Korkutucu görünen bu kart aslında temizlik yapar: yerinde saymanı sağlayan şey elinden alınırken yeni olana yer açılır. Bırakmakta direnme.",
+    "ters": "Bitmiş bir şeyi suni solunumda tutuyorsun. Değişime direnç uzadıkça acı da uzuyor. Veda etmediğin şey seni geçmişe bağlıyor.",
+    "ask": "Bir ilişkinin biçim değiştirmesi ya da tamamen bitmesi.",
+    "kariyer": "İşten ayrılma, sektör değişimi, köklü yeniden yapılanma.",
+    "para": "Eski gelir kapısı kapanır; yenisi ancak bırakınca açılır.",
+    "evetHayir": "hayir"
+  },
+  "major-14": {
+    "ad": "Denge",
+    "anahtar": ["ölçü", "sabır", "uzlaşma", "şifa"],
+    "duz": "Aşırı uçlar arasında orta yolu bulma zamanı. İki farklı şeyi doğru oranda karıştırabilirsen ortaya iyileştirici bir formül çıkar. Sağlık, sabır ve uzlaşma kartı; acele her şeyi bozar.",
+    "ters": "Denge kaçmış: ya hep ya hiç tavrı, aşırılıklar, sabırsızlık. Bir alana verdiğin emek diğerini çürütüyor. Dozu ayarla.",
+    "ask": "Karşılıklı fedakârlıkla yürüyen, sakin bir ilişki; uzlaşı şart.",
+    "kariyer": "Ekip uyumu, arabuluculuk, farklı disiplinleri birleştirme.",
+    "para": "Gelir-gider dengelenir; taksitlendirme işe yarar.",
+    "evetHayir": "evet"
+  },
+  "major-15": {
+    "ad": "Şeytan",
+    "anahtar": ["bağımlılık", "tutku", "kısıtlanma", "gölge"],
+    "duz": "Bir şeye ya da birine gereğinden fazla bağlanmışsın; zincir görünür ama kilidi senin elinde. Yoğun bir tutku, maddi takıntı ya da vazgeçemediğin alışkanlık kontrolü ele alıyor. Adını koymak özgürleşmenin ilk adımı.",
+    "ters": "Zincir gevşiyor. Bir bağımlılıktan, toksik bir ilişkiden ya da seni küçülten bir düzenden çıkış başlıyor. Zor ama mümkün.",
+    "ask": "Güçlü çekim ama sağlıksız bağ; kıskançlık ve sahiplenme riski.",
+    "kariyer": "Sırf para için katlandığın iş; sözleşme seni bağlıyor.",
+    "para": "Borç, kredi, faiz tuzağı. Harcama dürtüsünü denetle.",
+    "evetHayir": "hayir"
+  },
+  "major-16": {
+    "ad": "Kule",
+    "anahtar": ["ani değişim", "yıkım", "gerçek", "özgürleşme"],
+    "duz": "Sağlam sandığın bir yapı bir anda çöküyor. Sarsıcı ama gerekli: çürük temel üzerine kurulan hiçbir şey ayakta kalmıyordu zaten. Yıkıntının altından uzun süredir saklanan gerçek çıkacak.",
+    "ters": "Kaçınılmaz olanı geciktiriyorsun. Krizi erteledikçe faturası büyüyor; ya da sarsıntıyı ucuz atlattın, dersini al.",
+    "ask": "Ani ayrılık, büyük bir itiraf ya da ilişkinin kabuk değiştirmesi.",
+    "kariyer": "Beklenmedik çıkış, kurum içi kriz, planların altüst olması.",
+    "para": "Ani masraf; acil durum fonu şart.",
+    "evetHayir": "hayir"
+  },
+  "major-17": {
+    "ad": "Yıldız",
+    "anahtar": ["umut", "şifa", "ilham", "yenilenme"],
+    "duz": "Fırtınadan sonra gökyüzü açılıyor. Yaraların iyileşiyor, umut geri geliyor ve yolunu gösteren bir işaret beliriyor. Kendini dürüstçe ortaya koyduğunda evren karşılık veriyor; bu kart iyileşmenin ve ilhamın kartıdır.",
+    "ters": "Umutsuzluk ya da inancı kaybetme. Hayalinle gerçek arasındaki mesafe seni yorgun düşürmüş. Küçük bir iyilik bile ışığı geri getirir.",
+    "ask": "Şifalanma, affetme, uzaktan gelen güzel bir haber.",
+    "kariyer": "İlham verici proje, sanat, tanınma; sabırla büyüyecek.",
+    "para": "Yavaş ama istikrarlı düzelme; destek gelebilir.",
+    "evetHayir": "evet"
+  },
+  "major-18": {
+    "ad": "Ay",
+    "anahtar": ["belirsizlik", "yanılsama", "korku", "rüya"],
+    "duz": "Her şey göründüğü gibi değil. Sis içinde yürüyorsun; korkuların gerçeği çarpıtıyor, birileri de tüm kartlarını açmıyor. Sezgilerine kulak ver ama kesin karar için sisin dağılmasını bekle.",
+    "ters": "Sis dağılıyor, gerçek yavaş yavaş ortaya çıkıyor. Bir yanılgıdan uyanıyor, kaygıyı geride bırakıyorsun.",
+    "ask": "Aldatma şüphesi, söylenmeyenler, kafa karışıklığı. Açık konuş.",
+    "kariyer": "Belirsiz süreç, eksik bilgi. İmza atmadan araştır.",
+    "para": "Şeffaf olmayan teklif; gizli masraf olabilir.",
+    "evetHayir": "hayir"
+  },
+  "major-19": {
+    "ad": "Güneş",
+    "anahtar": ["başarı", "açıklık", "sevinç", "canlılık"],
+    "duz": "Destedeki en aydınlık kart. Emeğin görünür oluyor, sağlık ve keyif yerine geliyor, saklanan şeyler olumlu biçimde açığa çıkıyor. Ne yapıyorsan açıkça yap; gizlenmeye gerek yok.",
+    "ters": "Işık var ama perde kapalı: geçici bir keyifsizlik, ertelenen bir kutlama ya da abartılı iyimserlik. Başarı gecikir, iptal olmaz.",
+    "ask": "Mutlu, şeffaf ve neşeli bir dönem; çocuk haberi olabilir.",
+    "kariyer": "Takdir, terfi, sınav başarısı, olumlu sonuç.",
+    "para": "Bolluk, kazanç, rahatlama.",
+    "evetHayir": "evet"
+  },
+  "major-20": {
+    "ad": "Mahkeme",
+    "anahtar": ["uyanış", "hesaplaşma", "çağrı", "affediş"],
+    "duz": "Geçmişle yüzleşip büyük bir karar veriyorsun. Bir çağrı geliyor: eski bir dosya, eski bir insan ya da içinden gelen bir ses. Verdiğin hükümle yeni bir hayat başlıyor; kendini affetmek de buna dahil.",
+    "ters": "Kendini ya da başkasını yargılamaktan ilerleyemiyorsun. Geçmişin sesine kulağını tıkamak seni aynı yerde tutuyor.",
+    "ask": "Eski bir ilişkinin dönüşü ya da hesaplaşarak kapanması.",
+    "kariyer": "Değerlendirme, sonuç açıklanması, mesleki uyanış.",
+    "para": "Geçmiş bir alacak gündeme gelir; miras konusu olabilir.",
+    "evetHayir": "evet"
+  },
+  "major-21": {
+    "ad": "Dünya",
+    "anahtar": ["tamamlanma", "bütünlük", "başarı", "yolculuk"],
+    "duz": "Döngü tamamlanıyor ve kapanış başarıyla oluyor. Uzun süredir uğraştığın şey sonuca ulaşıyor; mezuniyet, teslim, yurt dışı ya da bir hayalin gerçekleşmesi. Bitirmeden yenisine başlama.",
+    "ters": "Son adım eksik kaldı. Bitmemiş bir iş, alınmamış bir onay ya da kutlanmayan bir başarı var. Detayı tamamla.",
+    "ask": "Bütünleşmiş, olgun bir ilişki ya da bir dönemin huzurla kapanması.",
+    "kariyer": "Projenin teslimi, uluslararası fırsat, hedefe varış.",
+    "para": "Bekleneni alırsın; yatırım meyvesini verir.",
+    "evetHayir": "evet"
+  }
+}

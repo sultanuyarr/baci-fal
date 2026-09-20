@@ -1,0 +1,142 @@
+{
+  "swords-01": {
+    "ad": "Kılıçların Ası",
+    "anahtar": ["netlik", "gerçek", "karar", "zihin"],
+    "duz": "Zihnindeki sis dağılıyor; keskin bir farkındalık ya da net bir karar anı. Gerçeği söylemek ya da duymak gerekiyor. Doğru kelime şu an en güçlü silahın.",
+    "ters": "Kafa karışıklığı, yanlış bilgi, sert sözler. Netlik yokken karar verme.",
+    "ask": "Açık konuşma, ilişkide gerçeklerle yüzleşme.",
+    "kariyer": "Net bir strateji, doğru teşhis, keskin karar.",
+    "para": "Hesabı net yap; rakamlarla konuş.",
+    "evetHayir": "evet"
+  },
+  "swords-02": {
+    "ad": "Kılıçların İkilisi",
+    "anahtar": ["kararsızlık", "çıkmaz", "reddediş", "denge"],
+    "duz": "Gözlerin bağlı, iki kılıç elinde: karar vermemeyi seçiyorsun. Bu ateşkes bir süre koruyor ama bandı çıkarmadan ilerleyemezsin. Bilgiyi topla, sonra seç.",
+    "ters": "Bant düşüyor; gerçeği görüyorsun. Ya da bastırılan gerilim patlamak üzere.",
+    "ask": "İki arada kalma, konuşmaktan kaçınma.",
+    "kariyer": "İki teklif arasında sıkışma, ertelenen karar.",
+    "para": "Karar vermeden harekete geçme.",
+    "evetHayir": "belki"
+  },
+  "swords-03": {
+    "ad": "Kılıçların Üçlüsü",
+    "anahtar": ["kırgınlık", "acı gerçek", "ayrılık", "yüzleşme"],
+    "duz": "Bir söz ya da gerçek kalbe saplandı. Acı gerçek ama arındırıcı; yağmurdan sonra hava açar. Kırgınlığı bastırmak yerine adını koy.",
+    "ters": "İyileşme başlıyor ya da acıyı fazla uzatıyorsun. Affetmek kendine iyilik.",
+    "ask": "Aldatılma, ayrılık, kırıcı bir konuşma.",
+    "kariyer": "Sert eleştiri, olumsuz geri bildirim.",
+    "para": "Beklenmedik bir kayıp ya da kötü haber.",
+    "evetHayir": "hayir"
+  },
+  "swords-04": {
+    "ad": "Kılıçların Dörtlüsü",
+    "anahtar": ["dinlenme", "mola", "iyileşme", "sessizlik"],
+    "duz": "Savaşa ara. Bedenin ve zihnin dinlenme istiyor; bu bir kaçış değil, onarım. Karar vermeden önce uykunu al, geri çekil, sonra dön.",
+    "ters": "Dinlenmeyi reddetmek ya da tükenmişlikten sonra zorunlu duraklama. Sağlığını ihmal etme.",
+    "ask": "İlişkiye ara verme, sakinleşme ihtiyacı.",
+    "kariyer": "İzin, rapor, projeye ara.",
+    "para": "Harcamayı durdur, bekle.",
+    "evetHayir": "belki"
+  },
+  "swords-05": {
+    "ad": "Kılıçların Beşlisi",
+    "anahtar": ["kazanç kaybı", "ego", "çatışma", "bedel"],
+    "duz": "Tartışmayı kazandın ama karşındakini kaybettin. Haklı olmakla iyi olmak arasında bir seçim var; bu galibiyetin bedelini hesapla. Bazı kavgalara girmemek asıl zaferdir.",
+    "ters": "Barışma isteği, özür, gereksiz kavgadan çekilme. Ya da kin tutma.",
+    "ask": "Kazanan-kaybeden dinamiği; egolar araya girdi.",
+    "kariyer": "Kirli rekabet, pahalıya mal olan bir zafer.",
+    "para": "Kazanç var ama ilişki bedeli yüksek.",
+    "evetHayir": "hayir"
+  },
+  "swords-06": {
+    "ad": "Kılıçların Altılısı",
+    "anahtar": ["geçiş", "uzaklaşma", "sakinleşme", "yolculuk"],
+    "duz": "Dalgalı sulardan durgun sulara geçiyorsun. Zor bir dönemi geride bırakma, taşınma ya da uzaklaşma. Yavaş ama doğru yöne gidiyorsun; yükünün bir kısmını da yanında taşıyorsun.",
+    "ters": "Geçiş takıldı, gitmek isteyip gidememe ya da geçmişin geri çağırması.",
+    "ask": "İlişkide sakin bir döneme geçiş ya da mesafe.",
+    "kariyer": "İş değişikliği, yer değiştirme, sakin sulara açılma.",
+    "para": "Zor dönem yavaş yavaş geride kalıyor.",
+    "evetHayir": "evet"
+  },
+  "swords-07": {
+    "ad": "Kılıçların Yedilisi",
+    "anahtar": ["strateji", "gizlilik", "kurnazlık", "güven"],
+    "duz": "Birileri açık oynamıyor; bu sen de olabilirsin. Doğrudan çatışma yerine taktik tercih ediliyor. Sırlara, eksik anlatılan hikâyelere karşı tetikte ol.",
+    "ters": "Sır ortaya çıkıyor, itiraf geliyor ya da dürüst olma kararı veriyorsun.",
+    "ask": "Güven sorunu, saklanan bir şey.",
+    "kariyer": "Fikrin sahiplenilebilir; kayıt tut.",
+    "para": "Dolandırıcılığa karşı dikkatli ol.",
+    "evetHayir": "hayir"
+  },
+  "swords-08": {
+    "ad": "Kılıçların Sekizlisi",
+    "anahtar": ["kısıtlanma", "çaresizlik hissi", "korku", "zihinsel tuzak"],
+    "duz": "Kendini çaresiz hissediyorsun ama bağlar sandığın kadar sıkı değil; asıl engel zihnindeki senaryo. Bir adım atarsan ipler çözülmeye başlar.",
+    "ters": "Özgürleşme; korkunun büyüsü bozuluyor ve çıkış yolu görünüyor.",
+    "ask": "İlişkide sıkışmışlık, konuşamama.",
+    "kariyer": "Seçeneksiz hissetme; aslında var.",
+    "para": "Maddi sıkışıklık, geçici.",
+    "evetHayir": "hayir"
+  },
+  "swords-09": {
+    "ad": "Kılıçların Dokuzlusu",
+    "anahtar": ["kaygı", "uykusuzluk", "vicdan", "karabasan"],
+    "duz": "Gece düşünceleri gerçekten büyük. Kaygı, suçluluk ve uykusuzluk seni yiyor; ama korktuğun şeylerin çoğu başına gelmeyecek. Zihnini yalnız bırakma, paylaş.",
+    "ters": "Kâbus bitmeye başlıyor; yardım alıyor ya da korkunun gerçek olmadığını görüyorsun.",
+    "ask": "Kuruntular ilişkiyi zorluyor.",
+    "kariyer": "İş stresi, tükenmişlik, performans kaygısı.",
+    "para": "Para kaygısı gerçeğinden büyük görünüyor.",
+    "evetHayir": "hayir"
+  },
+  "swords-10": {
+    "ad": "Kılıçların Onlusu",
+    "anahtar": ["dip nokta", "bitiş", "ihanet", "yeni şafak"],
+    "duz": "Dibe vurdun; iyi haber şu ki daha aşağısı yok. Acı bir bitiş, sırttan vurulma hissi ya da tükenme. Ufukta güneş doğuyor: buradan sonrası yükseliş.",
+    "ters": "Toparlanma, ayağa kalkma, en kötüsünün geride kalması.",
+    "ask": "İlişkinin acı biçimde bitmesi.",
+    "kariyer": "Projenin çökmesi, işten çıkarılma.",
+    "para": "Ciddi kayıp; sıfırdan planla.",
+    "evetHayir": "hayir"
+  },
+  "swords-11": {
+    "ad": "Kılıçların Prensi",
+    "anahtar": ["merak", "gözlem", "haber", "dikkat"],
+    "duz": "Gözünü dört aç: bilgi toplama, öğrenme ve haber alma zamanı. Meraklı bir zihin ya da kulağına gelen bir şey süreci değiştirebilir.",
+    "ters": "Dedikodu, yarım bilgi, laf taşıma. Doğrulamadan yayma.",
+    "ask": "Konuşkan ama mesafeli biri; açık iletişim gerek.",
+    "kariyer": "Araştırma, eğitim, yeni bilgi edinme.",
+    "para": "Araştırmadan karar verme.",
+    "evetHayir": "belki"
+  },
+  "swords-12": {
+    "ad": "Kılıçların Şövalyesi",
+    "anahtar": ["hız", "kararlılık", "sertlik", "atılım"],
+    "duz": "Dörtnala giden bir zihin: hızlı kararlar, keskin sözler, geri adım yok. Hedefe kilitlenmişsin; bu hız bazı kapıları açar, bazılarını çarpar.",
+    "ters": "Acelecilik, saldırganlık, düşünmeden konuşma. Frene bas.",
+    "ask": "Yoğun ama sert bir yaklaşım; kırıcı olabilir.",
+    "kariyer": "Hızlı hamle, agresif rekabet.",
+    "para": "Aceleci karar zarar ettirebilir.",
+    "evetHayir": "belki"
+  },
+  "swords-13": {
+    "ad": "Kılıçların Kraliçesi",
+    "anahtar": ["netlik", "dürüstlük", "bağımsızlık", "deneyim"],
+    "duz": "Acıdan bilgelik damıtmış, duyguyu bir kenara koyup net düşünebilen bir zihin. Dürüst ama bazen fazla keskin. Sınır koymakta ustasın.",
+    "ters": "Alaycılık, soğukluk, aşırı eleştirellik. Savunma duvarı çok yükseldi.",
+    "ask": "Duygusunu göstermeyen ama sadık biri.",
+    "kariyer": "Hukuk, analiz, editörlük; objektif değerlendirme.",
+    "para": "Duygusuz ve doğru hesap.",
+    "evetHayir": "belki"
+  },
+  "swords-14": {
+    "ad": "Kılıçların Kralı",
+    "anahtar": ["mantık", "otorite", "adalet", "strateji"],
+    "duz": "Soğukkanlı akıl yürütme ve tarafsız hüküm. Bir uzmandan, hukukçudan ya da tecrübeli birinden görüş almak süreci çözebilir. Duygunu değil verini konuştur.",
+    "ters": "Katı, yargılayıcı ya da gücünü kötüye kullanan bir otorite. Mantık bahanesiyle zalimlik.",
+    "ask": "Mesafeli, kontrolü seven bir figür.",
+    "kariyer": "Hukuki süreç, üst yönetim, stratejik karar.",
+    "para": "Profesyonel danışmanlık al.",
+    "evetHayir": "evet"
+  }
+}

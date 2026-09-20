@@ -1,0 +1,142 @@
+{
+  "cups-01": {
+    "ad": "Kupaların Ası",
+    "anahtar": ["yeni duygu", "sevgi", "şefkat", "taşma"],
+    "duz": "Kalp taşıyor. Yeni bir sevgi, barışma, hamilelik ya da duygusal bir tazelenme. Kendini duyguya açtığında akış başlıyor; bardağı ters çevirme.",
+    "ters": "Bastırılmış duygular, kapanmış kalp ya da karşılıksız kalan bir yakınlık. Duyguyu ifade etmek zor geliyor.",
+    "ask": "Yeni aşk, itiraf, duygusal başlangıç.",
+    "kariyer": "İnsanlarla iyileşen ilişkiler, sevdiğin işe yakınlaşma.",
+    "para": "Maddi olmayan bir zenginlik; küçük bir jest.",
+    "evetHayir": "evet"
+  },
+  "cups-02": {
+    "ad": "Kupaların İkilisi",
+    "anahtar": ["ortaklık", "uyum", "karşılıklılık", "anlaşma"],
+    "duz": "İki taraf da aynı şeyi istiyor. Karşılıklı bir çekim, barışma ya da adil bir anlaşma. Bu kart eşitliğin ve karşılıklı saygının kartıdır.",
+    "ters": "Dengesiz emek, kırgınlık, iletişimin kopması. Bir taraf daha çok veriyor.",
+    "ask": "Karşılıklı aşk, sözleşme, birleşme.",
+    "kariyer": "Sağlam bir ortaklık, iyi bir iş arkadaşlığı.",
+    "para": "Ortak karar veren iki taraf; adil paylaşım.",
+    "evetHayir": "evet"
+  },
+  "cups-03": {
+    "ad": "Kupaların Üçlüsü",
+    "anahtar": ["dostluk", "kutlama", "destek", "paylaşım"],
+    "duz": "Kadeh kaldırma zamanı: dostlar, iyi haberler, davetler. Yalnız başarılmayacak bir şeyi çevrenle birlikte başarıyorsun. Sosyal hayat canlanıyor.",
+    "ters": "Dedikodu, kalabalıkta yalnızlık ya da üçüncü bir kişinin ilişkiye girmesi. Aşırıya kaçan eğlence yorabilir.",
+    "ask": "Sosyal ortamda tanışma; ya da araya giren biri.",
+    "kariyer": "Ekip başarısı, kutlanacak bir sonuç.",
+    "para": "Paylaşılan kazanç, eğlence masrafı.",
+    "evetHayir": "evet"
+  },
+  "cups-04": {
+    "ad": "Kupaların Dörtlüsü",
+    "anahtar": ["tatminsizlik", "bıkkınlık", "içe dönüş", "fark etmeme"],
+    "duz": "Elindekini görmüyorsun; sunulan kupa burnunun dibinde duruyor ama canın hiçbir şey istemiyor. Bu durgunluk geçici, ama fırsat kaçabilir. Başını kaldır.",
+    "ters": "Uyanış geliyor; içe kapanmadan çıkıp teklifi fark ediyorsun. İlgin geri dönüyor.",
+    "ask": "İlişkide rutin ve ilgisizlik; kıymet bilmeme.",
+    "kariyer": "Motivasyon düşüklüğü; gelen teklife bak.",
+    "para": "İyi bir fırsatı gözden kaçırma.",
+    "evetHayir": "hayir"
+  },
+  "cups-05": {
+    "ad": "Kupaların Beşlisi",
+    "anahtar": ["kayıp", "pişmanlık", "yas", "kalan"],
+    "duz": "Dökülen üç kupaya bakmaktan ayakta duran ikisini görmüyorsun. Bir hayal kırıklığı ya da kayıp gerçek, ama her şey bitmedi. Yasını tut, sonra arkanı dön.",
+    "ters": "Toparlanma, affetme, geçmişi bırakma. Yaralar kapanmaya başlıyor.",
+    "ask": "Ayrılık acısı ya da pişmanlık; geride kalanı gör.",
+    "kariyer": "Kaybedilen fırsat; elindeki imkânı değerlendir.",
+    "para": "Maddi kayıp, ama tamamı değil.",
+    "evetHayir": "hayir"
+  },
+  "cups-06": {
+    "ad": "Kupaların Altılısı",
+    "anahtar": ["nostalji", "geçmiş", "masumiyet", "iyilik"],
+    "duz": "Geçmişten biri ya da bir şey kapını çalıyor: eski bir arkadaş, çocukluk hatırası, memleket. İyilikle hatırlanan bir bağ yeniden canlanıyor. Tatlı ama geçmişe takılıp kalma.",
+    "ters": "Geçmişi idealleştirmek bugünü çürütüyor. Bırakılması gereken bir anıya tutunma.",
+    "ask": "Eski sevgilinin dönüşü, çocukluk aşkı.",
+    "kariyer": "Eski bir iş yeri ya da eski bir ekibin teklifi.",
+    "para": "Geçmişten gelen küçük bir destek.",
+    "evetHayir": "evet"
+  },
+  "cups-07": {
+    "ad": "Kupaların Yedilisi",
+    "anahtar": ["seçenek", "hayal", "yanılsama", "kararsızlık"],
+    "duz": "Önünde çok fazla seçenek var ve hepsi parlak görünüyor; bazıları sadece duman. Hayal kurmak güzel ama birini seçip gerçeğe indirmezsen hiçbiri olmaz.",
+    "ters": "Netlik geliyor; gerçekçi olanı ayırt ediyorsun. Ya da seçmekten kaçmaya devam ediyorsun.",
+    "ask": "Birden fazla seçenek ya da gerçek olmayan beklentiler.",
+    "kariyer": "Çok fikir, az odak. Birini seç.",
+    "para": "Cazip görünen tekliflere şüpheyle yaklaş.",
+    "evetHayir": "belki"
+  },
+  "cups-08": {
+    "ad": "Kupaların Sekizlisi",
+    "anahtar": ["ayrılış", "arayış", "vazgeçiş", "anlam"],
+    "duz": "Emek verdiğin şeyi geride bırakıp gidiyorsun; çünkü artık ruhunu doyurmuyor. Kimse anlamasa da bu ayrılık olgun bir karar. Arkana bakma.",
+    "ters": "Gitmekle kalmak arasında sıkışma; bitmiş bir şeye geri dönme eğilimi.",
+    "ask": "İlişkiden uzaklaşma, sessiz bir veda.",
+    "kariyer": "İstifa, alan değiştirme, anlam arayışı.",
+    "para": "Bir gelir kapısını bilerek kapatma.",
+    "evetHayir": "hayir"
+  },
+  "cups-09": {
+    "ad": "Kupaların Dokuzlusu",
+    "anahtar": ["dilek", "tatmin", "keyif", "bolluk"],
+    "duz": "Dilek kartı: istediğin şey gerçekleşiyor. Maddi ve duygusal doyum, keyif, kendini iyi hissetme. Tadını çıkar, ama doyduğunu da bil.",
+    "ters": "Doyumsuzluk; alınan şey beklenen mutluluğu vermedi. Yüzeysel tatmin peşinde koşma.",
+    "ask": "Mutlu ve tatmin edici bir dönem.",
+    "kariyer": "İstediğin sonucu alırsın.",
+    "para": "Refah, konfor, keyifli harcama.",
+    "evetHayir": "evet"
+  },
+  "cups-10": {
+    "ad": "Kupaların Onlusu",
+    "anahtar": ["mutluluk", "aile", "huzur", "tamamlanma"],
+    "duz": "Duygusal olarak en dolu kart: aile huzuru, uyum, sevginin karşılık bulması. Aradığın huzur gösterişte değil, yakınlarının yanında.",
+    "ters": "Görünüşte mutlu ama içten çatlamış bir tablo; aile içi gerilim ya da hayal kırıklığı.",
+    "ask": "Evlilik, yuva, uzun vadeli mutluluk.",
+    "kariyer": "Ailen gibi hissettiren bir ekip; iş-yaşam dengesi.",
+    "para": "Güvenli ve paylaşılan bir refah.",
+    "evetHayir": "evet"
+  },
+  "cups-11": {
+    "ad": "Kupaların Prensi",
+    "anahtar": ["duygusal haber", "hayalgücü", "naiflik", "teklif"],
+    "duz": "Duygusal bir haber, tatlı bir teklif ya da yaratıcı bir ilham geliyor. Kalbin çocuk tarafı konuşuyor; onu ciddiye al.",
+    "ters": "Duygusal olgunlaşmamışlık, alınganlık, hayalperestlik. Sözler havada kalabilir.",
+    "ask": "Utangaç bir ilgi, romantik bir mesaj.",
+    "kariyer": "Yaratıcı fikir, sanatsal bir başlangıç.",
+    "para": "Küçük ve hoş bir sürpriz.",
+    "evetHayir": "evet"
+  },
+  "cups-12": {
+    "ad": "Kupaların Şövalyesi",
+    "anahtar": ["romantizm", "teklif", "davet", "idealizm"],
+    "duz": "Kalpten gelen bir teklif ya da romantik bir jest yolda. Zarif, çekici ve ikna edici bir enerji; peşinden gitmeye değer bir davet.",
+    "ters": "Boş vaatler, hayal satan biri ya da gerçekçi olmayan romantizm. Sözün arkası dolu mu, bak.",
+    "ask": "Teklif, evlilik talebi, kur yapan biri.",
+    "kariyer": "Cazip ama detayları belirsiz bir öneri.",
+    "para": "Duyguyla verilen maddi kararlara dikkat.",
+    "evetHayir": "evet"
+  },
+  "cups-13": {
+    "ad": "Kupaların Kraliçesi",
+    "anahtar": ["sezgi", "şefkat", "empati", "duygusal olgunluk"],
+    "duz": "Derin bir sezgi ve şefkat var. Başkalarını okuyabiliyor, yaralarına dokunabiliyorsun. Bu kart bakım veren, anlayışlı ve duygusal olarak olgun bir figürü işaret eder.",
+    "ters": "Duygusal tükenmişlik, başkalarına batma, manipülasyona açık olma. Sınır koy.",
+    "ask": "Derin ve besleyici bir sevgi.",
+    "kariyer": "Terapi, sağlık, danışmanlık, insan odaklı işler.",
+    "para": "Sezgisel ama temkinli kararlar.",
+    "evetHayir": "evet"
+  },
+  "cups-14": {
+    "ad": "Kupaların Kralı",
+    "anahtar": ["duygusal denge", "bilgelik", "sükûnet", "diplomasi"],
+    "duz": "Fırtınanın ortasında sakin kalabilen bir olgunluk. Duygularını bastırmadan yönetiyorsun; bu yüzden insanlar sana danışıyor. Arabuluculuk sana düşebilir.",
+    "ters": "Bastırılmış duygular, pasif-agresiflik ya da duygusal mesafe. Sakinlik maskesinin altında birikim var.",
+    "ask": "Güven veren, olgun bir partner.",
+    "kariyer": "Kriz yönetimi, danışmanlık, liderlikte soğukkanlılık.",
+    "para": "Duygusal dürtüye kapılmadan yönetilen bütçe.",
+    "evetHayir": "evet"
+  }
+}

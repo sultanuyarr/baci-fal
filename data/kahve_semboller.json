@@ -1,0 +1,1003 @@
+{
+  "aciklama": "Geleneksel Türk kahve falı sembolleri. Her sembolün 'imza' alanı, fincan fotoğrafından çıkarılan ölçülebilir şekil özellikleriyle (dairesellik, uzama, doluluk, alan oranı, delik sayısı) eşleştirilir. Eşleşme rastgele değildir: telve lekesinin geometrisi hangi sembolün aralığına düşüyorsa o seçilir.",
+  "olcuAciklamalari": {
+    "dairesellik": "4·π·Alan / Çevre² — 1'e yakınsa kusursuz daire, 0'a yakınsa dağınık/dallı şekil",
+    "uzama": "İkinci moment eksenlerinin oranı — 1 kare/daire, büyük değer ince uzun çizgi",
+    "doluluk": "Alan / sınırlayıcı dikdörtgenin alanı — 1'e yakınsa dolu blok, düşükse köşeli veya dallı",
+    "alanOrani": "Lekenin alanı / fincan içi alan",
+    "dikeylik": "Şeklin ana ekseninin dikeye yakınlığı (0 yatay, 1 dikey)",
+    "delikOrani": "Boşlukların toplam alanı / (leke + boşluk) — gerçek bir çember/yuvada yüksek, benekli telve kütlesinde düşük"
+  },
+  "semboller": [
+    {
+      "id": "yol",
+      "ad": "Yol",
+      "emoji": "🛤️",
+      "imza": {
+        "dairesellik": [
+          0.0,
+          0.24
+        ],
+        "uzama": [
+          4.0,
+          40.0
+        ],
+        "doluluk": [
+          0.05,
+          1.0
+        ],
+        "alanOrani": [
+          0.004,
+          0.09
+        ]
+      },
+      "bolge": [
+        "kenar",
+        "orta"
+      ],
+      "anlam": "Fincanında uzayıp giden ince bir yol var. Bu, önüne açılan bir güzergâh: bir yolculuk, bir taşınma ya da uzun süredir tıkalı duran bir işin önünün açılması. Yol ne kadar kesintisizse süreç o kadar pürüzsüz ilerler."
+    },
+    {
+      "id": "yilan",
+      "ad": "Yılan",
+      "emoji": "🐍",
+      "imza": {
+        "dairesellik": [
+          0.0,
+          0.24
+        ],
+        "uzama": [
+          1.6,
+          12.0
+        ],
+        "doluluk": [
+          0.1,
+          0.55
+        ],
+        "alanOrani": [
+          0.005,
+          0.07
+        ],
+        "kivrim": [
+          0.35,
+          1.0
+        ]
+      },
+      "bolge": [
+        "orta",
+        "dip"
+      ],
+      "anlam": "Kıvrılarak ilerleyen bir iz görünüyor: yakınında sözünü sakınan, iki yüzlü davranan biri var. Kötülük ille de gelmez ama güvendiğin birinin anlattığını tek kaynaktan dinleme. Bu sembol aynı zamanda bilgeliğe dönüşen bir ders demektir."
+    },
+    {
+      "id": "kus",
+      "ad": "Kuş",
+      "emoji": "🕊️",
+      "imza": {
+        "dairesellik": [
+          0.16,
+          0.42
+        ],
+        "uzama": [
+          1.3,
+          2.9
+        ],
+        "doluluk": [
+          0.26,
+          0.52
+        ],
+        "alanOrani": [
+          0.006,
+          0.06
+        ]
+      },
+      "bolge": [
+        "kenar",
+        "orta"
+      ],
+      "anlam": "Kanat açmış bir kuş beliriyor — haberin sembolü. Beklediğin bir telefon, mesaj ya da resmî bir cevap yolda. Kuş yukarı bakıyorsa haber sevindirici, uzakta duruyorsa uzaktan bir yakının sesini duyacaksın."
+    },
+    {
+      "id": "balik",
+      "ad": "Balık",
+      "emoji": "🐟",
+      "imza": {
+        "dairesellik": [
+          0.3,
+          0.58
+        ],
+        "uzama": [
+          1.8,
+          3.6
+        ],
+        "doluluk": [
+          0.42,
+          0.72
+        ],
+        "alanOrani": [
+          0.006,
+          0.07
+        ]
+      },
+      "bolge": [
+        "dip",
+        "orta"
+      ],
+      "anlam": "Balık, kahve falının en uğurlu işaretlerinden biridir: bereket, nakit girişi ve umulmadık bir kısmet. Emek verdiğin bir işin karşılığı, tam vazgeçmeye yakın geliyor. Birden fazla balık varsa kazanç paylaşılacak demektir."
+    },
+    {
+      "id": "kalp",
+      "ad": "Kalp",
+      "emoji": "❤️",
+      "imza": {
+        "dairesellik": [
+          0.4,
+          0.72
+        ],
+        "uzama": [
+          1.0,
+          1.6
+        ],
+        "doluluk": [
+          0.5,
+          0.78
+        ],
+        "alanOrani": [
+          0.008,
+          0.08
+        ]
+      },
+      "bolge": [
+        "kenar",
+        "orta"
+      ],
+      "anlam": "Duygu işi konuşuyor. Kalbi net çıkan fincanda karşılıklı bir sevgi, barışma ya da yeni bir yakınlaşma vardır. Kalp çatlak ya da ikiye bölünmüş görünüyorsa önce bir kırgınlığın konuşulması gerekiyor."
+    },
+    {
+      "id": "ay",
+      "ad": "Ay / Hilal",
+      "emoji": "🌙",
+      "imza": {
+        "dairesellik": [
+          0.12,
+          0.46
+        ],
+        "uzama": [
+          1.2,
+          2.6
+        ],
+        "doluluk": [
+          0.22,
+          0.58
+        ],
+        "alanOrani": [
+          0.01,
+          0.09
+        ],
+        "kivrim": [
+          0.3,
+          1.0
+        ]
+      },
+      "bolge": [
+        "kenar"
+      ],
+      "anlam": "Hilal, bir şeyin henüz tamamlanmadığını ama büyümekte olduğunu söyler. Niyetin tuttu, sonucu görmek için bir ay kadar sabretmen gerekiyor. Gece gelen bir haber ya da içine doğan bir sezgi seni doğru yere götürür."
+    },
+    {
+      "id": "gunes",
+      "ad": "Güneş",
+      "emoji": "☀️",
+      "imza": {
+        "dairesellik": [
+          0.66,
+          1.0
+        ],
+        "uzama": [
+          1.0,
+          1.35
+        ],
+        "doluluk": [
+          0.62,
+          1.0
+        ],
+        "alanOrani": [
+          0.012,
+          0.1
+        ]
+      },
+      "bolge": [
+        "kenar",
+        "orta"
+      ],
+      "anlam": "Yuvarlak ve dolgun bir leke: aydınlanma, açığa çıkan bir gerçek ve sıkıntının dağılması. Uzun süredir gölgede kalan bir konu netleşiyor, hakkın teslim ediliyor. Sağlıkla ilgili bir endişen varsa bu işaret rahatlatıcıdır."
+    },
+    {
+      "id": "goz",
+      "ad": "Göz",
+      "emoji": "👁️",
+      "imza": {
+        "dairesellik": [
+          0.45,
+          0.78
+        ],
+        "uzama": [
+          1.6,
+          3.0
+        ],
+        "doluluk": [
+          0.5,
+          0.8
+        ],
+        "alanOrani": [
+          0.006,
+          0.05
+        ]
+      },
+      "bolge": [
+        "kenar",
+        "orta"
+      ],
+      "anlam": "Üzerinde bir bakış var: ya seni izleyen, kıskanan biri ya da seni koruyan bir göz. Nazardan çekinmene gerek yok ama planlarını herkese anlatma. Göz büyükse tanıdık biri, küçükse uzaktan bir ilgi söz konusu."
+    },
+    {
+      "id": "el",
+      "ad": "El",
+      "emoji": "🤝",
+      "imza": {
+        "dairesellik": [
+          0.04,
+          0.2
+        ],
+        "uzama": [
+          1.0,
+          2.4
+        ],
+        "doluluk": [
+          0.2,
+          0.45
+        ],
+        "alanOrani": [
+          0.008,
+          0.07
+        ]
+      },
+      "bolge": [
+        "orta",
+        "dip"
+      ],
+      "anlam": "Parmakları açılmış bir el görünüyor: yardım. Ya sana uzanan bir destek var ya da senin birine el uzatman gerekiyor. Bu sembol aynı zamanda imzalanacak bir anlaşmaya, el sıkışmaya işaret eder."
+    },
+    {
+      "id": "agac",
+      "ad": "Ağaç",
+      "emoji": "🌳",
+      "imza": {
+        "dairesellik": [
+          0.03,
+          0.2
+        ],
+        "uzama": [
+          1.1,
+          2.8
+        ],
+        "doluluk": [
+          0.18,
+          0.44
+        ],
+        "alanOrani": [
+          0.02,
+          0.095
+        ],
+        "dikeylik": [
+          0.5,
+          1.0
+        ]
+      },
+      "bolge": [
+        "dip",
+        "orta"
+      ],
+      "anlam": "Kökleri derinde, dalları açılmış bir ağaç: sabırla büyüyen bir şey. Bugün küçük gördüğün bir emek yıllar sürecek bir yapıya dönüşüyor. Aile, ev ve sağlık konularında güçlenme dönemi."
+    },
+    {
+      "id": "dag",
+      "ad": "Dağ",
+      "emoji": "⛰️",
+      "imza": {
+        "dairesellik": [
+          0.2,
+          0.5
+        ],
+        "uzama": [
+          1.1,
+          2.2
+        ],
+        "doluluk": [
+          0.42,
+          0.72
+        ],
+        "alanOrani": [
+          0.05,
+          0.3
+        ]
+      },
+      "bolge": [
+        "dip"
+      ],
+      "anlam": "Önünde aşılması gereken bir yükselti var. Engel gerçek ama tepesi görünüyor; yani geçilmez değil. Tek seferde değil, basamak basamak çıkılacak bir süreç bu."
+    },
+    {
+      "id": "kapi",
+      "ad": "Kapı",
+      "emoji": "🚪",
+      "imza": {
+        "dairesellik": [
+          0.4,
+          0.75
+        ],
+        "uzama": [
+          1.4,
+          2.6
+        ],
+        "doluluk": [
+          0.68,
+          1.0
+        ],
+        "alanOrani": [
+          0.01,
+          0.09
+        ],
+        "dikeylik": [
+          0.55,
+          1.0
+        ]
+      },
+      "bolge": [
+        "kenar"
+      ],
+      "anlam": "Dört köşeli, dolgun bir şekil: kapı. Yeni bir fırsat kapısı aralanıyor — iş, ev ya da bir davet. Kapıdan geçmek için bir şeyi geride bırakman gerekecek."
+    },
+    {
+      "id": "ev",
+      "ad": "Ev",
+      "emoji": "🏠",
+      "imza": {
+        "dairesellik": [
+          0.33,
+          0.62
+        ],
+        "uzama": [
+          1.0,
+          1.7
+        ],
+        "doluluk": [
+          0.6,
+          0.92
+        ],
+        "alanOrani": [
+          0.02,
+          0.14
+        ]
+      },
+      "bolge": [
+        "dip",
+        "orta"
+      ],
+      "anlam": "Ev, yerleşik düzen ve güvence demektir. Taşınma, ev alma, tadilat ya da aile içinde huzurun geri gelmesi gündemde. Uzun süredir aradığın 'kendi köşen' hissi yaklaşıyor."
+    },
+    {
+      "id": "yildiz",
+      "ad": "Yıldız",
+      "emoji": "⭐",
+      "imza": {
+        "dairesellik": [
+          0.12,
+          0.34
+        ],
+        "uzama": [
+          1.0,
+          1.5
+        ],
+        "doluluk": [
+          0.3,
+          0.55
+        ],
+        "alanOrani": [
+          0.004,
+          0.04
+        ]
+      },
+      "bolge": [
+        "kenar",
+        "orta"
+      ],
+      "anlam": "Uçları dışa açılan bir yıldız: dileğin kabul. Şansın döndüğü, adının iyi anıldığı bir dönem başlıyor. Küçük yıldızlar çoksa iyi haber tek seferde değil, parça parça gelecek."
+    },
+    {
+      "id": "anahtar",
+      "ad": "Anahtar",
+      "emoji": "🔑",
+      "imza": {
+        "dairesellik": [
+          0.1,
+          0.32
+        ],
+        "uzama": [
+          2.6,
+          6.0
+        ],
+        "doluluk": [
+          0.18,
+          0.85
+        ],
+        "alanOrani": [
+          0.004,
+          0.04
+        ]
+      },
+      "bolge": [
+        "kenar",
+        "orta"
+      ],
+      "anlam": "Bir kilidin çözülmesi: uzun süredir takılan konunun çaresi elinde. Çözüm dışarıda değil, daha önce denemediğin basit bir hamlede. Ev veya araba gibi somut bir edinim de olabilir."
+    },
+    {
+      "id": "yuzuk",
+      "ad": "Yüzük",
+      "emoji": "💍",
+      "imza": {
+        "dairesellik": [
+          0.05,
+          0.7
+        ],
+        "uzama": [
+          1.0,
+          2.0
+        ],
+        "doluluk": [
+          0.2,
+          0.7
+        ],
+        "alanOrani": [
+          0.004,
+          0.06
+        ],
+        "delik": [
+          1,
+          3
+        ],
+        "delikOrani": [
+          0.28,
+          0.9
+        ]
+      },
+      "bolge": [
+        "kenar",
+        "orta"
+      ],
+      "anlam": "Ortası boş, çember biçiminde bir iz: söz, nişan, evlilik ya da bağlayıcı bir anlaşma. Çember tamsa bağ sağlam; kırıksa verilen bir sözün gözden geçirilmesi gerekiyor."
+    },
+    {
+      "id": "para",
+      "ad": "Para",
+      "emoji": "🪙",
+      "imza": {
+        "dairesellik": [
+          0.55,
+          1.0
+        ],
+        "uzama": [
+          1.0,
+          1.3
+        ],
+        "doluluk": [
+          0.55,
+          1.0
+        ],
+        "alanOrani": [
+          0.0012,
+          0.018
+        ]
+      },
+      "bolge": [
+        "orta",
+        "dip"
+      ],
+      "anlam": "Küçük ve yuvarlak lekeler madeni parayı işaret eder: beklenmedik bir gelir, geri dönen bir alacak ya da küçük ama moral veren bir kazanç. Birden fazlaysa gelir birden çok kaynaktan gelir."
+    },
+    {
+      "id": "kus_surusu",
+      "ad": "Kuş Sürüsü",
+      "emoji": "🐦",
+      "imza": {
+        "dairesellik": [
+          0.1,
+          0.45
+        ],
+        "uzama": [
+          1.0,
+          3.0
+        ],
+        "doluluk": [
+          0.2,
+          0.6
+        ],
+        "alanOrani": [
+          0.0006,
+          0.0035
+        ]
+      },
+      "bolge": [
+        "kenar"
+      ],
+      "anlam": "Fincanın kenarına serpilmiş küçük izler: peş peşe gelen haberler ve hareketli bir kalabalık. Sosyal hayatın canlanıyor, davetler ve tanışmalar artıyor. Dedikodudan uzak durman yeterli."
+    },
+    {
+      "id": "bulut",
+      "ad": "Bulut",
+      "emoji": "☁️",
+      "imza": {
+        "dairesellik": [
+          0.04,
+          0.34
+        ],
+        "uzama": [
+          1.0,
+          2.6
+        ],
+        "doluluk": [
+          0.18,
+          0.6
+        ],
+        "alanOrani": [
+          0.095,
+          0.5
+        ]
+      },
+      "bolge": [
+        "orta",
+        "kenar"
+      ],
+      "anlam": "Geniş ve yayvan bir gölge: kafanı meşgul eden, adı tam konmamış bir tasa. Bulut geçicidir; ama üstüne gitmezsen manzarayı kapatır. Kaygının kaynağını yazıya dökmek onu yarı yarıya küçültür."
+    },
+    {
+      "id": "kus_yuvasi",
+      "ad": "Yuva",
+      "emoji": "🪹",
+      "imza": {
+        "dairesellik": [
+          0.38,
+          0.68
+        ],
+        "uzama": [
+          1.0,
+          1.6
+        ],
+        "doluluk": [
+          0.4,
+          0.7
+        ],
+        "alanOrani": [
+          0.02,
+          0.12
+        ],
+        "delik": [
+          1,
+          6
+        ],
+        "delikOrani": [
+          0.12,
+          0.55
+        ]
+      },
+      "bolge": [
+        "dip"
+      ],
+      "anlam": "İçi boşluklu, kümelenmiş bir şekil: yuva. Aileye katılacak biri, birlikte yaşama kararı ya da dağılmış bir ailenin yeniden toparlanması. Kendine ait bir alan kurma isteği güçleniyor."
+    },
+    {
+      "id": "merdiven",
+      "ad": "Merdiven",
+      "emoji": "🪜",
+      "imza": {
+        "dairesellik": [
+          0.05,
+          0.25
+        ],
+        "uzama": [
+          2.2,
+          6.0
+        ],
+        "doluluk": [
+          0.25,
+          0.85
+        ],
+        "alanOrani": [
+          0.008,
+          0.07
+        ],
+        "dikeylik": [
+          0.45,
+          1.0
+        ]
+      },
+      "bolge": [
+        "orta",
+        "kenar"
+      ],
+      "anlam": "Basamak basamak yükselen bir iz: terfi, statü artışı ya da uzun bir eğitimin sonuna gelme. Atlayarak değil, sırayla çıkacaksın; acele eden ayağı kayar."
+    },
+    {
+      "id": "kadeh",
+      "ad": "Kadeh",
+      "emoji": "🥂",
+      "imza": {
+        "dairesellik": [
+          0.3,
+          0.58
+        ],
+        "uzama": [
+          1.3,
+          2.4
+        ],
+        "doluluk": [
+          0.45,
+          0.72
+        ],
+        "alanOrani": [
+          0.008,
+          0.07
+        ],
+        "dikeylik": [
+          0.5,
+          1.0
+        ]
+      },
+      "bolge": [
+        "kenar"
+      ],
+      "anlam": "Kutlama işareti. Yakın zamanda bir davet, nişan, doğum günü ya da başarıyla biten bir işin sevinci var. Kadeh dolu görünüyorsa sevinç paylaşıldıkça büyüyecek."
+    },
+    {
+      "id": "kus_kanadi",
+      "ad": "Kanat",
+      "emoji": "🪽",
+      "imza": {
+        "dairesellik": [
+          0.14,
+          0.36
+        ],
+        "uzama": [
+          2.0,
+          4.5
+        ],
+        "doluluk": [
+          0.22,
+          0.48
+        ],
+        "alanOrani": [
+          0.01,
+          0.09
+        ]
+      },
+      "bolge": [
+        "kenar",
+        "orta"
+      ],
+      "anlam": "Açılmış bir kanat: bir yükten kurtulma ve hafifleme. Seni yerinde tutan bir sorumluluk ya da ilişki gevşiyor. Uzun zamandır ertelediğin bir gidiş nihayet mümkün hâle geliyor."
+    },
+    {
+      "id": "kopru",
+      "ad": "Köprü",
+      "emoji": "🌉",
+      "imza": {
+        "dairesellik": [
+          0.08,
+          0.28
+        ],
+        "uzama": [
+          3.0,
+          9.0
+        ],
+        "doluluk": [
+          0.25,
+          0.85
+        ],
+        "alanOrani": [
+          0.01,
+          0.1
+        ],
+        "dikeylik": [
+          0.0,
+          0.45
+        ]
+      },
+      "bolge": [
+        "orta"
+      ],
+      "anlam": "İki yakayı birleştiren yatay bir iz: arada kalan bir mesele çözülüyor. Küs olduğun biriyle bağ yeniden kuruluyor ya da iki farklı hayat arasında geçiş yapıyorsun. Köprüyü yakma, geri dönmen gerekebilir."
+    },
+    {
+      "id": "kus_tuyu",
+      "ad": "Tüy",
+      "emoji": "🪶",
+      "imza": {
+        "dairesellik": [
+          0.08,
+          0.26
+        ],
+        "uzama": [
+          2.5,
+          7.0
+        ],
+        "doluluk": [
+          0.12,
+          0.65
+        ],
+        "alanOrani": [
+          0.003,
+          0.03
+        ]
+      },
+      "bolge": [
+        "kenar"
+      ],
+      "anlam": "İnce, hafif bir iz: iyi niyetli bir ziyaret ya da uzaktan gelen bir hatırlanma. Küçük bir jest moralini düzeltecek. Bu sembol aynı zamanda yazmaya, imzaya ve kâğıt işlerine bakar."
+    },
+    {
+      "id": "kus_gagasi",
+      "ad": "Ok",
+      "emoji": "🏹",
+      "imza": {
+        "dairesellik": [
+          0.16,
+          0.4
+        ],
+        "uzama": [
+          2.2,
+          5.0
+        ],
+        "doluluk": [
+          0.3,
+          0.85
+        ],
+        "alanOrani": [
+          0.004,
+          0.04
+        ]
+      },
+      "bolge": [
+        "kenar",
+        "orta"
+      ],
+      "anlam": "Sivri uçlu, yön gösteren bir iz: hedefe kilitlenme. Kararsız kaldığın konuda tercih netleşiyor ve hızlı hareket etmen gerekiyor. Uca doğru bir haber ya da sert bir söz de gelebilir."
+    },
+    {
+      "id": "carpi",
+      "ad": "Çarpı",
+      "emoji": "✖️",
+      "imza": {
+        "dairesellik": [
+          0.05,
+          0.22
+        ],
+        "uzama": [
+          1.0,
+          1.9
+        ],
+        "doluluk": [
+          0.22,
+          0.45
+        ],
+        "alanOrani": [
+          0.004,
+          0.04
+        ]
+      },
+      "bolge": [
+        "orta",
+        "dip"
+      ],
+      "anlam": "Kesişen iki iz: bir engel ya da ertelenen bir plan. Büyük bir felaket değil, 'şimdi değil' demek. Israr etmek yerine tarihi ileri atman daha iyi sonuç verecek."
+    },
+    {
+      "id": "ucgen",
+      "ad": "Üçgen",
+      "emoji": "🔺",
+      "imza": {
+        "dairesellik": [
+          0.34,
+          0.64
+        ],
+        "uzama": [
+          1.0,
+          1.8
+        ],
+        "doluluk": [
+          0.42,
+          0.66
+        ],
+        "alanOrani": [
+          0.008,
+          0.08
+        ]
+      },
+      "bolge": [
+        "orta",
+        "kenar"
+      ],
+      "anlam": "Üçgen, beklenmedik şansın ve koruyucu bir gücün simgesidir. İşler kendiliğinden lehine dönüyor; hak etmediğin bir suçlamadan da temize çıkacaksın. Ucu yukarıysa yükseliş, aşağıysa önce bir bekleyiş var."
+    },
+    {
+      "id": "gemi",
+      "ad": "Gemi",
+      "emoji": "⛵",
+      "imza": {
+        "dairesellik": [
+          0.24,
+          0.48
+        ],
+        "uzama": [
+          1.6,
+          3.2
+        ],
+        "doluluk": [
+          0.38,
+          0.62
+        ],
+        "alanOrani": [
+          0.02,
+          0.15
+        ]
+      },
+      "bolge": [
+        "kenar",
+        "orta"
+      ],
+      "anlam": "Yelken açmış bir gövde: uzak yol, gurbet ya da büyük bir değişim. Yurt dışı, uzun seyahat veya şehir değiştirme gündeme gelebilir. Gemi kıyıya yakınsa beklenen kişi dönüyor demektir."
+    },
+    {
+      "id": "cicek",
+      "ad": "Çiçek",
+      "emoji": "🌸",
+      "imza": {
+        "dairesellik": [
+          0.2,
+          0.44
+        ],
+        "uzama": [
+          1.0,
+          1.5
+        ],
+        "doluluk": [
+          0.35,
+          0.6
+        ],
+        "alanOrani": [
+          0.006,
+          0.05
+        ]
+      },
+      "bolge": [
+        "kenar",
+        "orta"
+      ],
+      "anlam": "Açılmış bir çiçek: emeğinin görüldüğü, iltifat ve teşekkür alacağın bir dönem. Kendine gösterdiğin özen dışarıdan da fark ediliyor. Hediye ya da güzel bir sürpriz de bu işaretin altındadır."
+    },
+    {
+      "id": "kuyruk",
+      "ad": "Kuyruklu Yıldız",
+      "emoji": "☄️",
+      "imza": {
+        "dairesellik": [
+          0.2,
+          0.45
+        ],
+        "uzama": [
+          3.0,
+          8.0
+        ],
+        "doluluk": [
+          0.3,
+          0.85
+        ],
+        "alanOrani": [
+          0.01,
+          0.1
+        ]
+      },
+      "bolge": [
+        "kenar"
+      ],
+      "anlam": "Hızla geçen, arkasında iz bırakan bir şekil: ani bir gelişme. Beklenmedik bir haber dengeleri hızla değiştirecek. Fırsat kısa süreli olacağı için tereddüt etmeden karar vermen gerekecek."
+    },
+    {
+      "id": "harf",
+      "ad": "Harf",
+      "emoji": "✉️",
+      "imza": {
+        "dairesellik": [
+          0.18,
+          0.5
+        ],
+        "uzama": [
+          1.0,
+          2.2
+        ],
+        "doluluk": [
+          0.3,
+          0.62
+        ],
+        "alanOrani": [
+          0.002,
+          0.02
+        ]
+      },
+      "bolge": [
+        "kenar",
+        "orta"
+      ],
+      "anlam": "Fincanda bir harfe benzeyen küçük bir iz var: bir isim gündemine giriyor. Bu kişi ya sana bir teklif getirecek ya da uzun zamandır beklediğin cevabı verecek. Resmî bir yazı, mail veya belge de görünüyor."
+    },
+    {
+      "id": "ates",
+      "ad": "Ateş",
+      "emoji": "🔥",
+      "imza": {
+        "dairesellik": [
+          0.1,
+          0.3
+        ],
+        "uzama": [
+          1.4,
+          3.2
+        ],
+        "doluluk": [
+          0.25,
+          0.5
+        ],
+        "alanOrani": [
+          0.015,
+          0.12
+        ],
+        "dikeylik": [
+          0.5,
+          1.0
+        ]
+      },
+      "bolge": [
+        "orta"
+      ],
+      "anlam": "Yukarı doğru dilimlenen izler: tutku, acele ve yüksek enerji. İçinde bastırdığın bir öfke ya da tutkulu bir istek harekete geçmek istiyor. Doğru yöne çevrilirse iter, çevrilmezse yakar."
+    },
+    {
+      "id": "kus_izi",
+      "ad": "Ayak İzi",
+      "emoji": "👣",
+      "imza": {
+        "dairesellik": [
+          0.3,
+          0.6
+        ],
+        "uzama": [
+          1.5,
+          2.8
+        ],
+        "doluluk": [
+          0.5,
+          0.78
+        ],
+        "alanOrani": [
+          0.003,
+          0.025
+        ]
+      },
+      "bolge": [
+        "dip",
+        "orta"
+      ],
+      "anlam": "Küçük, düzenli izler: birinin gelişi ya da gidişi. Hayatına yeni biri giriyor veya bir dönemin insanı sessizce uzaklaşıyor. Geçmişte attığın bir adımın sonucu da bu aralar kapını çalacak."
+    }
+  ]
+}

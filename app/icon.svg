@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <radialGradient id="gece" cx="50%" cy="30%">
+      <stop offset="0%" stop-color="#2c2050"/>
+      <stop offset="100%" stop-color="#08050f"/>
+    </radialGradient>
+    <linearGradient id="altin" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f4dfa4"/>
+      <stop offset="100%" stop-color="#d4a840"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#gece)"/>
+  <path d="M40 14a20 20 0 1 0 12 35.5A22 22 0 0 1 40 14z" fill="url(#altin)"/>
+  <circle cx="19" cy="17" r="1.8" fill="#f4dfa4" opacity=".9"/>
+  <circle cx="14" cy="34" r="1.2" fill="#f4dfa4" opacity=".7"/>
+  <circle cx="24" cy="48" r="1.4" fill="#f4dfa4" opacity=".8"/>
+</svg>

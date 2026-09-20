@@ -1,0 +1,142 @@
+{
+  "wands-01": {
+    "ad": "Asaların Ası",
+    "anahtar": ["kıvılcım", "başlangıç", "tutku", "fırsat"],
+    "duz": "İçinde bir kıvılcım çakıyor: yeni bir fikir, teklif ya da şevk. Enerjin yüksekken harekete geç, bu kart beklemeyi sevmez. Yaratıcı bir doğum anı.",
+    "ters": "Heves çabuk söndü ya da başlangıç ertelendi. Motivasyon dağınık; önce nedenini netleştir.",
+    "ask": "Güçlü bir çekim, ateşli bir başlangıç.",
+    "kariyer": "Yeni girişim, ilham veren teklif.",
+    "para": "Yeni bir gelir fikri filizleniyor.",
+    "evetHayir": "evet"
+  },
+  "wands-02": {
+    "ad": "Asaların İkilisi",
+    "anahtar": ["planlama", "ufuk", "karar", "vizyon"],
+    "duz": "Elinde dünya var ama hâlâ balkondan bakıyorsun. Planı yaptın, sıra seçim yapmakta: konforlu olan mı, ufuktaki mi? Genişleme ve uzaklarla bağlantı gündemde.",
+    "ters": "Plan kâğıtta kaldı, korku ayak bağı oldu. Ya da yanlış hedefe doğru ilerliyorsun.",
+    "ask": "Geleceği birlikte planlama ya da mesafe konusu.",
+    "kariyer": "Strateji, büyüme planı, yurt dışı bağlantısı.",
+    "para": "Uzun vadeli yatırım planı kur.",
+    "evetHayir": "belki"
+  },
+  "wands-03": {
+    "ad": "Asaların Üçlüsü",
+    "anahtar": ["genişleme", "bekleyiş", "ticaret", "ilerleme"],
+    "duz": "Gemilerini denize saldın, şimdi dönüşlerini bekliyorsun. Attığın adım karşılığını vermeye başlıyor; ufku genişletmek, ortaklık kurmak ve uzaklara açılmak için uygun zaman.",
+    "ters": "Beklenen haber gecikiyor, planlar aksadı. Dar bakış açısı fırsatı küçültüyor.",
+    "ask": "Uzak mesafe ilişkisi ya da olgunlaşan bir bağ.",
+    "kariyer": "İhracat, iş birliği, büyüyen proje.",
+    "para": "Yatırımın ilk getirisi görünüyor.",
+    "evetHayir": "evet"
+  },
+  "wands-04": {
+    "ad": "Asaların Dörtlüsü",
+    "anahtar": ["kutlama", "yuva", "istikrar", "kavuşma"],
+    "duz": "Bir eşiği geçtin; kutlama, düğün, taşınma ya da uzun bir emeğin sonunda gelen huzur. Sevdiklerinle bir araya gelme vakti. Temel sağlam.",
+    "ters": "Kutlama ertelendi, evde huzursuzluk ya da aidiyet eksikliği. Geçici bir dengesizlik, kalıcı değil.",
+    "ask": "Nişan, düğün, birlikte yaşama kararı.",
+    "kariyer": "Projenin mutlu sonu, ekip başarısı.",
+    "para": "Ev, mülk, yerleşik düzen harcaması.",
+    "evetHayir": "evet"
+  },
+  "wands-05": {
+    "ad": "Asaların Beşlisi",
+    "anahtar": ["rekabet", "çatışma", "didişme", "prova"],
+    "duz": "Ortam gürültülü: herkes kendi sesini duyurmaya çalışıyor. Bu kavga yıkıcı değil, kas geliştiren bir antrenman. Rekabette geri çekilirsen sesin kaybolur.",
+    "ters": "Gereksiz kavgadan çekilme ya da bastırılmış gerilim. Enerjini boş tartışmaya harcama.",
+    "ask": "Küçük çekişmeler, egolar çarpışıyor.",
+    "kariyer": "Yoğun rekabet, ihale, kalabalık aday havuzu.",
+    "para": "Pazarlık gerektiren bir süreç.",
+    "evetHayir": "belki"
+  },
+  "wands-06": {
+    "ad": "Asaların Altılısı",
+    "anahtar": ["zafer", "takdir", "başarı", "görünürlük"],
+    "duz": "Zafer geçidi senin için. Emeğin görüldü, alkış geliyor ve liderlik sana yakışıyor. İyi haber kapıda; gururunu taşırken alçakgönüllülüğü elden bırakma.",
+    "ters": "Başarı yeterince görülmedi, kıskançlık ya da özgüven sarsıntısı var. Övgü beklemeden işine bak.",
+    "ask": "İlişkide gurur okşayan bir gelişme; ilan-ı aşk olabilir.",
+    "kariyer": "Terfi, ödül, olumlu sonuç.",
+    "para": "Hak edilen kazanç, prim.",
+    "evetHayir": "evet"
+  },
+  "wands-07": {
+    "ad": "Asaların Yedilisi",
+    "anahtar": ["savunma", "direnç", "duruş", "cesaret"],
+    "duz": "Yüksek zemindesin ama saldırı çok yönlü. Hakkını ve sınırını savunmak zorundasın; pes edersen kazandığın yeri kaybedersin. Yorucu ama kazanılabilir bir mücadele.",
+    "ters": "Sürekli savunmada olmak tüketti; teslim olma isteği ya da haklıyken vazgeçme.",
+    "ask": "İlişkiyi dışarıdan gelen baskıya karşı savunma.",
+    "kariyer": "Pozisyonunu koru, eleştiriye hazır ol.",
+    "para": "Hakkını iste, kolay kolay indirim yapma.",
+    "evetHayir": "belki"
+  },
+  "wands-08": {
+    "ad": "Asaların Sekizlisi",
+    "anahtar": ["hız", "haber", "hareket", "akış"],
+    "duz": "Her şey hızlanıyor: beklenen haber, mesaj, onay ya da ani bir seyahat. Engeller kalktı, oklar hedefe uçuyor. Hızlı davranan kazanır.",
+    "ters": "Gecikme, iptal, iletişim karmaşası. Aceleyle atılan mesaj yanlış anlaşılabilir.",
+    "ask": "Hızlı gelişen bir yakınlaşma, sık iletişim.",
+    "kariyer": "Süreç hızlanır, cevaplar gelir.",
+    "para": "Ödeme hızlı düşer, hızlı sonuç.",
+    "evetHayir": "evet"
+  },
+  "wands-09": {
+    "ad": "Asaların Dokuzlusu",
+    "anahtar": ["yorgunluk", "tetikte olma", "dayanıklılık", "son düzlük"],
+    "duz": "Yaralısın ama ayaktasın. Son engel kaldı; bu yüzden bırakmak en pahalı seçenek. Geçmiş yaralar seni fazla temkinli yapmış olabilir, herkesi aynı sanma.",
+    "ters": "Direnç tükendi, paranoya ya da inat. Yardım istemek zayıflık değil.",
+    "ask": "Güven sorunu, geçmişin gölgesi.",
+    "kariyer": "Son etap, tükenmişlik sınırında dayanma.",
+    "para": "İhtiyatlı davran, rezervini koru.",
+    "evetHayir": "belki"
+  },
+  "wands-10": {
+    "ad": "Asaların Onlusu",
+    "anahtar": ["yük", "sorumluluk", "aşırı iş", "bitiş çizgisi"],
+    "duz": "Herkesin yükünü sen taşıyorsun ve sırtın çatırdıyor. Hedefe yakınsın ama bu şekilde varırsan keyfini süremezsin. Devredilebilecek her şeyi devret.",
+    "ters": "Yükü bırakma zamanı; ya bir sorumluluktan kurtuluyorsun ya da çökmeden önce paylaşman gerekiyor.",
+    "ask": "İlişki yük gibi hissettiriyor, dengesiz emek.",
+    "kariyer": "Aşırı iş yükü, mesai, tek başına taşıma.",
+    "para": "Masraflar omzunda; borç yükü ağır.",
+    "evetHayir": "hayir"
+  },
+  "wands-11": {
+    "ad": "Asaların Prensi",
+    "anahtar": ["heves", "keşif", "haber", "cesaret"],
+    "duz": "Yeni bir haber ya da heyecan verici bir davet geliyor. Öğrenme ve deneme isteği yüksek; acemiliğini dert etme, cesaretin kapı açıyor.",
+    "ters": "Sabırsızlık, yarım bırakılan işler, boş heves. Söz verip yapmama riski.",
+    "ask": "Flört, heyecanlı ama toy bir yaklaşım.",
+    "kariyer": "Staj, yeni görev, öğrenme fırsatı.",
+    "para": "Küçük ama umut veren kazanç.",
+    "evetHayir": "evet"
+  },
+  "wands-12": {
+    "ad": "Asaların Şövalyesi",
+    "anahtar": ["atılganlık", "tutku", "seyahat", "acele"],
+    "duz": "Ateşli, gözü kara bir enerji devrede. Bir yere taşınma, ani bir yolculuk ya da tutkuyla atılan bir adım. Cesaret kazandırır ama frene de yer bırak.",
+    "ters": "Pervasızlık, çabuk parlayıp sönme, yarıda bırakma. Öfkeli kararlar pahalıya patlar.",
+    "ask": "Tutkulu ama istikrarsız bir ilgi.",
+    "kariyer": "Hızlı hamle, iş değişikliği, girişim.",
+    "para": "Riskli ve ani harcama; dikkat.",
+    "evetHayir": "evet"
+  },
+  "wands-13": {
+    "ad": "Asaların Kraliçesi",
+    "anahtar": ["özgüven", "sıcaklık", "karizma", "bağımsızlık"],
+    "duz": "Kendi ışığını taşıyan, sıcak ve etkileyici bir duruş. Ne istediğini bilen, çevresini de motive eden bir enerji sende ya da yakınında. Yaratıcılığını göster.",
+    "ters": "Kıskançlık, alınganlık ya da özgüven gösterisinin ardındaki güvensizlik.",
+    "ask": "Tutkulu, bağımsızlığına düşkün bir partner.",
+    "kariyer": "Liderlik, sahne, temsil gerektiren işler.",
+    "para": "Cesur ama bilinçli harcama.",
+    "evetHayir": "evet"
+  },
+  "wands-14": {
+    "ad": "Asaların Kralı",
+    "anahtar": ["vizyon", "liderlik", "girişim", "otorite"],
+    "duz": "Büyük resmi gören, riski hesaplayıp önden yürüyen bir lider enerjisi. Kendi işini kurma ya da ekibi ateşleme zamanı. Sözün geçiyor, kullan.",
+    "ters": "Diktatörlük, sabırsızlık, dinlemeyen otorite. Vizyon var ama takip eden kimse kalmadı.",
+    "ask": "Güçlü, koruyucu ama baskın olabilen bir figür.",
+    "kariyer": "Girişimcilik, yöneticilik, büyük hamle.",
+    "para": "Cesur yatırım, büyüme sermayesi.",
+    "evetHayir": "evet"
+  }
+}

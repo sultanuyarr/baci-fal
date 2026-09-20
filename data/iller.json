@@ -1,0 +1,493 @@
+{
+  "kaynak": "Koordinatlar: Wikidata (Q48336, P625). Plaka kodları: resmî liste.",
+  "cekilmeTarihi": "2026-09-20",
+  "saatDilimi": "Europe/Istanbul",
+  "iller": [
+    {
+      "ad": "Adana",
+      "plaka": 1,
+      "enlem": 37.3683,
+      "boylam": 35.7061
+    },
+    {
+      "ad": "Adıyaman",
+      "plaka": 2,
+      "enlem": 37.76,
+      "boylam": 38.2786
+    },
+    {
+      "ad": "Afyonkarahisar",
+      "plaka": 3,
+      "enlem": 38.7567,
+      "boylam": 30.5397
+    },
+    {
+      "ad": "Ağrı",
+      "plaka": 4,
+      "enlem": 39.7186,
+      "boylam": 43.0522
+    },
+    {
+      "ad": "Amasya",
+      "plaka": 5,
+      "enlem": 40.6503,
+      "boylam": 35.8328
+    },
+    {
+      "ad": "Ankara",
+      "plaka": 6,
+      "enlem": 39.9264,
+      "boylam": 32.8561
+    },
+    {
+      "ad": "Antalya",
+      "plaka": 7,
+      "enlem": 37.1817,
+      "boylam": 30.9333
+    },
+    {
+      "ad": "Artvin",
+      "plaka": 8,
+      "enlem": 41.1333,
+      "boylam": 41.85
+    },
+    {
+      "ad": "Aydın",
+      "plaka": 9,
+      "enlem": 37.7283,
+      "boylam": 27.9372
+    },
+    {
+      "ad": "Balıkesir",
+      "plaka": 10,
+      "enlem": 39.7408,
+      "boylam": 27.8192
+    },
+    {
+      "ad": "Bilecik",
+      "plaka": 11,
+      "enlem": 40,
+      "boylam": 30.1667
+    },
+    {
+      "ad": "Bingöl",
+      "plaka": 12,
+      "enlem": 39.0411,
+      "boylam": 40.6758
+    },
+    {
+      "ad": "Bitlis",
+      "plaka": 13,
+      "enlem": 38.5258,
+      "boylam": 42.3878
+    },
+    {
+      "ad": "Bolu",
+      "plaka": 14,
+      "enlem": 40.6792,
+      "boylam": 31.5583
+    },
+    {
+      "ad": "Burdur",
+      "plaka": 15,
+      "enlem": 37.4239,
+      "boylam": 30.0844
+    },
+    {
+      "ad": "Bursa",
+      "plaka": 16,
+      "enlem": 40.15,
+      "boylam": 29.0208
+    },
+    {
+      "ad": "Çanakkale",
+      "plaka": 17,
+      "enlem": 40.1506,
+      "boylam": 26.4111
+    },
+    {
+      "ad": "Çankırı",
+      "plaka": 18,
+      "enlem": 40.7356,
+      "boylam": 33.3661
+    },
+    {
+      "ad": "Çorum",
+      "plaka": 19,
+      "enlem": 40.5522,
+      "boylam": 34.9539
+    },
+    {
+      "ad": "Denizli",
+      "plaka": 20,
+      "enlem": 37.8402,
+      "boylam": 29.0698
+    },
+    {
+      "ad": "Diyarbakır",
+      "plaka": 21,
+      "enlem": 38.1422,
+      "boylam": 40.2711
+    },
+    {
+      "ad": "Edirne",
+      "plaka": 22,
+      "enlem": 41.12,
+      "boylam": 26.5206
+    },
+    {
+      "ad": "Elazığ",
+      "plaka": 23,
+      "enlem": 38.6675,
+      "boylam": 39.3597
+    },
+    {
+      "ad": "Erzincan",
+      "plaka": 24,
+      "enlem": 39.6783,
+      "boylam": 39.33
+    },
+    {
+      "ad": "Erzurum",
+      "plaka": 25,
+      "enlem": 40.0631,
+      "boylam": 41.5669
+    },
+    {
+      "ad": "Eskişehir",
+      "plaka": 26,
+      "enlem": 39.6825,
+      "boylam": 31.0725
+    },
+    {
+      "ad": "Gaziantep",
+      "plaka": 27,
+      "enlem": 37.0833,
+      "boylam": 37.3333
+    },
+    {
+      "ad": "Giresun",
+      "plaka": 28,
+      "enlem": 40.5797,
+      "boylam": 38.5944
+    },
+    {
+      "ad": "Gümüşhane",
+      "plaka": 29,
+      "enlem": 40.3881,
+      "boylam": 39.4186
+    },
+    {
+      "ad": "Hakkâri",
+      "plaka": 30,
+      "enlem": 37.4661,
+      "boylam": 44.0644
+    },
+    {
+      "ad": "Hatay",
+      "plaka": 31,
+      "enlem": 36.2,
+      "boylam": 36.15
+    },
+    {
+      "ad": "Isparta",
+      "plaka": 32,
+      "enlem": 37.9567,
+      "boylam": 30.9608
+    },
+    {
+      "ad": "Mersin",
+      "plaka": 33,
+      "enlem": 36.6786,
+      "boylam": 33.8053
+    },
+    {
+      "ad": "İstanbul",
+      "plaka": 34,
+      "enlem": 41.0122,
+      "boylam": 28.9761
+    },
+    {
+      "ad": "İzmir",
+      "plaka": 35,
+      "enlem": 38.4189,
+      "boylam": 27.1297
+    },
+    {
+      "ad": "Kars",
+      "plaka": 36,
+      "enlem": 40.4547,
+      "boylam": 43.0603
+    },
+    {
+      "ad": "Kastamonu",
+      "plaka": 37,
+      "enlem": 41.5194,
+      "boylam": 33.6897
+    },
+    {
+      "ad": "Kayseri",
+      "plaka": 38,
+      "enlem": 38.737,
+      "boylam": 35.4968
+    },
+    {
+      "ad": "Kırklareli",
+      "plaka": 39,
+      "enlem": 41.6811,
+      "boylam": 27.4714
+    },
+    {
+      "ad": "Kırşehir",
+      "plaka": 40,
+      "enlem": 39.3239,
+      "boylam": 34.1292
+    },
+    {
+      "ad": "Kocaeli",
+      "plaka": 41,
+      "enlem": 40.7644,
+      "boylam": 29.945
+    },
+    {
+      "ad": "Konya",
+      "plaka": 42,
+      "enlem": 37.8725,
+      "boylam": 32.4919
+    },
+    {
+      "ad": "Kütahya",
+      "plaka": 43,
+      "enlem": 39.3047,
+      "boylam": 29.59
+    },
+    {
+      "ad": "Malatya",
+      "plaka": 44,
+      "enlem": 38.3481,
+      "boylam": 38.3178
+    },
+    {
+      "ad": "Manisa",
+      "plaka": 45,
+      "enlem": 38.7494,
+      "boylam": 28.1228
+    },
+    {
+      "ad": "Kahramanmaraş",
+      "plaka": 46,
+      "enlem": 37.8983,
+      "boylam": 36.9711
+    },
+    {
+      "ad": "Mardin",
+      "plaka": 47,
+      "enlem": 37.3177,
+      "boylam": 40.7153
+    },
+    {
+      "ad": "Muğla",
+      "plaka": 48,
+      "enlem": 37.0303,
+      "boylam": 28.5064
+    },
+    {
+      "ad": "Muş",
+      "plaka": 49,
+      "enlem": 39.0006,
+      "boylam": 41.8272
+    },
+    {
+      "ad": "Nevşehir",
+      "plaka": 50,
+      "enlem": 38.7817,
+      "boylam": 34.6881
+    },
+    {
+      "ad": "Niğde",
+      "plaka": 51,
+      "enlem": 37.9158,
+      "boylam": 34.6936
+    },
+    {
+      "ad": "Ordu",
+      "plaka": 52,
+      "enlem": 40.8114,
+      "boylam": 37.5406
+    },
+    {
+      "ad": "Rize",
+      "plaka": 53,
+      "enlem": 40.9317,
+      "boylam": 40.8478
+    },
+    {
+      "ad": "Sakarya",
+      "plaka": 54,
+      "enlem": 40.6972,
+      "boylam": 30.4567
+    },
+    {
+      "ad": "Samsun",
+      "plaka": 55,
+      "enlem": 41.2044,
+      "boylam": 36.0072
+    },
+    {
+      "ad": "Siirt",
+      "plaka": 56,
+      "enlem": 37.93,
+      "boylam": 42.2703
+    },
+    {
+      "ad": "Sinop",
+      "plaka": 57,
+      "enlem": 41.6092,
+      "boylam": 34.9019
+    },
+    {
+      "ad": "Sivas",
+      "plaka": 58,
+      "enlem": 39.7503,
+      "boylam": 37.0161
+    },
+    {
+      "ad": "Tekirdağ",
+      "plaka": 59,
+      "enlem": 40.9778,
+      "boylam": 27.5183
+    },
+    {
+      "ad": "Tokat",
+      "plaka": 60,
+      "enlem": 40.3528,
+      "boylam": 36.5644
+    },
+    {
+      "ad": "Trabzon",
+      "plaka": 61,
+      "enlem": 40.7806,
+      "boylam": 39.8122
+    },
+    {
+      "ad": "Tunceli",
+      "plaka": 62,
+      "enlem": 39.2147,
+      "boylam": 39.4714
+    },
+    {
+      "ad": "Şanlıurfa",
+      "plaka": 63,
+      "enlem": 37.2542,
+      "boylam": 39.0425
+    },
+    {
+      "ad": "Uşak",
+      "plaka": 64,
+      "enlem": 38.5239,
+      "boylam": 29.3419
+    },
+    {
+      "ad": "Van",
+      "plaka": 65,
+      "enlem": 38.5011,
+      "boylam": 43.3731
+    },
+    {
+      "ad": "Yozgat",
+      "plaka": 66,
+      "enlem": 39.6694,
+      "boylam": 35.2692
+    },
+    {
+      "ad": "Zonguldak",
+      "plaka": 67,
+      "enlem": 41.3206,
+      "boylam": 31.7336
+    },
+    {
+      "ad": "Aksaray",
+      "plaka": 68,
+      "enlem": 38.4308,
+      "boylam": 33.8622
+    },
+    {
+      "ad": "Bayburt",
+      "plaka": 69,
+      "enlem": 40.2367,
+      "boylam": 40.2236
+    },
+    {
+      "ad": "Karaman",
+      "plaka": 70,
+      "enlem": 37.0167,
+      "boylam": 33.0833
+    },
+    {
+      "ad": "Kırıkkale",
+      "plaka": 71,
+      "enlem": 39.8697,
+      "boylam": 33.7161
+    },
+    {
+      "ad": "Batman",
+      "plaka": 72,
+      "enlem": 38.0819,
+      "boylam": 41.4072
+    },
+    {
+      "ad": "Şırnak",
+      "plaka": 73,
+      "enlem": 37.5192,
+      "boylam": 42.4542
+    },
+    {
+      "ad": "Bartın",
+      "plaka": 74,
+      "enlem": 41.6044,
+      "boylam": 32.5111
+    },
+    {
+      "ad": "Ardahan",
+      "plaka": 75,
+      "enlem": 41.1131,
+      "boylam": 42.8208
+    },
+    {
+      "ad": "Iğdır",
+      "plaka": 76,
+      "enlem": 39.8936,
+      "boylam": 43.9978
+    },
+    {
+      "ad": "Yalova",
+      "plaka": 77,
+      "enlem": 40.6442,
+      "boylam": 29.1936
+    },
+    {
+      "ad": "Karabük",
+      "plaka": 78,
+      "enlem": 41.2236,
+      "boylam": 32.6403
+    },
+    {
+      "ad": "Kilis",
+      "plaka": 79,
+      "enlem": 36.8008,
+      "boylam": 37.1239
+    },
+    {
+      "ad": "Osmaniye",
+      "plaka": 80,
+      "enlem": 37.2281,
+      "boylam": 36.2125
+    },
+    {
+      "ad": "Düzce",
+      "plaka": 81,
+      "enlem": 40.9469,
+      "boylam": 31.2381
+    }
+  ]
+}
