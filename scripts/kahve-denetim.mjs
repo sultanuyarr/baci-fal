@@ -8,7 +8,7 @@
 import sharp from 'sharp'
 import { basename } from 'node:path'
 import { readFileSync, writeFileSync } from 'node:fs'
-import { fincaniAnalizEt } from '../lib/kahve/goruntu.ts'
+import { tamponuAnalizEt } from '../lib/kahve/cozucu-node.ts'
 
 const argumanlar = process.argv.slice(2)
 const ciktiIndeksi = argumanlar.indexOf('--cikti')
@@ -24,20 +24,15 @@ const kareler = []
 
 for (const yol of yollar) {
   const girdi = readFileSync(yol)
-  const a = await fincaniAnalizEt(girdi)
+  const a = await tamponuAnalizEt(girdi)
 
-  const { data, info } = await sharp(girdi)
-    .rotate()
-    .resize({ width: 460, height: 460, fit: 'inside' })
-    .greyscale()
-    .normalise()
-    .raw()
-    .toBuffer({ resolveWithObject: true })
-
-  const g = info.width
-  const y = info.height
+  // Analizin gerçekten üzerinde çalıştığı görüntüyü kullan; böylece bindirme
+  // ölçümlerle birebir aynı koordinatlarda olur.
+  const { gri, maske } = a.gorsel
+  const g = a.genislik
+  const y = a.yukseklik
   const rgb = Buffer.alloc(g * y * 3)
-  for (let p = 0; p < g * y; p++) rgb[p * 3] = rgb[p * 3 + 1] = rgb[p * 3 + 2] = data[p]
+  for (let p = 0; p < g * y; p++) rgb[p * 3] = rgb[p * 3 + 1] = rgb[p * 3 + 2] = gri[p]
 
   const { merkez, yaricap } = a.fincan
   for (let j = 0; j < y; j++) {
@@ -50,7 +45,7 @@ for (const yol of yollar) {
         rgb[p + 2] = 40
       } else if (d > yaricap) {
         rgb[p + 2] = Math.min(255, rgb[p + 2] + 70)
-      } else if (data[j * g + i] <= a.esik) {
+      } else if (maske[j * g + i]) {
         rgb[p + 1] = Math.min(255, rgb[p + 1] + 90)
       }
     }

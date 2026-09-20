@@ -9,6 +9,9 @@
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "bundler",
+    // Node betikleri .ts dosyalarını doğrudan çalıştırdığı için uzantılı
+    // içe aktarmaya izin veriyoruz.
+    "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react-jsx",

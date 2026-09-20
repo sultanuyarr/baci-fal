@@ -1,18 +1,23 @@
 /**
  * Fincan fotoğrafından ölçülebilir özellikler çıkarır.
  *
+ * Bu dosya saf hesaptır: girdisi ham RGBA piksel dizisi, çıktısı sayılar.
+ * Hiçbir platform kitaplığına bağlı değildir; böylece aynı kod hem tarayıcıda
+ * (Canvas'tan gelen ImageData ile) hem Node'da (testlerde) çalışır ve ikisi
+ * aynı sonucu verir. Ölçekleme ve kontrast germe de burada yapılır.
+ *
  * Buradaki hiçbir adım rastgele değildir: aynı fotoğraf her zaman aynı sayıları
  * üretir. Yorum katmanı (semboller.ts / yorum.ts) bu sayıların üzerine kurulur.
  *
  * Boru hattı:
- *   1. Gri tonlama + ölçekleme
- *   2. Fincan diski tespiti (porselenin parlak pikselleri üzerinden)
- *   3. Otsu eşiklemesiyle telve maskesi
- *   4. Gürültü temizliği (açma: aşındır → genişlet)
- *   5. Bağlı bileşen analizi + şekil betimleyicileri
- *   6. Bölgesel yoğunluk, simetri, kenar yoğunluğu, açıklık ölçümleri
+ *   1. Gri tonlama + kutu süzgeciyle ölçekleme
+ *   2. Kontrast germe (yüzdelik tabanlı)
+ *   3. Fincan diski tespiti (porselenin parlak pikselleri üzerinden)
+ *   4. Otsu eşiklemesiyle telve maskesi
+ *   5. Gürültü temizliği (açma: aşındır → genişlet)
+ *   6. Bağlı bileşen analizi + şekil betimleyicileri
+ *   7. Bölgesel yoğunluk, simetri, kenar yoğunluğu, açıklık ölçümleri
  */
-import sharp from 'sharp'
 
 /** Analiz çözünürlüğü. Büyütmek hassasiyeti değil sadece maliyeti artırır. */
 const BOYUT = 460
@@ -74,6 +79,16 @@ export type FincanAnalizi = {
   lekeler: Leke[]
   /** Anlamlı büyüklükteki toplam leke sayısı */
   lekeSayisi: number
+  /**
+   * Analizin üzerinde çalıştığı görüntü: ölçeklenmiş gri tonlama ve telve
+   * maskesi. Kullanıcıya "fotoğrafında ne gördüm" katmanını çizdirmeye ve
+   * görsel denetime yarar.
+   */
+  gorsel: {
+    gri: Uint8Array
+    /** 1 = telve, 0 = boş; gri ile aynı boyutta */
+    maske: Uint8Array
+  }
 }
 
 /** Otsu'nun yöntemiyle sınıf içi varyansı en aza indiren eşiği bulur. */
@@ -340,18 +355,87 @@ function bolgeBul(uzaklik: number): Bolge {
   return 'dip'
 }
 
-export async function fincaniAnalizEt(girdi: Buffer): Promise<FincanAnalizi> {
-  const { data, info } = await sharp(girdi)
-    .rotate() // EXIF yönünü uygula
-    .resize({ width: BOYUT, height: BOYUT, fit: 'inside' })
-    .greyscale()
-    .normalise() // kontrastı gererek farklı ışıkta çekilmiş fotoğrafları eşitler
-    .raw()
-    .toBuffer({ resolveWithObject: true })
+/**
+ * Gri tonlamaya çevirip kutu süzgeciyle küçültür.
+ *
+ * Kutu süzgeci, hedef pikselin kapsadığı bütün kaynak piksellerin ortalamasını
+ * alır. Tarayıcının kendi ölçekleme algoritmasına bırakılsaydı sonuç tarayıcıya
+ * göre değişirdi; burada ölçeklemeyi kendimiz yaptığımız için her yerde aynı
+ * sayılar çıkıyor.
+ */
+function griyeCevirVeKucult(rgba: Uint8ClampedArray | Uint8Array, kaynakG: number, kaynakY: number) {
+  const oran = Math.min(1, BOYUT / Math.max(kaynakG, kaynakY))
+  const g = Math.max(1, Math.round(kaynakG * oran))
+  const y = Math.max(1, Math.round(kaynakY * oran))
+  const gri = new Uint8Array(g * y)
 
-  const g = info.width
-  const y = info.height
-  const gri = new Uint8Array(data.buffer, data.byteOffset, g * y)
+  for (let j = 0; j < y; j++) {
+    const sy0 = Math.floor((j * kaynakY) / y)
+    const sy1 = Math.max(sy0 + 1, Math.floor(((j + 1) * kaynakY) / y))
+    for (let i = 0; i < g; i++) {
+      const sx0 = Math.floor((i * kaynakG) / g)
+      const sx1 = Math.max(sx0 + 1, Math.floor(((i + 1) * kaynakG) / g))
+
+      let toplam = 0
+      let adet = 0
+      for (let sy = sy0; sy < sy1; sy++) {
+        for (let sx = sx0; sx < sx1; sx++) {
+          const p = (sy * kaynakG + sx) * 4
+          // Rec. 709 parlaklık katsayıları
+          toplam += 0.2126 * rgba[p] + 0.7152 * rgba[p + 1] + 0.0722 * rgba[p + 2]
+          adet++
+        }
+      }
+      gri[j * g + i] = Math.round(toplam / adet)
+    }
+  }
+  return { gri, g, y }
+}
+
+/**
+ * Kontrastı gerer: histogramın %1 ve %99 yüzdelikleri 0 ve 255'e taşınır.
+ * Farklı ışıkta çekilmiş fotoğrafları karşılaştırılabilir hâle getirir.
+ */
+function kontrastiGer(gri: Uint8Array) {
+  const hist = new Array(256).fill(0)
+  for (let i = 0; i < gri.length; i++) hist[gri[i]]++
+
+  const altSinir = gri.length * 0.01
+  const ustSinir = gri.length * 0.99
+  let birikim = 0
+  let alt = 0
+  let ust = 255
+  for (let t = 0; t < 256; t++) {
+    birikim += hist[t]
+    if (birikim <= altSinir) alt = t
+    if (birikim < ustSinir) ust = t
+  }
+  if (ust <= alt) return // düz görüntü; germeye gerek yok
+
+  const olcek = 255 / (ust - alt)
+  for (let i = 0; i < gri.length; i++) {
+    gri[i] = Math.min(255, Math.max(0, Math.round((gri[i] - alt) * olcek)))
+  }
+}
+
+/**
+ * Ham RGBA piksellerden fincan analizini çıkarır.
+ *
+ * @param rgba    Kanal başına 1 bayt, RGBA sırasıyla piksel verisi
+ * @param kaynakG Görüntünün genişliği
+ * @param kaynakY Görüntünün yüksekliği
+ */
+export function fincaniAnalizEt(
+  rgba: Uint8ClampedArray | Uint8Array,
+  kaynakG: number,
+  kaynakY: number,
+): FincanAnalizi {
+  if (rgba.length < kaynakG * kaynakY * 4) {
+    throw new Error('Piksel verisi görüntü boyutlarıyla uyuşmuyor')
+  }
+
+  const { gri, g, y } = griyeCevirVeKucult(rgba, kaynakG, kaynakY)
+  kontrastiGer(gri)
 
   const fincan = fincaniBul(gri, g, y)
   const { merkez, yaricap } = fincan
@@ -477,6 +561,7 @@ export async function fincaniAnalizEt(girdi: Buffer): Promise<FincanAnalizi> {
     aciklik: icPiksel ? enBuyukAciklik / icPiksel : 0,
     lekeler,
     lekeSayisi: lekeler.length,
+    gorsel: { gri, maske },
   }
 }
 

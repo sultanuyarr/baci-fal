@@ -6,7 +6,7 @@ const BOLUMLER = [
     yol: '/kahve',
     simge: '☕',
     ad: 'Kahve Falı',
-    ozet: 'Fincanının fotoğrafını yükle. Telvenin şekli gerçekten ölçülür: lekelerin daireselliği, uzunluğu, kıvrımı ve fincandaki yeri hesaplanıp geleneksel sembollerle eşleştirilir.',
+    ozet: 'Fincanının fotoğrafını yükle. Telvenin şekli gerçekten ölçülür: lekelerin daireselliği, uzunluğu, kıvrımı ve fincandaki yeri hesaplanıp geleneksel sembollerle eşleştirilir. Fotoğraf cihazından çıkmaz.',
     temel: 'Görüntü işleme — Otsu eşikleme, bağlı bileşen analizi',
   },
   {

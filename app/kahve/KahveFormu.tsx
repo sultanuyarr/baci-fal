@@ -1,8 +1,11 @@
 'use client'
 
 import { useRef, useState } from 'react'
-import type { KahveFali } from '@/lib/kahve/yorum'
+import { dosyayiAnalizEt } from '@/lib/kahve/cozucu-tarayici'
+import type { FincanAnalizi } from '@/lib/kahve/goruntu'
+import { faliYorumla, type KahveFali } from '@/lib/kahve/yorum'
 import { Baslik, Dugme, Hata, Olcum, Panel } from '@/components/Panel'
+import { TelveHaritasi } from '@/components/TelveHaritasi'
 
 const YUZDE = (o: number) => `%${(o * 100).toFixed(0)}`
 
@@ -12,33 +15,40 @@ export function KahveFormu() {
   const [yukleniyor, setYukleniyor] = useState(false)
   const [hata, setHata] = useState<string | null>(null)
   const [fal, setFal] = useState<KahveFali | null>(null)
+  const [analiz, setAnaliz] = useState<FincanAnalizi | null>(null)
   const girdiRef = useRef<HTMLInputElement>(null)
 
   function dosyaSec(secilen: File | null) {
     setHata(null)
     setFal(null)
+    setAnaliz(null)
     setDosya(secilen)
     if (onizleme) URL.revokeObjectURL(onizleme)
     setOnizleme(secilen ? URL.createObjectURL(secilen) : null)
   }
 
+  /**
+   * Falı tarayıcıda hesaplar. Fotoğraf hiçbir yere gönderilmez; çözümleme
+   * Canvas üzerinden okunan piksellerle burada, cihazda yapılır.
+   */
   async function bak() {
     if (!dosya) return
     setYukleniyor(true)
     setHata(null)
     setFal(null)
+    setAnaliz(null)
+    // Tarayıcının yükleniyor durumunu çizmesine fırsat ver.
+    await new Promise((coz) => requestAnimationFrame(() => coz(null)))
     try {
-      const form = new FormData()
-      form.append('fotograf', dosya)
-      const cevap = await fetch('/api/kahve', { method: 'POST', body: form })
-      const veri = await cevap.json()
-      if (!cevap.ok) {
-        setHata(veri.hata ?? 'Bir şeyler ters gitti.')
-        return
-      }
-      setFal(veri.fal)
-    } catch {
-      setHata('Sunucuya ulaşılamadı. Bağlantını kontrol edip tekrar dene.')
+      const sonuc = await dosyayiAnalizEt(dosya)
+      setAnaliz(sonuc)
+      setFal(faliYorumla(sonuc))
+    } catch (sorun) {
+      setHata(
+        sorun instanceof Error && sorun.message
+          ? `${sorun.message} Fincanın içi net görünen başka bir kare dene.`
+          : 'Fotoğraf çözümlenemedi. Fincanın içi net görünen başka bir kare dene.',
+      )
     } finally {
       setYukleniyor(false)
     }
@@ -118,17 +128,22 @@ export function KahveFormu() {
         {hata && <div className="mt-4"><Hata mesaj={hata} /></div>}
       </Panel>
 
-      {fal && <FalSonucu fal={fal} />}
+      {fal && analiz && <FalSonucu fal={fal} analiz={analiz} />}
     </div>
   )
 }
 
-function FalSonucu({ fal }: { fal: KahveFali }) {
+function FalSonucu({ fal, analiz }: { fal: KahveFali; analiz: FincanAnalizi }) {
   return (
     <div className="space-y-6">
       <Panel vurgulu className="belir p-6 sm:p-8">
         <Baslik etiket="Fincanın söyledikleri" baslik="Okuma" seviye={2} />
-        <p className="mt-4 leading-relaxed text-[#ded4f0]">{fal.ozet}</p>
+        <div className="mt-4 flex flex-col gap-6 sm:flex-row sm:items-start">
+          <p className="flex-1 leading-relaxed text-[#ded4f0]">{fal.ozet}</p>
+          <div className="shrink-0">
+            <TelveHaritasi analiz={analiz} />
+          </div>
+        </div>
       </Panel>
 
       {fal.semboller.length > 0 && (

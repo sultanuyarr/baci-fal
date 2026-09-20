@@ -1,12 +1,12 @@
-import type { Metadata } from 'next'
-import { KahveFormu } from './KahveFormu'
-import { Baslik } from '@/components/Panel'
+import type { Metadata } from "next";
+import { KahveFormu } from "./KahveFormu";
+import { Baslik } from "@/components/Panel";
 
 export const metadata: Metadata = {
-  title: 'Kahve Falı — Bacı Fal',
+  title: "Kahve Falı — Bacı Fal",
   description:
-    'Fincanının fotoğrafını yükle. Telvenin şekli gerçekten ölçülüp geleneksel kahve falı sembolleriyle eşleştirilsin.',
-}
+    "Fincanının fotoğrafını yükle. Telvenin şekli gerçekten ölçülüp geleneksel kahve falı sembolleriyle eşleştirilsin.",
+};
 
 export default function KahveSayfasi() {
   return (
@@ -16,14 +16,21 @@ export default function KahveSayfasi() {
         baslik="Kahve Falı"
         ortala
         aciklama={
-          <p>
-            Fotoğrafın gri tonlamaya çevrilir, telve ile porselen Otsu eşiklemesiyle ayrılır ve
-            her leke ölçülür. Çıkan geometri — dairesellik, uzama, kıvrım, delik sayısı ve
-            fincandaki konum — geleneksel sembollerin tarifleriyle eşleştirilir.
-          </p>
+          <>
+            <p>
+              Fotoğrafın gri tonlamaya çevrilir, telve ile porselen Otsu
+              eşiklemesiyle ayrılır ve her leke ölçülür. Çıkan geometri —
+              dairesellik, uzama, kıvrım, delik sayısı ve fincandaki konum —
+              geleneksel sembollerin tarifleriyle eşleştirilir.
+            </p>
+            <p className="mt-3 text-sm text-[#8f84ab]">
+              Bütün bu hesap tarayıcında yapılır; fotoğrafın cihazından hiç
+              çıkmaz.
+            </p>
+          </>
         }
       />
       <KahveFormu />
     </div>
-  )
+  );
 }

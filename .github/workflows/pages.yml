@@ -1,0 +1,64 @@
+# Siteyi derleyip GitHub Pages'te yayınlar.
+# Site tamamen statik: sunucu yok, bütün hesaplar tarayıcıda çalışıyor.
+name: GitHub Pages'e yayınla
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Pages'e yayın için gereken izinler
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Aynı anda tek yayın çalışsın; sıradaki beklesin, çalışan iptal edilmesin.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  derle:
+    name: Derle ve sına
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Bağımlılıkları kur
+        run: npm ci
+
+      - name: Testleri çalıştır
+        run: npm test
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Statik siteyi derle
+        run: npm run build
+
+      - name: Jekyll işlemesini kapat
+        # Bu dosya olmadan Pages, _next klasörünü gizler.
+        run: touch out/.nojekyll
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+
+  yayinla:
+    name: Yayınla
+    needs: derle
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.yayin.outputs.page_url }}
+    steps:
+      - id: yayin
+        uses: actions/deploy-pages@v4

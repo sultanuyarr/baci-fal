@@ -2,7 +2,8 @@
 
 import Image from 'next/image'
 import { useState } from 'react'
-import type { Acilim, AcilimTuru } from '@/lib/tarot/acilim'
+import { varlik } from '@/lib/altyol'
+import { acilimYap, type Acilim, type AcilimTuru } from '@/lib/tarot/acilim'
 import { Baslik, Dugme, Hata, Panel } from '@/components/Panel'
 
 type AcilimSecenegi = { tur: AcilimTuru; ad: string; ozet: string; kartSayisi: number }
@@ -27,25 +28,30 @@ export function TarotFormu({ acilimlar }: { acilimlar: AcilimSecenegi[] }) {
 
   const secili = acilimlar.find((a) => a.tur === tur)!
 
+  /** Açılımı tarayıcıda çeker; deste ve karıştırma tamamen istemcide. */
   async function cek(yeniTurNo: number) {
+    if (tur === 'evet-hayir' && !soru.trim()) {
+      setHata('Evet/Hayır açılımı için net bir soru yazman gerekiyor.')
+      setAcilim(null)
+      return
+    }
     setYukleniyor(true)
     setHata(null)
+    await new Promise((coz) => requestAnimationFrame(() => coz(null)))
     try {
-      const cevap = await fetch('/api/tarot', {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ tur, isim, dogumTarihi, soru, turNo: yeniTurNo }),
-      })
-      const veri = await cevap.json()
-      if (!cevap.ok) {
-        setHata(veri.hata ?? 'Kartlar çekilemedi.')
-        setAcilim(null)
-        return
-      }
       setTurNo(yeniTurNo)
-      setAcilim(veri.acilim)
+      setAcilim(
+        acilimYap({
+          tur,
+          isim: isim.slice(0, 80),
+          dogumTarihi,
+          soru: soru.slice(0, 300),
+          tur_no: yeniTurNo,
+        }),
+      )
     } catch {
-      setHata('Sunucuya ulaşılamadı. Bağlantını kontrol edip tekrar dene.')
+      setHata('Kartlar çekilemedi. Sayfayı yenileyip tekrar dene.')
+      setAcilim(null)
     } finally {
       setYukleniyor(false)
     }
@@ -197,7 +203,7 @@ function AcilimSonucu({ acilim }: { acilim: Acilim }) {
                   }`}
                 >
                   <Image
-                    src={k.kart.gorsel}
+                    src={varlik(k.kart.gorsel)}
                     alt={`${k.kart.ad} tarot kartı`}
                     width={130}
                     height={222}

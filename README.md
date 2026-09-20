@@ -6,6 +6,11 @@
 
 Fincanındaki telve gerçekten ölçülüyor · Tarot destesi yayımlanmış bir veri setinden geliyor · Burcun doğduğun andaki gök konumundan hesaplanıyor
 
+### 👉 **[Siteyi aç: sultanuyarr.github.io/baci-fal](https://sultanuyarr.github.io/baci-fal/)**
+
+Kurulum yok, üyelik yok, sunucu yok — **her şey tarayıcında çalışıyor.**
+Yüklediğin fincan fotoğrafı cihazından hiç çıkmıyor.
+
 <br>
 
 ![Bacı Fal ana sayfası](docs/ekranlar/ana-sayfa.png)
@@ -21,8 +26,10 @@ her sonucun altında gerçek bir hesap var ve o hesabı sitede görebiliyorsun.
 
 ## ☕ Kahve falı — fotoğrafın gerçekten okunuyor
 
-Fincanının fotoğrafını yüklüyorsun; sunucu görüntüyü işliyor, telve lekelerinin
-geometrisini ölçüyor ve ölçüleri geleneksel sembollerin tarifleriyle eşleştiriyor.
+Fincanının fotoğrafını yüklüyorsun; **tarayıcın** görüntüyü bir tuvale çizip
+piksellerini okuyor, telve lekelerinin geometrisini ölçüyor ve ölçüleri
+geleneksel sembollerin tarifleriyle eşleştiriyor. Fotoğraf hiçbir yere
+gönderilmiyor.
 
 ![Kahve falı sonucu](docs/ekranlar/kahve-fali.png)
 
@@ -140,6 +147,12 @@ npm install
 npm run dev          # http://localhost:3000
 ```
 
+Statik siteyi yerelde üretmek için:
+
+```bash
+npm run build        # çıktı: out/
+```
+
 Veri dosyaları depoda hazır gelir. Yeniden çekmek istersen:
 
 ```bash
@@ -188,10 +201,14 @@ app/
   page.tsx               Ana sayfa
   kahve|tarot|dogum/     Sayfalar ve istemci formları
   nasil/                 Yöntem ve kaynaklar sayfası
-  api/kahve|tarot|dogum/ Route handler'lar
-components/Panel.tsx     Ortak arayüz parçaları
+components/
+  Panel.tsx              Ortak arayüz parçaları
+  TelveHaritasi.tsx      Tespit edilen fincan ve telve maskesini çizen tuval
 lib/
-  kahve/goruntu.ts       Görüntü işleme ve şekil ölçümü
+  altyol.ts              GitHub Pages alt dizini için varlık adresleri
+  kahve/goruntu.ts       Saf görüntü analizi (platformdan bağımsız)
+  kahve/cozucu-tarayici.ts  Canvas ile fotoğraf çözme
+  kahve/cozucu-node.ts   sharp ile fotoğraf çözme (testler)
   kahve/semboller.ts     Sembol eşleştirme
   kahve/yorum.ts         Okuma metni
   tarot/deste.ts         78 kartlık deste (kaynak veri + Türkçe katman)
@@ -205,16 +222,40 @@ lib/
 data/                    Tarot verisi, sembol sözlüğü, il koordinatları
 scripts/                 Veri çekme ve görsel denetim betikleri
 tests/                   Vitest test takımı
+.github/workflows/       Pages'e otomatik yayın
 ```
+
+## 🚢 Yayın
+
+`main` dalına her push'ta GitHub Actions testleri çalıştırır, siteyi statik
+olarak derler ve GitHub Pages'e yayınlar. Yapılandırma:
+[`.github/workflows/pages.yml`](.github/workflows/pages.yml)
+
+Kendi hesabında yayınlamak istersen `next.config.ts` içindeki `altYol`
+değerini deponun adıyla değiştirmen yeterli.
 
 ## 🛠 Teknoloji
 
-Next.js 16 (App Router) · TypeScript · Tailwind CSS 4 · sharp · Vitest
+Next.js 16 (App Router, statik dışa aktarım) · TypeScript · Tailwind CSS 4 ·
+Canvas API · Vitest · GitHub Actions ile GitHub Pages'e otomatik yayın
+
+`sharp` yalnızca geliştirme bağımlılığıdır: testlerde ve görsel denetim
+betiğinde fotoğraf çözmek için kullanılır, yayınlanan siteye girmez.
 
 ## 🔒 Gizlilik
 
-Yüklenen fotoğraf yalnızca istek süresince bellekte tutulur; diske yazılmaz,
-saklanmaz. İsim ve doğum bilgileri de kaydedilmez. Veritabanı yok.
+**Sunucu yok.** Site yalnızca statik dosyalardan ibaret; kahve falı, tarot ve
+doğum haritası hesaplarının tamamı senin tarayıcında çalışıyor.
+
+- Yüklediğin fotoğraf hiçbir yere gönderilmez — Canvas ile okunur, cihazında işlenir
+- İsim, doğum tarihi ve doğum yeri hiçbir yere kaydedilmez
+- Veritabanı, çerez, izleme kodu yok
+- Sayfa açıldıktan sonra internet bağlantını kesip fal baktırabilirsin; yine çalışır
+
+Aynı analiz kodu hem tarayıcıda hem testlerde çalışır: görüntü işleme ham piksel
+dizisi üzerinde saf hesap yapar, platforma bağlı tek şey fotoğrafın çözülmesidir
+([`cozucu-tarayici.ts`](lib/kahve/cozucu-tarayici.ts) /
+[`cozucu-node.ts`](lib/kahve/cozucu-node.ts)).
 
 ## 📜 Kaynaklar ve lisans
 

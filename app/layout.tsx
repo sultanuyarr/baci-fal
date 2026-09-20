@@ -14,7 +14,11 @@ const govde = Inter({
   subsets: ['latin', 'latin-ext'],
 })
 
+/** Yayın adresi — paylaşım görsellerinin mutlak adrese çözülmesi için gerekir. */
+const SITE_ADRESI = process.env.NEXT_PUBLIC_SITE_ADRESI ?? 'https://sultanuyarr.github.io/baci-fal'
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_ADRESI),
   title: {
     default: 'Bacı Fal — kahve falı, tarot ve doğum haritası',
     template: '%s',
@@ -71,6 +75,9 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
           <p className="mx-auto max-w-2xl">
             Bacı Fal eğlence amaçlıdır. Hesaplar gerçek ama kararların senin:
             sağlık, hukuk ve para konularında lütfen bir uzmana danış.
+          </p>
+          <p className="mx-auto mt-2 max-w-2xl text-xs">
+            Her şey tarayıcında hesaplanır — fotoğrafın ve bilgilerin hiçbir yere gönderilmez.
           </p>
           <p className="mt-3">
             <Link href="/nasil" className="text-altin-400/80 underline-offset-4 hover:underline">

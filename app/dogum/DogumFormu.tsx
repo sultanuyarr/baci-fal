@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import type { DogumHaritasi } from '@/lib/dogum/harita'
+import { haritaCikar, type DogumHaritasi } from '@/lib/dogum/harita'
 import { Baslik, Dugme, Hata, Olcum, Panel } from '@/components/Panel'
 
 type IlSecenegi = { plaka: number; ad: string }
@@ -26,29 +26,37 @@ export function DogumFormu({ iller }: { iller: IlSecenegi[] }) {
   const [hata, setHata] = useState<string | null>(null)
   const [harita, setHarita] = useState<DogumHaritasi | null>(null)
 
+  /** Haritayı tarayıcıda hesaplar; gök hesapları saf JavaScript. */
   async function cikar() {
+    const temizIsim = isim.trim().slice(0, 80)
+    if (temizIsim.length < 2) return setHata('Adını ve soyadını yazar mısın?')
+
+    const yil = Number(tarih.slice(0, 4))
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(tarih)) return setHata('Doğum tarihi gerekli.')
+    if (yil < 1900 || yil > new Date().getFullYear()) {
+      return setHata('Doğum yılı 1900 ile bugün arasında olmalı.')
+    }
+    // Takvimde olmayan tarihleri (31 Şubat gibi) ele
+    const zaman = new Date(`${tarih}T12:00:00Z`)
+    if (Number.isNaN(zaman.getTime()) || zaman.toISOString().slice(0, 10) !== tarih) {
+      return setHata('Böyle bir tarih yok.')
+    }
+
     setYukleniyor(true)
     setHata(null)
+    await new Promise((coz) => requestAnimationFrame(() => coz(null)))
     try {
-      const cevap = await fetch('/api/dogum', {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({
-          isim,
+      setHarita(
+        haritaCikar({
+          isim: temizIsim,
           tarih,
           saat: saat || undefined,
           ilPlaka: ilPlaka ? Number(ilPlaka) : undefined,
         }),
-      })
-      const veri = await cevap.json()
-      if (!cevap.ok) {
-        setHata(veri.hata ?? 'Harita çıkarılamadı.')
-        setHarita(null)
-        return
-      }
-      setHarita(veri.harita)
+      )
     } catch {
-      setHata('Sunucuya ulaşılamadı. Bağlantını kontrol edip tekrar dene.')
+      setHata('Harita hesaplanamadı. Girdiğin bilgileri kontrol eder misin?')
+      setHarita(null)
     } finally {
       setYukleniyor(false)
     }

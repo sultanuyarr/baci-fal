@@ -31,7 +31,9 @@ export default function NasilSayfasi() {
             ☕ Kahve falı — fotoğrafın gerçekten ölçülüyor
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-[#c3b8dd]">
-            Yüklediğin fotoğraf sunucuda şu adımlardan geçer:
+            Yüklediğin fotoğraf <b className="text-[#ded4f0]">senin cihazından hiç çıkmaz</b>:
+            tarayıcı onu bir tuvale çizip piksellerini okur ve bütün hesap orada yapılır.
+            Adımlar şöyle:
           </p>
           <ol className="mt-4 space-y-2.5 text-sm leading-relaxed text-[#c3b8dd]">
             <li>
@@ -155,7 +157,9 @@ export default function NasilSayfasi() {
             (dolu daire, çizgi, üçgen, halka) sınanıyor.
           </p>
           <p className="mt-3 text-sm leading-relaxed text-[#c3b8dd]">
-            Bu denetimler projedeki test takımında duruyor;{' '}
+            Aynı kod hem tarayıcıda hem testlerde çalışır: görüntü analizi ham piksel
+            dizisi üzerinde saf hesap yapar, platforma bağlı tek şey fotoğrafın çözülmesidir.
+            Denetimler projedeki test takımında duruyor;{' '}
             <code className="rounded bg-gece-900/70 px-1.5 py-0.5 text-xs text-altin-300">
               npm test
             </code>{' '}
@@ -166,9 +170,11 @@ export default function NasilSayfasi() {
         <Panel className="p-7 sm:p-8">
           <h2 className="font-baslik text-2xl font-semibold text-altin-300">Gizlilik</h2>
           <p className="mt-3 text-sm leading-relaxed text-[#c3b8dd]">
-            Yüklediğin fotoğraf yalnızca istek süresince bellekte tutulur, diske yazılmaz ve
-            saklanmaz. İsim, doğum tarihi gibi bilgiler de kaydedilmez; her istek kendi içinde
-            hesaplanıp unutulur.
+            Bu sitenin sunucusu yok. Kahve falı, tarot ve doğum haritası hesaplarının tamamı
+            tarayıcında çalışır; site yalnızca statik dosyalardan ibarettir. Yüklediğin
+            fotoğraf hiçbir yere gönderilmez, ismin ve doğum tarihin hiçbir yere kaydedilmez.
+            İstersen sayfayı açtıktan sonra internet bağlantını kesip fal baktırabilirsin —
+            yine de çalışır.
           </p>
         </Panel>
 
