@@ -33,12 +33,15 @@ gönderilmiyor.
 
 ![Kahve falı sonucu](docs/ekranlar/kahve-fali.png)
 
-Her sembolün altında o lekenin **gerçek ölçüleri** duruyor: dairesellik 0.03,
-uzama 1.6×, delik 0, fincanın %11.6'sı. Sembol bu sayılar yüzünden seçildi.
+Okumanın yanında **fotoğrafında ne gördüğü** duruyor: altın çember tespit edilen
+fincan ağzı, yeşil alan telve maskesi. Her sembolün altında da o lekenin
+**gerçek ölçüleri** var — dairesellik 0.03, uzama 1.6×, delik 0, fincanın
+%11.5'i. Sembol bu sayılar yüzünden seçildi.
 
-### Segmentasyon gerçekten çalışıyor
+### Farklı fincanlar, farklı maskeler
 
-Kırmızı çember tespit edilen fincan ağzı, yeşil alan telve maskesi:
+Aynı boru hattı dört ayrı fotoğrafta (denetim betiğinin çıktısı — kırmızı
+çember fincan ağzı, yeşil alan telve):
 
 ![Telve segmentasyonu](docs/ekranlar/kahve-analiz.png)
 
