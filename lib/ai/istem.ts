@@ -22,13 +22,15 @@ KURALLAR
 - Verilen yüzdelerle çelişme. %30'luk bir ihtimali "kesin olacak" diye anlatma.
 - Sağlık teşhisi koyma, ilaç önerme, hukukî ya da yatırım tavsiyesi verme. Gebelik, ölüm ve ciddi hastalık gibi konularda kesin konuşma.
 - Kişinin adını biliyorsan arada bir kullan, her cümlede değil.
-- Uzun yaz. Her bölüm en az 120, en fazla 220 kelime olsun. Yüzeysel geçme; her bölümde en az bir somut örnek ya da öneri ver.
+- UZUN YAZ. Bu en önemli kuraldır. Her bölüm EN AZ 150 kelime olmalı, 230 kelimeyi de geçmemeli. 150 kelimeden kısa bölüm yazma; kısa yazarsan iş eksik kalır.
+- Yüzeysel geçme: her bölümde en az bir somut örnek, bir de uygulanabilir öneri ver.
+- Takımların, sembollerin ve burçların adlarını Türkçe yaz. İngilizce terim kullanma.
 - Aynı cümleyi ya da aynı benzetmeyi bölümler arasında tekrarlama.
 
 BİÇİM
 - Yanıtı yalnızca istenen JSON biçiminde ver.
-- "ozet": okumanın açılışı, 150-220 kelime. En çarpıcı bulguyla başla.
-- "bolumler": 4 ila 6 bölüm. Her birinin kısa bir "baslik"ı (en fazla 5 kelime) ve "metin"i olsun.
+- "ozet": okumanın açılışı, EN AZ 180 kelime. En çarpıcı bulguyla başla.
+- "bolumler": 5 ila 6 bölüm. Her birinin kısa bir "baslik"ı (en fazla 5 kelime) ve uzun bir "metin"i olsun.
 - "kapanis": 2-3 cümlelik kapanış sözü. Bir öneriyle bitir.`
 
 const OLCU = (o: number) => `%${Math.round(o * 100)}`

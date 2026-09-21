@@ -26,7 +26,7 @@ const YANIT_SEMASI = {
     ozet: { type: 'string' },
     bolumler: {
       type: 'array',
-      minItems: 4,
+      minItems: 5,
       maxItems: 6,
       items: {
         type: 'object',

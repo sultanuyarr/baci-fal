@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { useState } from 'react'
 import { varlik } from '@/lib/altyol'
 import { acilimYap, type Acilim, type AcilimTuru } from '@/lib/tarot/acilim'
+import { TAKIM_ADI } from '@/lib/tarot/deste'
 import { useAiYorumu } from '@/lib/ai/istemci'
 import type { TarotGirdisi } from '@/lib/ai/tipler'
 import { Dugme, Hata, Panel } from '@/components/Panel'
@@ -186,7 +187,7 @@ function aiGirdisi(acilim: Acilim): TarotGirdisi {
       pozisyon: k.pozisyon.ad,
       pozisyonAciklamasi: k.pozisyon.aciklama,
       kart: k.kart.ad,
-      takim: k.kart.takim,
+      takim: TAKIM_ADI[k.kart.takim],
       ters: k.ters,
       anahtar: k.kart.anahtar,
       anlam: k.ters ? k.kart.ters : k.kart.duz,
