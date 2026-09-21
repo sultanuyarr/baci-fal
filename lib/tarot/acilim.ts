@@ -81,6 +81,16 @@ export type CekilenKart = {
   kaynakCumle: string
 }
 
+/** Evet-hayır açılımının cevabı; "belki" bilerek yok, zayıf cevap yüzdeyle anlatılır. */
+export type CevapDegeri = Exclude<EvetHayir, 'belki'>
+
+export type Cevap = {
+  deger: CevapDegeri
+  /** 0 kesin hayır, 1 kesin evet — cevabın ne kadar sağlam olduğu */
+  guc: number
+  metin: string
+}
+
 export type Acilim = {
   tanim: AcilimTanimi
   soru: string | null
@@ -89,7 +99,7 @@ export type Acilim = {
   /** Kart bileşiminden türeyen, yüzdeli somut olay tahminleri */
   ihtimaller: Ihtimal[]
   /** Yalnızca evet-hayır açılımında dolu */
-  cevap: { deger: EvetHayir; metin: string } | null
+  cevap: Cevap | null
   /** Aynı girdilerle aynı açılımı üretmeyi sağlayan anahtar */
   tohum: string
 }
@@ -188,22 +198,44 @@ function kaynakCumleSec(kart: Kart, ters: boolean, rast: () => number): string {
   return secenekler[Math.floor(rast() * secenekler.length)] ?? kart.kaynak.ad
 }
 
-/** Evet-hayır: kartın tabiatı ve yönü birlikte karar verir. */
-function cevapHesapla(cekilen: CekilenKart): { deger: EvetHayir; metin: string } {
-  const temel = cekilen.kart.evetHayir
-  let deger: EvetHayir = temel
-  if (cekilen.ters) {
-    deger = temel === 'evet' ? 'belki' : temel === 'belki' ? 'hayir' : 'hayir'
-  }
+/**
+ * Evet-hayır açılımı her zaman net bir taraf tutar: "belki" bir cevap değil,
+ * cevabın zayıf olmasıdır. Bu yüzden kartın tabiatı bir güç puanına çevrilir
+ * (0 kesin hayır, 1 kesin evet) ve taraf bu puanın yönünden okunur; puanın
+ * kendisi de kullanıcıya gösterilir.
+ */
+const CEVAP_TABANI: Record<EvetHayir, number> = { evet: 0.8, belki: 0.56, hayir: 0.22 }
+
+/** Takımların geleneksel evet/hayır eğilimi; kılıçlar en olumsuz takımdır. */
+const TAKIM_EGILIMI: Record<Takim, number> = {
+  major: 0,
+  wands: 0.04,
+  cups: 0.05,
+  coins: 0.03,
+  swords: -0.06,
+}
+
+function cevapHesapla(cekilen: CekilenKart): Cevap {
+  let guc = CEVAP_TABANI[cekilen.kart.evetHayir] + TAKIM_EGILIMI[cekilen.kart.takim]
+
+  // Ters kart olumluyu zayıflatır, olumsuzu ise biraz yumuşatır: ters gelen
+  // bir "hayır" kartı kesin bir kapanma değil, geçici bir tıkanmadır.
+  if (cekilen.ters) guc += guc >= 0.5 ? -0.2 : 0.1
+
+  guc = Math.min(0.94, Math.max(0.06, guc))
+  const deger: CevapDegeri = guc >= 0.5 ? 'evet' : 'hayir'
+  const ad = `${cekilen.kart.ad}${cekilen.ters ? ' (ters)' : ''}`
 
   const metin =
-    deger === 'evet'
-      ? `Deste net konuşuyor: evet. ${cekilen.kart.ad} bu soruya yeşil ışık yakıyor — ama kendiliğinden olmasını bekleme, üstüne düşeni yap.`
-      : deger === 'hayir'
-        ? `Cevap hayır. ${cekilen.kart.ad}${cekilen.ters ? ' ters' : ''} çıkması, bu yolun şu an sana kapalı olduğunu söylüyor. Israr etmek yerine soruyu değiştirmeyi dene.`
-        : `Kesin bir cevap yok: belki. ${cekilen.kart.ad} "koşullar henüz olgunlaşmadı" diyor. Eksik bir bilgi ya da tamamlanmamış bir adım var; onu halledersen cevap evete döner.`
+    guc >= 0.72
+      ? `Deste tereddüt etmiyor: evet. ${ad} bu soruya açık açık yeşil ışık yakıyor. Koşullar senden yana; tek beklenen, üstüne düşeni yapman.`
+      : guc >= 0.5
+        ? `Cevap evet, ama koşullu. ${ad} "olur" diyor; yalnız kendiliğinden olmasını bekleme. Eksik bir adım ya da tamamlanmamış bir hazırlık var — onu halledersen bu evet kesinleşir.`
+        : guc >= 0.36
+          ? `Cevap hayır — ama kapı çarpıp kapanmış değil. ${ad} "şimdi değil" diyor. Soruyu birkaç ay sonra ya da biraz değiştirerek sorarsan başka bir cevap alabilirsin.`
+          : `Cevap net bir hayır. ${ad} bu yolun sana kapalı olduğunu söylüyor. Israr etmek yerine soruyu değiştirmek, hatta konuyu bütünüyle bırakmak daha çok kazandırır.`
 
-  return { deger, metin }
+  return { deger, guc, metin }
 }
 
 /** Açılımın geneline bakarak istatistiksel bir sentez yazar. */

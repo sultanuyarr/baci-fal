@@ -114,17 +114,40 @@ describe('açılımlar', () => {
     expect(a.cevap!.metin).toContain(a.kartlar[0].kart.ad)
   })
 
-  it('ters kart olumlu cevabı yumuşatır', () => {
-    // Düz "evet" kartı ters geldiğinde cevap asla "evet" kalmaz.
-    let denendi = 0
-    for (let i = 0; i < 200 && denendi < 5; i++) {
+  it('cevap her zaman evet ya da hayır; "belki" verilmez', () => {
+    for (let i = 0; i < 120; i++) {
       const a = acilimYap({ ...istek, tur: 'evet-hayir', tur_no: i })
-      if (a.kartlar[0].ters && a.kartlar[0].kart.evetHayir === 'evet') {
-        expect(a.cevap!.deger).toBe('belki')
-        denendi++
-      }
+      expect(['evet', 'hayir']).toContain(a.cevap!.deger)
+      expect(a.cevap!.metin).not.toContain('belki')
     }
-    expect(denendi).toBeGreaterThan(0)
+  })
+
+  it('ters kart olumlu cevabı zayıflatır ama sıfırlamaz', () => {
+    // Aynı "evet" kartının düz ve ters hâlini bul, güç puanlarını karşılaştır.
+    const duz = new Map<string, number>()
+    const ters = new Map<string, number>()
+    for (let i = 0; i < 300; i++) {
+      const a = acilimYap({ ...istek, tur: 'evet-hayir', tur_no: i })
+      const k = a.kartlar[0]
+      if (k.kart.evetHayir !== 'evet') continue
+      ;(k.ters ? ters : duz).set(k.kart.id, a.cevap!.guc)
+    }
+    const ortak = [...ters.keys()].filter((id) => duz.has(id))
+    expect(ortak.length).toBeGreaterThan(0)
+    for (const id of ortak) {
+      expect(ters.get(id)!, id).toBeLessThan(duz.get(id)!)
+      // Ters gelmesi kartı "hayır"a çevirmez, yalnızca cevabı koşullu kılar.
+      expect(ters.get(id)!, id).toBeGreaterThanOrEqual(0.5)
+    }
+  })
+
+  it('cevabın gücü 0 ile 1 arasında kalır ve yönüyle tutarlıdır', () => {
+    for (let i = 0; i < 120; i++) {
+      const c = acilimYap({ ...istek, tur: 'evet-hayir', tur_no: i }).cevap!
+      expect(c.guc).toBeGreaterThan(0)
+      expect(c.guc).toBeLessThan(1)
+      expect(c.deger).toBe(c.guc >= 0.5 ? 'evet' : 'hayir')
+    }
   })
 
   it('özet açılımın gerçek bileşimini anlatır', () => {

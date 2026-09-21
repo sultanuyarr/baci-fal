@@ -1,0 +1,43 @@
+# Testleri, lint'i ve derlemeyi her push'ta çalıştırır.
+#
+# Yayın artık Vercel'de: site bir sunucu ucu (app/api/yorum) içerdiği için
+# statik dışa aktarılamıyor, dolayısıyla GitHub Pages'e yayınlanamıyor.
+# Vercel deposu kendisi izliyor; burada yalnızca doğrulama yapılır.
+name: Sınama
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sinama-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  sina:
+    name: Testler, lint ve derleme
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Bağımlılıkları kur
+        run: npm ci
+
+      - name: Testleri çalıştır
+        run: npm test
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Derle
+        run: npm run build

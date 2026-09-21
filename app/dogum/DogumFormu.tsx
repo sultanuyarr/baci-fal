@@ -2,8 +2,11 @@
 
 import { useState } from 'react'
 import { haritaCikar, type DogumHaritasi } from '@/lib/dogum/harita'
+import { useAiYorumu } from '@/lib/ai/istemci'
+import type { DogumGirdisi as AiDogumGirdisi } from '@/lib/ai/tipler'
 import { Baslik, Dugme, Hata, Olcum, Panel } from '@/components/Panel'
 import { Ihtimaller } from '@/components/Ihtimaller'
+import { YorumBolumleri, YorumKapanisi, YorumOzeti } from '@/components/Yorum'
 
 type IlSecenegi = { plaka: number; ad: string }
 
@@ -151,7 +154,50 @@ export function DogumFormu({ iller }: { iller: IlSecenegi[] }) {
   )
 }
 
+/** Yorumu yazması için modele gönderilen harita özeti. */
+function aiGirdisi(h: DogumHaritasi): AiDogumGirdisi {
+  return {
+    tur: 'dogum',
+    isim: h.isim,
+    gunes: {
+      burc: h.gunes.burc.ad,
+      derece: h.gunes.derece,
+      element: h.gunes.burc.element,
+      nitelik: h.gunes.burc.nitelik,
+    },
+    ay: {
+      burc: h.ay.burc.ad,
+      derece: h.ay.derece,
+      element: h.ay.burc.element,
+      evre: h.ay.evre.ad,
+      aydinlanma: h.ay.evre.aydinlanma,
+    },
+    yukselen: h.yukselen
+      ? {
+          burc: h.yukselen.burc.ad,
+          derece: h.yukselen.derece,
+          element: h.yukselen.burc.element,
+        }
+      : null,
+    denge: {
+      elementler: h.denge.elementler,
+      baskinElement: h.denge.baskinElement,
+      baskinNitelik: h.denge.baskinNitelik,
+    },
+    numeroloji: {
+      yasamYolu: { sayi: h.numeroloji.yasamYolu.sayi, baslik: h.numeroloji.yasamYolu.baslik },
+      ifade: h.numeroloji.ifade.sayi,
+      ruhArzusu: h.numeroloji.ruhArzusu.sayi,
+      kisilik: h.numeroloji.kisilik.sayi,
+      kisiselYil: { sayi: h.numeroloji.kisiselYil.sayi, yil: h.numeroloji.kisiselYilYili },
+    },
+    cin: { ad: h.cin.ad, hayvan: h.cin.hayvan.ad, element: h.cin.element },
+    ihtimaller: h.ihtimaller,
+  }
+}
+
 function HaritaSonucu({ harita: h }: { harita: DogumHaritasi }) {
+  const sonuc = useAiYorumu(aiGirdisi(h))
   const yerlesimler = [
     { etiket: 'Güneş', simge: '☉', yer: h.gunes, aciklama: 'Özün, iradenin ve hayattaki ana yönün' },
     { etiket: 'Ay', simge: '☽', yer: h.ay, aciklama: 'Duygusal dünyan ve içgüdüsel tepkilerin' },
@@ -162,17 +208,17 @@ function HaritaSonucu({ harita: h }: { harita: DogumHaritasi }) {
 
   return (
     <div className="space-y-6">
-      <Panel vurgulu className="belir p-6 sm:p-8">
-        <Baslik etiket="Büyük üçlün" baslik="Haritanın özeti" seviye={2} />
-        <p className="mt-4 leading-relaxed text-[#ded4f0]">{h.ozet}</p>
-        {h.notlar.length > 0 && (
-          <ul className="mt-4 space-y-1.5 border-t border-altin-400/12 pt-4 text-xs text-[#8f84ab]">
+      <YorumOzeti sonuc={sonuc} yedek={h.ozet} etiket="Büyük üçlün" />
+
+      {h.notlar.length > 0 && (
+        <Panel className="p-5">
+          <ul className="space-y-1.5 text-xs text-[#8f84ab]">
             {h.notlar.map((n) => (
               <li key={n}>· {n}</li>
             ))}
           </ul>
-        )}
-      </Panel>
+        </Panel>
+      )}
 
       <Ihtimaller
         ihtimaller={h.ihtimaller}
@@ -280,6 +326,10 @@ function HaritaSonucu({ harita: h }: { harita: DogumHaritasi }) {
         <p className="mt-3 text-sm leading-relaxed text-[#c3b8dd]">{h.cin.hayvan.metin}</p>
         <p className="mt-2 text-sm leading-relaxed text-[#c3b8dd]">{h.cin.elementYorumu}</p>
       </Panel>
+
+      <YorumBolumleri sonuc={sonuc} yedek={[]} />
+
+      <YorumKapanisi sonuc={sonuc} yedek="" />
 
       <Panel className="p-6">
         <h3 className="font-baslik text-xl font-semibold text-altin-300">Hesabın girdileri</h3>

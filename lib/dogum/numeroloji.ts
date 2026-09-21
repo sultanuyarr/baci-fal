@@ -54,6 +54,8 @@ export type NumerolojiSonucu = {
   kisilik: SayiYorumu
   dogumGunu: SayiYorumu
   kisiselYil: SayiYorumu
+  /** Kişisel yılın hesaplandığı takvim yılı */
+  kisiselYilYili: number
   /** Hesabın nasıl yapıldığını gösteren adımlar */
   adimlar: string[]
 }
@@ -187,6 +189,7 @@ export function numerolojiHesapla(isim: string, dogum: string, yil: number): Num
     kisilik: yorum(kisilik, KISILIK, 'Kişilik sayısı'),
     dogumGunu: yorum(dogumGunu, IFADE, 'Doğum günü sayısı'),
     kisiselYil: yorum(kisiselYil, KISISEL_YIL, `${yil} kişisel yılı`),
+    kisiselYilYili: yil,
     adimlar,
   }
 }

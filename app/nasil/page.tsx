@@ -206,12 +206,31 @@ export default function NasilSayfasi() {
         <Panel className="p-7 sm:p-8">
           <h2 className="font-baslik text-2xl font-semibold text-altin-300">Gizlilik</h2>
           <p className="mt-3 text-sm leading-relaxed text-[#c3b8dd]">
-            Bu sitenin sunucusu yok. Kahve falı, tarot ve doğum haritası hesaplarının tamamı
-            tarayıcında çalışır; site yalnızca statik dosyalardan ibarettir. Yüklediğin
-            fotoğraf hiçbir yere gönderilmez, ismin ve doğum tarihin hiçbir yere kaydedilmez.
-            İstersen sayfayı açtıktan sonra internet bağlantını kesip fal baktırabilirsin —
-            yine de çalışır.
+            Hesapların tamamı hâlâ tarayıcında çalışıyor. <strong>Yüklediğin fincan
+            fotoğrafı cihazından hiç çıkmıyor</strong> — ölçümü Canvas üzerinden burada
+            yapılıyor, hiçbir sunucuya gönderilmiyor.
           </p>
+          <p className="mt-3 text-sm leading-relaxed text-[#c3b8dd]">
+            Tek istisna, okumayı yazan yapay zekâ yorumu. Onun için{' '}
+            <strong>hesaplanmış sayılar</strong> — telve oranları, çıkan sembollerin adları,
+            çekilen kartlar, gök konumların, numeroloji sayıların ve yüzdeler — sitenin
+            sunucu ucundan Google’ın Gemini servisine gönderilir. Doğum haritasında bu
+            veriye <strong>girdiğin ad ve doğum tarihinden türeyen sayılar</strong> da
+            dahildir; adın yorumda sana hitap edebilmek için modele iletilir.
+          </p>
+          <ul className="mt-3 space-y-1.5 text-sm leading-relaxed text-[#c3b8dd]">
+            <li>· Bu site hiçbir şeyi veritabanına yazmaz; kayıt tutulmaz, hesap açılmaz.</li>
+            <li>
+              · Gemini’nin ücretsiz katmanında gönderilen içerik, Google tarafından
+              hizmetlerini geliştirmek için kullanılabilir. Bunu istemiyorsan yapay zekâ
+              yorumunu beklemeden sayfayı kapatabilirsin; hesaplanmış okuma ve yüzdeler
+              zaten tarayıcında üretiliyor.
+            </li>
+            <li>
+              · Yapay zekâ yorumu bir katman, zorunluluk değil. Kapalıyken ya da kota
+              dolduğunda site aynı şekilde çalışır, yerine hesaplanmış okuma gelir.
+            </li>
+          </ul>
         </Panel>
 
         <Panel vurgulu className="p-7 sm:p-8">

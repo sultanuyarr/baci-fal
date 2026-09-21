@@ -4,9 +4,12 @@ import { useRef, useState } from 'react'
 import { dosyayiAnalizEt } from '@/lib/kahve/cozucu-tarayici'
 import type { FincanAnalizi } from '@/lib/kahve/goruntu'
 import { faliYorumla, type KahveFali } from '@/lib/kahve/yorum'
-import { Baslik, Dugme, Hata, Olcum, Panel } from '@/components/Panel'
+import { useAiYorumu } from '@/lib/ai/istemci'
+import type { KahveGirdisi } from '@/lib/ai/tipler'
+import { Dugme, Hata, Olcum, Panel } from '@/components/Panel'
 import { Ihtimaller } from '@/components/Ihtimaller'
 import { TelveHaritasi } from '@/components/TelveHaritasi'
+import { YorumBolumleri, YorumKapanisi, YorumOzeti } from '@/components/Yorum'
 
 const YUZDE = (o: number) => `%${(o * 100).toFixed(0)}`
 
@@ -134,18 +137,41 @@ export function KahveFormu() {
   )
 }
 
+/** Yorumu yazması için modele gönderilen özet; fotoğraf gönderilmez. */
+function aiGirdisi(fal: KahveFali): KahveGirdisi {
+  return {
+    tur: 'kahve',
+    olcumler: {
+      doluluk: fal.olcumler.doluluk,
+      simetri: fal.olcumler.simetri,
+      hareket: fal.olcumler.hareket,
+      aciklik: fal.olcumler.aciklik,
+      lekeSayisi: fal.olcumler.lekeSayisi,
+      bolgeler: fal.olcumler.bolgeler,
+      yarimlar: { sol: fal.olcumler.yarimlar.sol, sag: fal.olcumler.yarimlar.sag },
+    },
+    semboller: fal.semboller.map((s) => ({
+      ad: s.ad,
+      anlam: s.anlam,
+      bolge: s.bolge,
+      yon: s.yon === 'sag' ? 'sağ' : 'sol',
+      guven: s.guven,
+    })),
+    ihtimaller: fal.ihtimaller,
+  }
+}
+
 function FalSonucu({ fal, analiz }: { fal: KahveFali; analiz: FincanAnalizi }) {
+  const sonuc = useAiYorumu(aiGirdisi(fal))
+
   return (
     <div className="space-y-6">
-      <Panel vurgulu className="belir p-6 sm:p-8">
-        <Baslik etiket="Fincanın söyledikleri" baslik="Okuma" seviye={2} />
-        <div className="mt-4 flex flex-col gap-6 sm:flex-row sm:items-start">
-          <p className="flex-1 leading-relaxed text-[#ded4f0]">{fal.ozet}</p>
-          <div className="shrink-0">
-            <TelveHaritasi analiz={analiz} />
-          </div>
-        </div>
-      </Panel>
+      <YorumOzeti
+        sonuc={sonuc}
+        yedek={fal.ozet}
+        etiket="Fincanın söyledikleri"
+        yan={<TelveHaritasi analiz={analiz} />}
+      />
 
       <Ihtimaller
         ihtimaller={fal.ihtimaller}
@@ -188,14 +214,7 @@ function FalSonucu({ fal, analiz }: { fal: KahveFali; analiz: FincanAnalizi }) {
         </section>
       )}
 
-      <section className="grid gap-4 sm:grid-cols-2">
-        {fal.bolumler.map((b) => (
-          <Panel key={b.baslik} className="belir p-6">
-            <h3 className="font-baslik text-xl font-semibold text-altin-300">{b.baslik}</h3>
-            <p className="mt-2.5 text-sm leading-relaxed text-[#c3b8dd]">{b.metin}</p>
-          </Panel>
-        ))}
-      </section>
+      <YorumBolumleri sonuc={sonuc} yedek={fal.bolumler} />
 
       <Panel className="p-6">
         <h3 className="font-baslik text-xl font-semibold text-altin-300">Fincanın ölçüleri</h3>
@@ -214,9 +233,7 @@ function FalSonucu({ fal, analiz }: { fal: KahveFali; analiz: FincanAnalizi }) {
         </dl>
       </Panel>
 
-      <Panel vurgulu className="belir p-6 text-center">
-        <p className="font-baslik text-lg italic text-altin-300">{fal.kapanis}</p>
-      </Panel>
+      <YorumKapanisi sonuc={sonuc} yedek={fal.kapanis} />
     </div>
   )
 }

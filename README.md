@@ -6,10 +6,14 @@
 
 Fincanındaki telve gerçekten ölçülüyor · Tarot destesi yayımlanmış bir veri setinden geliyor · Burcun doğduğun andaki gök konumundan hesaplanıyor
 
-### 👉 **[Siteyi aç: sultanuyarr.github.io/baci-fal](https://sultanuyarr.github.io/baci-fal/)**
+### 👉 Site Vercel'e taşınıyor — yeni adres yayına girince buraya yazılacak.
 
-Kurulum yok, üyelik yok, sunucu yok — **her şey tarayıcında çalışıyor.**
-Yüklediğin fincan fotoğrafı cihazından hiç çıkmıyor.
+<sub>Eski GitHub Pages adresi (<code>sultanuyarr.github.io/baci-fal</code>) yapay zekâ
+yorumundan önceki sürümü gösterir; sunucu ucu eklendiği için oraya artık yayın yapılmıyor.</sub>
+
+Kurulum yok, üyelik yok — **bütün hesaplar tarayıcında çalışıyor.**
+Yüklediğin fincan fotoğrafı cihazından hiç çıkmıyor; okumayı yazan yapay zekâ
+yorumuna yalnızca hesaplanmış sayılar gider.
 
 <br>
 
@@ -151,11 +155,21 @@ npm install
 npm run dev          # http://localhost:3000
 ```
 
-Statik siteyi yerelde üretmek için:
+Üretim derlemesi:
 
 ```bash
-npm run build        # çıktı: out/
+npm run build
 ```
+
+Yapay zekâ yorumu için Gemini anahtarı gerekir. [Google AI
+Studio](https://aistudio.google.com/apikey)'dan ücretsiz alınır:
+
+```bash
+cp .env.example .env.local   # GEMINI_API_KEY=... satırını doldur
+```
+
+Anahtar tanımsızsa site yine çalışır: yapay zekâ yorumu yerine tarayıcıda
+hesaplanan okuma gösterilir.
 
 Veri dosyaları depoda hazır gelir. Yeniden çekmek istersen:
 
@@ -208,9 +222,14 @@ app/
 components/
   Panel.tsx              Ortak arayüz parçaları
   Ihtimaller.tsx         Yüzdeli "en olası gelişmeler" listesi
+  Yorum.tsx              Okuma metni: yapay zekâ yorumu ya da hesaplanmış yedek
   TelveHaritasi.tsx      Tespit edilen fincan ve telve maskesini çizen tuval
+app/api/yorum/         Gemini'yi çağıran sunucu ucu (anahtar burada kalır)
 lib/
-  altyol.ts              GitHub Pages alt dizini için varlık adresleri
+  ai/tipler.ts           İstemci ile sunucunun paylaştığı yorum tipleri
+  ai/istem.ts            Modele verilen istem (ölçümler + "uydurma" talimatı)
+  ai/istemci.ts          Yorumu isteyen kanca; gelmezse yedeğe düşer
+  altyol.ts              Alt dizinde yayınlamak için varlık adresleri
   kahve/goruntu.ts       Saf görüntü analizi (platformdan bağımsız)
   kahve/cozucu-tarayici.ts  Canvas ile fotoğraf çözme
   kahve/cozucu-node.ts   sharp ile fotoğraf çözme (testler)
@@ -234,32 +253,55 @@ tests/                   Vitest test takımı
 .github/workflows/       Pages'e otomatik yayın
 ```
 
+## 🤖 Yapay zekâ yorumu
+
+Okumanın metnini Google'ın **Gemini** modeli yazar. Model hesap yapmaz:
+bütün sayılar tarayıcıda çoktan hesaplanmıştır, modele düşen iş onları uzun
+ve tutarlı bir Türkçe okumaya çevirmektir. İstem, "bu sayıların dışına çıkma,
+yeni sembol ya da kart uydurma, verilen yüzdelerle çelişme" talimatını taşır
+([`lib/ai/istem.ts`](lib/ai/istem.ts)).
+
+| | |
+|---|---|
+| Model | `gemini-3.5-flash-lite` (ücretsiz katman) |
+| Anahtar nerede | Yalnızca sunucu ortam değişkeninde; istemciye hiç gitmez |
+| Modele giden | Telve oranları, sembol adları, kartlar, gök konumları, numeroloji sayıları, yüzdeler |
+| Modele gitmeyen | **Fincan fotoğrafı** — cihazdan hiç çıkmaz |
+| Yetişmezse | Tarayıcıda hesaplanmış okuma gösterilir, site çalışmaya devam eder |
+
+Ücretsiz katmanın günlük kotası olduğu için sunucu ucunda kaba bir hız sınırı
+var (dakikada 6 istek) ve Google 429 dönerse istemci sessizce hesaplanmış
+okumaya düşer ([`app/api/yorum/route.ts`](app/api/yorum/route.ts)).
+
 ## 🚢 Yayın
 
-`main` dalına her push'ta GitHub Actions testleri çalıştırır, siteyi statik
-olarak derler ve GitHub Pages'e yayınlar. Yapılandırma:
-[`.github/workflows/pages.yml`](.github/workflows/pages.yml)
+Site **Vercel**'de yayınlanır; sunucu ucu (`app/api/yorum`) eklendiği için
+statik dışa aktarım ve GitHub Pages artık mümkün değil. Vercel'de yapılacak
+tek ayar, **Project Settings → Environment Variables** altına
+`GEMINI_API_KEY` eklemek.
 
-Kendi hesabında yayınlamak istersen `next.config.ts` içindeki `altYol`
-değerini deponun adıyla değiştirmen yeterli.
+`main` dalına her push'ta GitHub Actions testleri, lint'i ve derlemeyi
+çalıştırır ([`.github/workflows/sinama.yml`](.github/workflows/sinama.yml));
+Vercel aynı push'ta yayınlar.
 
 ## 🛠 Teknoloji
 
-Next.js 16 (App Router, statik dışa aktarım) · TypeScript · Tailwind CSS 4 ·
-Canvas API · Vitest · GitHub Actions ile GitHub Pages'e otomatik yayın
+Next.js 16 (App Router) · TypeScript · Tailwind CSS 4 · Canvas API ·
+Gemini API · Vitest · Vercel
 
 `sharp` yalnızca geliştirme bağımlılığıdır: testlerde ve görsel denetim
 betiğinde fotoğraf çözmek için kullanılır, yayınlanan siteye girmez.
 
 ## 🔒 Gizlilik
 
-**Sunucu yok.** Site yalnızca statik dosyalardan ibaret; kahve falı, tarot ve
-doğum haritası hesaplarının tamamı senin tarayıcında çalışıyor.
+Kahve falı, tarot ve doğum haritası hesaplarının tamamı senin tarayıcında
+çalışır. Sunucudan geçen tek şey yapay zekâ yorumudur.
 
-- Yüklediğin fotoğraf hiçbir yere gönderilmez — Canvas ile okunur, cihazında işlenir
-- İsim, doğum tarihi ve doğum yeri hiçbir yere kaydedilmez
-- Veritabanı, çerez, izleme kodu yok
-- Sayfa açıldıktan sonra internet bağlantını kesip fal baktırabilirsin; yine çalışır
+- **Yüklediğin fotoğraf hiçbir yere gönderilmez** — Canvas ile okunur, cihazında işlenir
+- Yorum için yalnızca hesaplanmış sayılar Gemini'ye iletilir; doğum haritasında buna girdiğin ad da dahildir
+- Gemini'nin ücretsiz katmanında gönderilen içerik Google tarafından hizmetlerini geliştirmek için kullanılabilir
+- Bu site hiçbir şeyi veritabanına yazmaz; kayıt, hesap, çerez, izleme kodu yok
+- Yapay zekâ yorumu kapalıyken site aynı şekilde çalışır
 
 Aynı analiz kodu hem tarayıcıda hem testlerde çalışır: görüntü işleme ham piksel
 dizisi üzerinde saf hesap yapar, platforma bağlı tek şey fotoğrafın çözülmesidir

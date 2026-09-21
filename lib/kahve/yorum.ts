@@ -21,6 +21,8 @@ export type SembolOkumasi = {
   emoji: string
   anlam: string
   konum: string
+  bolge: Bolge
+  yon: 'sol' | 'sag'
   guven: number
   olculer: {
     dairesellik: number
@@ -285,6 +287,8 @@ export function faliYorumla(analiz: FincanAnalizi): KahveFali {
     emoji: e.sembol.emoji,
     anlam: e.sembol.anlam,
     konum: konumCumlesi(e),
+    bolge: e.leke.bolge,
+    yon: e.leke.yon,
     guven: e.guven,
     olculer: {
       dairesellik: e.leke.dairesellik,

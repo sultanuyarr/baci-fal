@@ -4,18 +4,28 @@ import Image from 'next/image'
 import { useState } from 'react'
 import { varlik } from '@/lib/altyol'
 import { acilimYap, type Acilim, type AcilimTuru } from '@/lib/tarot/acilim'
-import { Baslik, Dugme, Hata, Panel } from '@/components/Panel'
+import { useAiYorumu } from '@/lib/ai/istemci'
+import type { TarotGirdisi } from '@/lib/ai/tipler'
+import { Dugme, Hata, Panel } from '@/components/Panel'
 import { Ihtimaller } from '@/components/Ihtimaller'
+import { YorumBolumleri, YorumKapanisi, YorumOzeti } from '@/components/Yorum'
 
 type AcilimSecenegi = { tur: AcilimTuru; ad: string; ozet: string; kartSayisi: number }
 
 const CEVAP_RENGI: Record<string, string> = {
   evet: 'text-emerald-300 border-emerald-400/40 bg-emerald-400/10',
   hayir: 'text-gul-400 border-gul-500/40 bg-gul-500/10',
-  belki: 'text-altin-300 border-altin-400/40 bg-altin-400/10',
 }
 
-const CEVAP_METNI: Record<string, string> = { evet: 'EVET', hayir: 'HAYIR', belki: 'BELKİ' }
+const CEVAP_METNI: Record<string, string> = { evet: 'EVET', hayir: 'HAYIR' }
+
+/** Cevabın ne kadar sağlam olduğunu tek kelimeyle söyler. */
+function cevapGucu(guc: number): string {
+  const uzaklik = Math.abs(guc - 0.5)
+  if (uzaklik >= 0.22) return 'kesin'
+  if (uzaklik >= 0.12) return 'güçlü'
+  return 'kıl payı'
+}
 
 export function TarotFormu({ acilimlar }: { acilimlar: AcilimSecenegi[] }) {
   const [tur, setTur] = useState<AcilimTuru>('uclu')
@@ -166,7 +176,29 @@ export function TarotFormu({ acilimlar }: { acilimlar: AcilimSecenegi[] }) {
   )
 }
 
+/** Yorumu yazması için modele gönderilen açılım özeti. */
+function aiGirdisi(acilim: Acilim): TarotGirdisi {
+  return {
+    tur: 'tarot',
+    acilim: acilim.tanim.ad,
+    soru: acilim.soru,
+    kartlar: acilim.kartlar.map((k) => ({
+      pozisyon: k.pozisyon.ad,
+      pozisyonAciklamasi: k.pozisyon.aciklama,
+      kart: k.kart.ad,
+      takim: k.kart.takim,
+      ters: k.ters,
+      anahtar: k.kart.anahtar,
+      anlam: k.ters ? k.kart.ters : k.kart.duz,
+    })),
+    cevap: acilim.cevap ? { deger: acilim.cevap.deger, guc: acilim.cevap.guc } : null,
+    ihtimaller: acilim.ihtimaller,
+  }
+}
+
 function AcilimSonucu({ acilim }: { acilim: Acilim }) {
+  const sonuc = useAiYorumu(aiGirdisi(acilim))
+
   return (
     <div className="space-y-6">
       {acilim.cevap && (
@@ -179,19 +211,26 @@ function AcilimSonucu({ acilim }: { acilim: Acilim }) {
           >
             {CEVAP_METNI[acilim.cevap.deger]}
           </p>
-          <p className="mx-auto mt-5 max-w-2xl leading-relaxed text-[#ded4f0]">
+          <p className="mt-4 text-xs uppercase tracking-[0.2em] text-altin-500">
+            {cevapGucu(acilim.cevap.guc)} · cevabın gücü %
+            {Math.round(
+              (acilim.cevap.deger === 'evet' ? acilim.cevap.guc : 1 - acilim.cevap.guc) * 100,
+            )}
+          </p>
+          <p className="mx-auto mt-4 max-w-2xl leading-relaxed text-[#ded4f0]">
             {acilim.cevap.metin}
           </p>
         </Panel>
       )}
 
-      <Panel vurgulu className="belir p-6 sm:p-8">
-        <Baslik etiket={acilim.tanim.ad} baslik="Açılımın geneli" seviye={2} />
-        {acilim.soru && (
-          <p className="mt-3 font-baslik text-lg italic text-altin-300">“{acilim.soru}”</p>
-        )}
-        <p className="mt-4 leading-relaxed text-[#ded4f0]">{acilim.ozet}</p>
-      </Panel>
+      {acilim.soru && (
+        <Panel className="belir p-5 text-center">
+          <p className="text-xs uppercase tracking-[0.2em] text-altin-500">Sorduğun</p>
+          <p className="mt-2 font-baslik text-lg italic text-altin-300">“{acilim.soru}”</p>
+        </Panel>
+      )}
+
+      <YorumOzeti sonuc={sonuc} yedek={acilim.ozet} etiket={acilim.tanim.ad} />
 
       <Ihtimaller
         ihtimaller={acilim.ihtimaller}
@@ -271,6 +310,10 @@ function AcilimSonucu({ acilim }: { acilim: Acilim }) {
           </div>
         ))}
       </div>
+
+      <YorumBolumleri sonuc={sonuc} yedek={[]} />
+
+      <YorumKapanisi sonuc={sonuc} yedek="" />
 
       <p className="text-center text-xs text-[#8f84ab]">
         Kart görselleri: Rider–Waite–Smith destesi (1909), Pamela Colman Smith — kamu malı.

@@ -1,27 +1,25 @@
 import type { NextConfig } from 'next'
 
 /**
- * Site tamamen statik dosya olarak dışa aktarılır ve GitHub Pages'ten sunulur.
- * Sunucu yok: kahve falı, tarot ve doğum haritası hesaplarının tamamı
- * kullanıcının tarayıcısında çalışır. Yüklenen fotoğraf cihazdan hiç çıkmaz.
+ * Site Vercel'de yayınlanır.
  *
- * GitHub Pages proje sayfaları alt dizinde yayınlandığı için (…/baci-fal/)
- * basePath gerekir. Yerelde çalışırken bu ön ek istenmez, bu yüzden yalnız
- * üretim derlemesinde uygulanır.
+ * Kahve falı, tarot ve doğum haritası hesaplarının tamamı hâlâ kullanıcının
+ * tarayıcısında çalışır — yüklenen fotoğraf cihazdan hiç çıkmaz. Sunucudan
+ * geçen tek şey yapay zekâ yorumudur (app/api/yorum): tarayıcıda hesaplanmış
+ * sayılar oraya gidip Gemini'ye iletilir. Gemini anahtarı yalnızca sunucu
+ * ortam değişkeninde durur, istemciye hiç gönderilmez.
+ *
+ * Not: Site eskiden GitHub Pages'e statik dışa aktarılıyordu. Sunucu ucu
+ * eklendiği için statik dışa aktarım (`output: 'export'`) artık mümkün değil;
+ * lib/altyol.ts'teki alt yol desteği ise duruyor, alt dizinde yayınlamak
+ * gerekirse NEXT_PUBLIC_ALT_YOL yeterli.
  */
-const uretim = process.env.NODE_ENV === 'production'
-const altYol = process.env.NEXT_PUBLIC_ALT_YOL ?? (uretim ? '/baci-fal' : '')
+const altYol = process.env.NEXT_PUBLIC_ALT_YOL ?? ''
 
 const nextConfig: NextConfig = {
-  output: 'export',
-  basePath: altYol,
-  // Pages'te /yol/ adresleri /yol/index.html dosyasına düşer.
+  ...(altYol ? { basePath: altYol } : {}),
+  // Adresler eskiden beri sonda bölü çizgisiyle; bağlantılar bozulmasın.
   trailingSlash: true,
-  // Görsel eniyileme sunucu ister; statik dışa aktarımda kapalı olmalı.
-  images: { unoptimized: true },
-  // Statik dışa aktarımda next/image, basePath ön ekini kendiliğinden
-  // uygulamıyor. Bu yüzden alt yolu istemciye de aktarıp public/ altındaki
-  // dosyalara verdiğimiz adresleri elle önekliyoruz (bkz. lib/altyol.ts).
   env: { NEXT_PUBLIC_ALT_YOL: altYol },
 }
 
