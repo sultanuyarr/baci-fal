@@ -8,7 +8,15 @@
  * değil — anahtar tanımsızken ya da kota dolduğunda site çalışmaya devam eder.
  */
 import { useCallback, useEffect, useState } from 'react'
+import { ALT_YOL } from '@/lib/altyol'
 import { AI_HATA_METNI, type AiGirdi, type AiYanit, type AiYorum } from './tipler'
+
+/**
+ * Sunucu ucunun adresi. Kökten yazılır: göreli yazılırsa "/tarot/" sayfasından
+ * "/tarot/api/yorum" çağrılır ve 404 alınır. Sondaki bölü çizgisi de şart,
+ * çünkü next.config'te trailingSlash açık ve eksiği 308 ile yönlendiriliyor.
+ */
+export const UC = `${ALT_YOL}/api/yorum/`
 
 export type AiDurumu = 'bekliyor' | 'yazıyor' | 'hazır' | 'yedek'
 
@@ -48,7 +56,7 @@ export function useAiYorumu(girdi: AiGirdi | null): AiSonucu {
     const durdurucu = new AbortController()
     ;(async () => {
       try {
-        const yanit = await fetch('./api/yorum', {
+        const yanit = await fetch(UC, {
           method: 'POST',
           headers: { 'content-type': 'application/json' },
           body: govde,

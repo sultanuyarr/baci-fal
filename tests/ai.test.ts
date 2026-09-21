@@ -1,11 +1,24 @@
 import { describe, expect, it } from 'vitest'
 import { istemKur, SISTEM_TALIMATI } from '@/lib/ai/istem'
+import { UC } from '@/lib/ai/istemci'
 import type { DogumGirdisi, KahveGirdisi, TarotGirdisi } from '@/lib/ai/tipler'
 import { faliYorumla } from '@/lib/kahve/yorum'
 import { tamponuAnalizEt } from '@/lib/kahve/cozucu-node'
 import { acilimYap } from '@/lib/tarot/acilim'
 import { haritaCikar } from '@/lib/dogum/harita'
 import { C, cizgi, daire, pngYap, tuval } from './yardimci-tuval'
+
+describe('sunucu ucunun adresi', () => {
+  it('kökten yazılır, yoksa alt sayfadan yanlış adrese gider', () => {
+    // "./api/yorum" olsaydı /tarot/ sayfasından /tarot/api/yorum çağrılırdı.
+    expect(UC.startsWith('/')).toBe(true)
+    expect(new URL(UC, 'https://ornek.test/tarot/').pathname).toBe('/api/yorum/')
+  })
+
+  it('sonda bölü çizgisi var; trailingSlash 308 yönlendirmesi olmasın', () => {
+    expect(UC.endsWith('/')).toBe(true)
+  })
+})
 
 describe('sistem talimatı', () => {
   it('modelin uydurmasını ve sayıları değiştirmesini yasaklar', () => {
