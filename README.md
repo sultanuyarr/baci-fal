@@ -6,10 +6,10 @@
 
 Fincanındaki telve gerçekten ölçülüyor · Tarot destesi yayımlanmış bir veri setinden geliyor · Burcun doğduğun andaki gök konumundan hesaplanıyor
 
-### 👉 Site Vercel'e taşınıyor — yeni adres yayına girince buraya yazılacak.
+### 👉 **[Siteyi aç: baci-fal.vercel.app](https://baci-fal.vercel.app/)**
 
 <sub>Eski GitHub Pages adresi (<code>sultanuyarr.github.io/baci-fal</code>) yapay zekâ
-yorumundan önceki sürümü gösterir; sunucu ucu eklendiği için oraya artık yayın yapılmıyor.</sub>
+yorumundan önceki sürümde kalmıştır; sunucu ucu eklendiği için oraya artık yayın yapılmıyor.</sub>
 
 Kurulum yok, üyelik yok — **bütün hesaplar tarayıcında çalışıyor.**
 Yüklediğin fincan fotoğrafı cihazından hiç çıkmıyor; okumayı yazan yapay zekâ
