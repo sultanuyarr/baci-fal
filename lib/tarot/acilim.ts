@@ -1,7 +1,9 @@
 /**
  * Açılımlar: kart çekme, pozisyon yorumu ve açılım geneli sentez.
  */
+import { ihtimalOzeti, type Ihtimal } from '@/lib/ihtimal'
 import { DESTE, TAKIM_ADI, TAKIM_TEMASI, type EvetHayir, type Kart, type Takim } from './deste'
+import { tarotIhtimalleri } from './ihtimaller'
 import { karistir, tohumla, uretec } from './rastgele'
 
 export type AcilimTuru = 'gunluk' | 'evet-hayir' | 'uclu' | 'ask' | 'kelt'
@@ -84,6 +86,8 @@ export type Acilim = {
   soru: string | null
   kartlar: CekilenKart[]
   ozet: string
+  /** Kart bileşiminden türeyen, yüzdeli somut olay tahminleri */
+  ihtimaller: Ihtimal[]
   /** Yalnızca evet-hayır açılımında dolu */
   cevap: { deger: EvetHayir; metin: string } | null
   /** Aynı girdilerle aynı açılımı üretmeyi sağlayan anahtar */
@@ -119,19 +123,63 @@ export function tohumMetni(istek: AcilimIstegi): string {
   ].join('|')
 }
 
+/**
+ * Aynı kart, düştüğü pozisyona göre başka bir şey söyler. Bu tablo kartın
+ * genel anlamını o pozisyonun sorusuna bağlar.
+ */
+const POZISYON_VURGUSU: Record<string, string> = {
+  Bugün:
+    'Bugün alacağın kararlarda bu enerjiyi hesaba kat; günün geri kalanı büyük ölçüde bu eksende ilerler.',
+  Cevap:
+    'Cevabı sertleştiren ya da yumuşatan şey bu kartın tabiatı; soruyu soruş biçimin de cevabın bir parçası.',
+  Geçmiş:
+    'Bu bitmiş bir şey değil: bugün verdiğin tepkilerin bir kısmı hâlâ buradan besleniyor.',
+  Şimdi: 'Şu an yaşadığın şeyin adı bu; başka yerde aradığın sebep burada duruyor.',
+  Gelecek:
+    'Bugünkü tutumunu değiştirmezsen varacağın yer burası. Kart bir kader değil, bir gidişat söylüyor.',
+  Sen: 'Bu senin duruşun; karşı taraf seni büyük ihtimalle böyle görüyor.',
+  'Karşı taraf':
+    'Diğer kişinin yaklaşımı bu. Söylediklerinden çok bu kartın anlattığına bak.',
+  'Aranızdaki bağ':
+    'Sizi bir arada tutan ya da yoran şey bu; ilişkinin asıl zemini burada.',
+  Engel: 'Seni durduran şey bu. Bazen bir kişi, çoğu zaman kendi alışkanlığın.',
+  Gidişat:
+    'İlişki bugünkü hâliyle buraya gidiyor; yani müdahale edilebilir bir yön söz konusu.',
+  'Mevcut durum': 'Konunun kalbi bu; diğer kartlar hep bunun etrafında konuşuyor.',
+  Kök: 'Bunun farkında bile olmayabilirsin; kararlarının altındaki sessiz sebep bu.',
+  'Bilinçli hedef':
+    'Aklında kurduğun sonuç bu. Gerçekten istediğin şeyle aynı olup olmadığını sormakta fayda var.',
+  'Yakın gelecek': 'Önümüzdeki haftalarda en somut biçimde bunu göreceksin.',
+  Çevre:
+    'Koşulların ve çevrendeki insanların etkisi bu yönde; tek başına karar veriyor gibi hissetsen de değilsin.',
+  'Umut ve korku':
+    'Bu kart hem en çok istediğin hem en çok çekindiğin şeyi aynı anda gösterir; ikisi genelde aynı şeydir.',
+  Sonuç:
+    'Yol bu şekilde sürerse varılacak nokta burası; aradaki kartlar bunun değiştirilebilir olduğunu söylüyor.',
+}
+
+const TERS_NOTU =
+  'Kart ters geldiği için bu enerji dışarı değil içeri akıyor: konu çoğunlukla gecikme, direnç ya da henüz dile getirilmemiş bir şey olarak görünür.'
+
 /** Kartın pozisyondaki okumasını kurar. */
 function okumaYaz(kart: Kart, pozisyon: Pozisyon, ters: boolean, tur: AcilimTuru): string {
   const govde = ters ? kart.ters : kart.duz
   const baslik = `${pozisyon.ad} konumunda ${kart.ad}${ters ? ' (ters)' : ''}:`
 
+  const vurgu = POZISYON_VURGUSU[pozisyon.ad] ?? ''
+
   const ek =
     tur === 'ask'
-      ? ` Aşk açısından: ${kart.ask}`
+      ? `Aşk açısından: ${kart.ask}`
       : tur === 'kelt' || tur === 'uclu'
-        ? ` İş ve para tarafında: ${kart.kariyer} ${kart.para}`
-        : ''
+        ? `İş ve para tarafında: ${kart.kariyer} ${kart.para}`
+        : tur === 'gunluk'
+          ? `Bugün ilişkilerde: ${kart.ask} İşte: ${kart.kariyer}`
+          : ''
 
-  return `${baslik} ${govde}${ek}`
+  return [`${baslik} ${govde}`, vurgu, ters ? TERS_NOTU : '', ek]
+    .filter(Boolean)
+    .join(' ')
 }
 
 function kaynakCumleSec(kart: Kart, ters: boolean, rast: () => number): string {
@@ -159,7 +207,11 @@ function cevapHesapla(cekilen: CekilenKart): { deger: EvetHayir; metin: string }
 }
 
 /** Açılımın geneline bakarak istatistiksel bir sentez yazar. */
-function ozetYaz(kartlar: CekilenKart[], tanim: AcilimTanimi): string {
+function ozetYaz(
+  kartlar: CekilenKart[],
+  tanim: AcilimTanimi,
+  ihtimaller: Ihtimal[],
+): string {
   const toplam = kartlar.length
   const majorSayisi = kartlar.filter((k) => k.kart.takim === 'major').length
   const tersSayisi = kartlar.filter((k) => k.ters).length
@@ -200,6 +252,33 @@ function ozetYaz(kartlar: CekilenKart[], tanim: AcilimTanimi): string {
         `${TAKIM_ADI[baskin[0]]} takımı ${baskin[1]} kartla öne çıkıyor: açılımın ağırlık merkezi ${TAKIM_TEMASI[baskin[0]]}.`,
       )
     }
+
+    const eksik = (['wands', 'cups', 'swords', 'coins'] as Takim[]).filter(
+      (t) => !takimSayaci.has(t),
+    )
+    if (eksik.length === 1) {
+      parcalar.push(
+        `Açılımda hiç ${TAKIM_ADI[eksik[0]]} yok; ${TAKIM_TEMASI[eksik[0]]} bu dönem gündeminin dışında kalıyor, oraya bakmayı unutuyorsun.`,
+      )
+    }
+  }
+
+  const asSayisi = kartlar.filter((k) => k.kart.takim !== 'major' && k.kart.sira === 1).length
+  if (asSayisi > 0) {
+    parcalar.push(
+      asSayisi === 1
+        ? 'Açılımda bir As var: bir şey gerçekten sıfırdan başlıyor, devamı değil.'
+        : `Açılımda ${asSayisi} As var. Bu, aynı anda birden fazla kapının açıldığı ender bir bileşim; hepsini birden taşımaya çalışma.`,
+    )
+  }
+
+  const saraySayisi = kartlar.filter(
+    (k) => k.kart.takim !== 'major' && k.kart.sira >= 11,
+  ).length
+  if (saraySayisi >= 2) {
+    parcalar.push(
+      `${saraySayisi} saray kartı çıktı: bu açılım büyük ölçüde kişilerle ilgili. Olaylardan çok, etrafındaki insanların tutumu belirleyici olacak.`,
+    )
   }
 
   if (toplam > 1) {
@@ -218,6 +297,10 @@ function ozetYaz(kartlar: CekilenKart[], tanim: AcilimTanimi): string {
   }
 
   parcalar.push(tanim.ozet)
+
+  const ihtimalCumlesi = ihtimalOzeti(ihtimaller)
+  if (ihtimalCumlesi) parcalar.push(ihtimalCumlesi)
+
   return parcalar.join(' ')
 }
 
@@ -241,11 +324,14 @@ export function acilimYap(istek: AcilimIstegi): Acilim {
     }
   })
 
+  const ihtimaller = tarotIhtimalleri(kartlar)
+
   return {
     tanim,
     soru: istek.soru?.trim() || null,
     kartlar,
-    ozet: ozetYaz(kartlar, tanim),
+    ozet: ozetYaz(kartlar, tanim, ihtimaller),
+    ihtimaller,
     cevap: tanim.tur === 'evet-hayir' ? cevapHesapla(kartlar[0]) : null,
     tohum: tohumAnahtari,
   }

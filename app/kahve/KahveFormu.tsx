@@ -5,6 +5,7 @@ import { dosyayiAnalizEt } from '@/lib/kahve/cozucu-tarayici'
 import type { FincanAnalizi } from '@/lib/kahve/goruntu'
 import { faliYorumla, type KahveFali } from '@/lib/kahve/yorum'
 import { Baslik, Dugme, Hata, Olcum, Panel } from '@/components/Panel'
+import { Ihtimaller } from '@/components/Ihtimaller'
 import { TelveHaritasi } from '@/components/TelveHaritasi'
 
 const YUZDE = (o: number) => `%${(o * 100).toFixed(0)}`
@@ -145,6 +146,11 @@ function FalSonucu({ fal, analiz }: { fal: KahveFali; analiz: FincanAnalizi }) {
           </div>
         </div>
       </Panel>
+
+      <Ihtimaller
+        ihtimaller={fal.ihtimaller}
+        aciklama="Fincanın ölçüleri ve çıkan semboller birleştirilerek hesaplandı. Yüzde, o gelişmenin okumadaki ağırlığını gösterir."
+      />
 
       {fal.semboller.length > 0 && (
         <section className="space-y-4">

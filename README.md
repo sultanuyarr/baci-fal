@@ -59,6 +59,7 @@ Yukarıdaki türev görsel de aynı lisansla paylaşılmaktadır.</sub>
 | 4. Lekeleri ölçme | Bağlı bileşen analizi → dairesellik (4πA/Ç²), ikinci momentlerden uzama, kutu doldurma oranı, konveks kabuğa göre kıvrım, kayda değer delik sayısı ve delik alan oranı |
 | 5. Eşleştirme | 34 geleneksel sembolün her birinin ölçülebilir bir imzası var; leke hangi imzaya ne kadar uyuyorsa o kadar puan alır |
 | 6. Bölge okuması | Kenar (yakın gelecek), orta (şimdi), dip (geçmiş); sağ (gelenler), sol (gidenler) |
+| 7. İhtimal listesi | Sembolün geleneksel ağırlığı × eşleşme gücü × leke boyutu × bölge ve yarım uyumu; fincanın geneli ayrıca ölçüm tabanlı ihtimaller üretir |
 
 Örnek bir sembol imzası — yüzük:
 
@@ -206,21 +207,26 @@ app/
   nasil/                 Yöntem ve kaynaklar sayfası
 components/
   Panel.tsx              Ortak arayüz parçaları
+  Ihtimaller.tsx         Yüzdeli "en olası gelişmeler" listesi
   TelveHaritasi.tsx      Tespit edilen fincan ve telve maskesini çizen tuval
 lib/
   altyol.ts              GitHub Pages alt dizini için varlık adresleri
   kahve/goruntu.ts       Saf görüntü analizi (platformdan bağımsız)
   kahve/cozucu-tarayici.ts  Canvas ile fotoğraf çözme
   kahve/cozucu-node.ts   sharp ile fotoğraf çözme (testler)
+  ihtimal.ts             Üç falın ortak ihtimal katmanı (tip, aritmetik, sıralama)
   kahve/semboller.ts     Sembol eşleştirme
+  kahve/ihtimaller.ts    Telve ölçümlerinden yüzdeli olay tahminleri
   kahve/yorum.ts         Okuma metni
   tarot/deste.ts         78 kartlık deste (kaynak veri + Türkçe katman)
   tarot/rastgele.ts      Tohumlanmış karıştırma (xmur3 + mulberry32)
   tarot/acilim.ts        Açılımlar ve sentez
+  tarot/ihtimaller.ts    Kart bileşiminden yüzdeli olay tahminleri
   dogum/gokbilim.ts      Meeus algoritmaları
   dogum/burc.ts          Burç verileri
   dogum/cin.ts           Çin takvimi (gerçek yeni ay hesabı)
   dogum/numeroloji.ts    Pisagor numerolojisi
+  dogum/ihtimaller.ts    Kişisel yıl ve harita dengesinden yüzdeli tahminler
   dogum/harita.ts        Hepsini birleştiren harita
 data/                    Tarot verisi, sembol sözlüğü, il koordinatları
 scripts/                 Veri çekme ve görsel denetim betikleri

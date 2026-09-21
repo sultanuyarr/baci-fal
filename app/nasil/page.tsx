@@ -147,6 +147,42 @@ export default function NasilSayfasi() {
         </Panel>
 
         <Panel className="p-7 sm:p-8">
+          <h2 className="font-baslik text-2xl font-semibold text-altin-300">
+            Yüzdeler nereden geliyor?
+          </h2>
+          <p className="mt-3 text-sm leading-relaxed text-[#c3b8dd]">
+            Üç falın da sonunda “en olası gelişmeler” diye yüzdeli bir liste var. O yüzdeler
+            rastgele atılmış sayılar değil: her fal kendi ölçümlerinden bir taban değer alır,
+            sonra o değeri büyüten ya da küçülten etkenlerle çarpar.
+          </p>
+          <ul className="mt-4 space-y-2.5 text-sm leading-relaxed text-[#c3b8dd]">
+            <li>
+              <span className="text-altin-300">Kahve falında</span> taban, sembolün geleneksel
+              ağırlığıdır. Eşleşme gücü, lekenin büyüklüğü, geleneksel bölgesinde çıkıp
+              çıkmadığı ve gelenler (sağ) mi gidenler (sol) tarafında durduğu bunu çarpar.
+              Sembolsüz ihtimaller doğrudan doluluk, açıklık, hareket ve bölge yoğunluklarından
+              gelir.
+            </li>
+            <li>
+              <span className="text-altin-300">Tarotta</span> taban kartın mertebesinden gelir
+              (as başlangıç, saray kartı kişi, majör kartlar kendi başına olay). Düştüğü
+              pozisyon çarpandır: “Gelecek”teki kart “Geçmiş”tekinden ağır basar. Kartın
+              evet/hayır tabiatı ve ters olması da hesaba girer.
+            </li>
+            <li>
+              <span className="text-altin-300">Doğum haritasında</span> zamanı kişisel yıl
+              verir; harita yalnızca hangi alanın destekli olduğunu söyler. Eksik element,
+              Güneş-Ay ilişkisi ve Çin elementi kendi ihtimallerini ekler.
+            </li>
+          </ul>
+          <p className="mt-4 rounded-xl border border-altin-400/15 bg-gece-900/40 p-4 text-sm text-[#a99ec6]">
+            Yüzdeler %8 ile %92 arasına kırpılır: fal hiçbir zaman “kesin” demez. Bu sayılar
+            bir olasılık tahmini değil, okumanın hangi konuya ne kadar ağırlık verdiğinin
+            sayıya dökülmüş hâlidir. Aynı girdi her zaman aynı listeyi verir.
+          </p>
+        </Panel>
+
+        <Panel className="p-7 sm:p-8">
           <h2 className="font-baslik text-2xl font-semibold text-altin-300">Doğruluk denetimi</h2>
           <p className="mt-3 text-sm leading-relaxed text-[#c3b8dd]">
             Hesaplar kendi kendine doğrulanıyor. Gök hesapları Meeus’un kitabındaki referans

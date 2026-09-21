@@ -10,6 +10,7 @@
  *  - Çin zodyağı
  */
 import illerVerisi from '@/data/iller.json'
+import { ihtimalOzeti, type Ihtimal } from '@/lib/ihtimal'
 import {
   ayBoylami,
   ayEvresi,
@@ -29,6 +30,7 @@ import {
   type Nitelik,
 } from './burc'
 import { cinBurcu, type CinBurcu } from './cin'
+import { dogumIhtimalleri } from './ihtimaller'
 import { numerolojiHesapla, type NumerolojiSonucu } from './numeroloji'
 
 export type Il = { ad: string; plaka: number; enlem: number; boylam: number }
@@ -119,6 +121,8 @@ export type DogumHaritasi = {
   }
   numeroloji: NumerolojiSonucu
   cin: CinBurcu
+  /** Kişisel yıl ve harita dengesinden türeyen, yüzdeli olay tahminleri */
+  ihtimaller: Ihtimal[]
   ozet: string
   notlar: string[]
 }
@@ -153,14 +157,27 @@ function dengeHesapla(burclar: Burc[]) {
   }
 }
 
-function ozetYaz(h: {
-  isim: string
-  gunes: Yerlesim
-  ay: Yerlesim
-  yukselen: Yerlesim | null
-  numeroloji: NumerolojiSonucu
-  cin: CinBurcu
-}): string {
+/** Eksik elementin gündelik hayatta nasıl göründüğü. */
+const EKSIK_ELEMENT_ETKISI: Record<Element, string> = {
+  ateş: 'harekete geçmek için başkasının cesaretlendirmesini beklediğin anlamına gelir.',
+  toprak: 'fikirlerini somutlaştırmakta ve maddi tarafı planlamakta zorlandığını gösterir.',
+  hava: 'hissettiğini kelimeye dökmenin sana zor geldiğini gösterir.',
+  su: 'duygusal olanı mantıkla çözmeye çalıştığını, bunun da her zaman işe yaramadığını söyler.',
+}
+
+function ozetYaz(
+  h: {
+    isim: string
+    gunes: Yerlesim
+    ay: Yerlesim & { evre: { ad: string; aydinlanma: number } }
+    yukselen: Yerlesim | null
+    denge: { baskinElement: Element; baskinNitelik: Nitelik; elementler: Record<Element, number> }
+    numeroloji: NumerolojiSonucu
+    cin: CinBurcu
+    yil: number
+  },
+  ihtimaller: Ihtimal[],
+): string {
   const ad = h.isim.trim().split(/\s+/)[0] || 'Sen'
   const ucluk = h.yukselen
     ? `Güneş'in ${h.gunes.burc.ad}, Ay'ın ${h.ay.burc.ad}, yükselenin ${h.yukselen.burc.ad}.`
@@ -171,7 +188,31 @@ function ozetYaz(h: {
       ? `Güneş ve Ay'ın aynı elementte olması içini dışına yakın kılıyor: istediğin şeyle ihtiyaç duyduğun şey genelde aynı yöne bakıyor.`
       : `Güneş'in ${h.gunes.burc.element}, Ay'ın ${h.ay.burc.element} elementinde. Bu, dışarıdan göründüğünle içeride hissettiğinin farklı dillerde konuştuğu anlamına gelir — hayatının büyük bir kısmı bu ikisini uzlaştırmakla geçiyor.`
 
-  return `${ad}, ${ucluk} ${catisma} Numerolojide yaşam yolun ${h.numeroloji.yasamYolu.sayi} — "${h.numeroloji.yasamYolu.baslik}". Çin takviminde ${h.cin.ad} yılında doğmuşsun.`
+  // Hiç bulunmayan element, haritanın en çok konuşan eksiğidir.
+  const eksikler = (Object.entries(h.denge.elementler) as [Element, number][])
+    .filter(([, sayi]) => sayi === 0)
+    .map(([element]) => element)
+  const eksikCumle =
+    eksikler.length === 1
+      ? ` Haritanda hiç ${eksikler[0]} elementi yok; bu, ${EKSIK_ELEMENT_ETKISI[eksikler[0]]}`
+      : ''
+
+  const yukselenCumle = h.yukselen
+    ? ` Yükselenin ${h.yukselen.burc.ad} olduğu için insanlar seni önce ${h.yukselen.burc.anahtar
+        .slice(0, 2)
+        .join(' ve ')} üzerinden okuyor; Güneş burcunu ancak tanıdıkça görüyorlar.`
+    : ''
+
+  const ayCumle = ` Doğduğun andaki Ay evresi ${h.ay.evre.ad} (%${Math.round(
+    h.ay.evre.aydinlanma * 100,
+  )} aydınlık); duygusal ritmin bu evrenin tabiatını taşıyor.`
+
+  const yilCumle = ` ${h.yil} senin için ${h.numeroloji.kisiselYil.sayi} kişisel yılı: ${h.numeroloji.kisiselYil.metin}`
+
+  const bas = `${ad}, ${ucluk} ${catisma}${eksikCumle}${yukselenCumle}${ayCumle} Numerolojide yaşam yolun ${h.numeroloji.yasamYolu.sayi} — "${h.numeroloji.yasamYolu.baslik}". Çin takviminde ${h.cin.ad} yılında doğmuşsun.${yilCumle}`
+
+  const tahmin = ihtimalOzeti(ihtimaller)
+  return tahmin ? `${bas} ${tahmin}` : bas
 }
 
 export function haritaCikar(girdi: DogumGirdisi, bugunYili?: number): DogumHaritasi {
@@ -226,6 +267,16 @@ export function haritaCikar(girdi: DogumGirdisi, bugunYili?: number): DogumHarit
     notlar.push('Saat girdin ama il seçmedin; yükselen için ikisi birden gerekiyor.')
   }
 
+  const ihtimaller = dogumIhtimalleri({
+    gunes,
+    ay: ayYerlesimi,
+    yukselen,
+    denge,
+    numeroloji,
+    cin,
+    yil: bugunYili ?? new Date().getFullYear(),
+  })
+
   return {
     isim: girdi.isim.trim(),
     tarih: girdi.tarih,
@@ -239,7 +290,20 @@ export function haritaCikar(girdi: DogumGirdisi, bugunYili?: number): DogumHarit
     denge,
     numeroloji,
     cin,
-    ozet: ozetYaz({ isim: girdi.isim, gunes, ay: ayYerlesimi, yukselen, numeroloji, cin }),
+    ihtimaller,
+    ozet: ozetYaz(
+      {
+        isim: girdi.isim,
+        gunes,
+        ay: ayYerlesimi,
+        yukselen,
+        denge,
+        numeroloji,
+        cin,
+        yil: bugunYili ?? new Date().getFullYear(),
+      },
+      ihtimaller,
+    ),
     notlar,
   }
 }

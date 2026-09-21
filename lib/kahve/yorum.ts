@@ -8,7 +8,9 @@
  *   sağ yarı          → gelenler ve açılan yollar
  *   sol yarı          → gidenler ve geride kalanlar
  */
+import { ihtimalOzeti, type Ihtimal } from '@/lib/ihtimal'
 import type { Bolge, FincanAnalizi } from './goruntu'
+import { kahveIhtimalleri, sembolKehaneti } from './ihtimaller'
 import { sembolleriEsle, type SembolEslesmesi } from './semboller'
 
 export type Bolum = { baslik: string; metin: string }
@@ -34,6 +36,8 @@ export type KahveFali = {
   ozet: string
   bolumler: Bolum[]
   semboller: SembolOkumasi[]
+  /** Ölçümlerden türeyen, yüzdeli somut olay tahminleri */
+  ihtimaller: Ihtimal[]
   kapanis: string
   olcumler: {
     doluluk: number
@@ -127,47 +131,114 @@ function konumCumlesi(e: SembolEslesmesi): string {
   return `${BOLGE_ADI[leke.bolge]}, ${yon} çıktı.`
 }
 
+/** Bölgedeki izlerin sağ/sol dağılımı: gelenler mi ağır basıyor, gidenler mi. */
+function dagilimCumlesi(bolge: Bolge, analiz: FincanAnalizi): string {
+  const izler = analiz.lekeler.filter((l) => l.bolge === bolge && l.alanOrani >= 0.0009)
+  if (izler.length < 2) return ''
+  const sag = izler.filter((l) => l.yon === 'sag').length
+  const sol = izler.length - sag
+  if (sag === sol) {
+    return ` Buradaki ${izler.length} iz iki yana eşit dağılmış; gelenle giden bu bölgede başa baş.`
+  }
+  return sag > sol
+    ? ` Buradaki ${izler.length} izin ${sag} tanesi sağ yarıda: bu bölgedeki hareketin çoğu sana doğru gelen bir şeyle ilgili.`
+    : ` Buradaki ${izler.length} izin ${sol} tanesi sol yarıda: buradaki hareket daha çok geride bıraktığın bir şeyle ilgili.`
+}
+
+/** Yoğunluğa göre bölgenin ne anlattığı — üç kademeli. */
+const BOLGE_ANLAMI: Record<Bolge, [string, string, string]> = {
+  kenar: [
+    'Önündeki birkaç hafta yoğun geçecek: peş peşe haberler, davetler ve hızlı karar isteyen konular var. Kenarın bu kadar dolu olması, gelişmelerin senden değil dışarıdan geleceğini söyler.',
+    'Yakın gelecekte birkaç hareketli gün var ama tempo taşınabilir düzeyde. Bir iki haber bekleyebilirsin; büyük olan değil, işleri yerinden oynatan küçük olanlar.',
+    'Yakın gelecek sakin görünüyor. Beklediğin büyük haber bu aralıkta gelmeyebilir; bu boşluk bir gecikme değil, hazırlanmak için verilmiş bir süre.',
+  ],
+  orta: [
+    'İçinde bulunduğun dönem seni fazlasıyla meşgul ediyor; ortanın bu kadar koyu olması, aynı anda dönen birden fazla konu demek. Bunlardan birini kapatmadan yenisine başlarsan hiçbiri bitmiyor.',
+    'Şu anki dönem dolu ama dengeli: hem uğraştığın bir konu var hem de nefes alacak yer. Bu aralık, elindekini toparlamak için uygun.',
+    'İçinde bulunduğun dönem rahat; ortanın boş kalması yeni bir şeye başlamak için elverişli bir aralıkta olduğunu gösterir.',
+  ],
+  dip: [
+    'Geçmişten gelen, tam kapanmamış bir mesele hâlâ altta duruyor ve dip bu kadar koyuyken bugünkü tepkilerinin bir kısmı oradan besleniyor. Muhtemelen kişiyle değil, o kişiyle yaşadığın şeyle uğraşıyorsun.',
+    'Dipte bir miktar birikim var: tamamen kapanmamış ama seni de durdurmayan bir konu. Arada bir aklına geliyor, sonra kendi kendine geçiyor.',
+    'Geçmişinle barışıksın; dibin hafif kalması geride bıraktığın şeylerin bugünü yormadığını gösterir.',
+  ],
+}
+
+/** Bölgenin yoğunluğuna göre somut bir öneri. */
+const BOLGE_ONERISI: Record<Bolge, [string, string]> = {
+  kenar: [
+    'Bu yoğunlukta gelen şeyi kaçırmamak önemli: dönmediğin bir telefon ya da açmadığın bir mesaj, listenin başındaki ihtimali geciktirir.',
+    'Kenar boşken kapıyı senin çalman gerekir; beklemekle değil, aramakla sonuç alacağın bir dönem.',
+  ],
+  orta: [
+    'Enerjini bölme: bu dönem yeni bir şey eklemenin değil, elindekini bitirmenin dönemi.',
+    'Bu boşluk kalıcı değil; şimdi başlattığın şey önümüzdeki aylarda asıl konun olacak.',
+  ],
+  dip: [
+    'Dipteki ağırlık genelde tek bir kişiyle ilgilidir; söylenmemiş bir cümle, aylardır süren bir gerginliği tek seferde çözebilir.',
+    'Dibin hafifliği sana şunu veriyor: eski bir konuya dönmek yerine önüne bakabilirsin.',
+  ],
+}
+
 function bolumMetni(
   bolge: Bolge,
-  yogunluk: number,
+  analiz: FincanAnalizi,
   eslesmeler: SembolEslesmesi[],
 ): string {
+  const yogunluk = analiz.bolgeler[bolge]
   const buradakiler = eslesmeler.filter((e) => e.leke.bolge === bolge)
   const adlar = buradakiler.map((e) => e.sembol.ad.toLocaleLowerCase('tr-TR'))
+  const yuzde = Math.round(yogunluk * 100)
 
   // Yoğunluk düşük olsa da belirgin bir şekil çıkmış olabilir; o zaman
   // "boş" demek yanıltıcı olur, "seyrek ama okunaklı" demek gerekir.
   const yogunlukCumle =
     yogunluk > 0.45
-      ? 'Bu bölge fincanın en koyu yeri; okumanın ağırlık merkezi burada.'
+      ? `Bu bölge fincanın en koyu yeri (%${yuzde} telve); okumanın ağırlık merkezi burada.`
       : yogunluk > 0.25
-        ? 'Bu bölgede telve gözle görülür biçimde toplanmış.'
+        ? `Bu bölgede telve gözle görülür biçimde toplanmış (%${yuzde}).`
         : buradakiler.length > 0
-          ? 'Bu bölgede telve seyrek ama izler belirgin: az sayıda net şekil var.'
+          ? `Bu bölgede telve seyrek (%${yuzde}) ama izler belirgin: az sayıda net şekil var.`
           : yogunluk > 0.1
-            ? 'Bu bölge nispeten sakin, dağınık birkaç iz dışında boş.'
-            : 'Bu bölge neredeyse bomboş kalmış.'
+            ? `Bu bölge nispeten sakin (%${yuzde}); dağınık birkaç iz dışında boş.`
+            : `Bu bölge neredeyse bomboş kalmış (%${yuzde}).`
 
-  const anlamCumle: Record<Bolge, string> = {
-    kenar:
-      yogunluk > 0.25
-        ? 'Önündeki birkaç hafta hareketli: haberler, davetler ve hızlı gelişen konular var.'
-        : 'Yakın gelecek sakin geçecek; beklediğin büyük haber biraz daha zaman alabilir.',
-    orta:
-      yogunluk > 0.25
-        ? 'Şu an içinde bulunduğun dönem seni fazlasıyla meşgul ediyor; bu konuyu çözmeden yeni bir şeye başlama.'
-        : 'İçinde bulunduğun dönem rahat; yeni bir şeye başlamak için elverişli bir aralık.',
-    dip:
-      yogunluk > 0.25
-        ? 'Geçmişten gelen, tam kapanmamış bir mesele hâlâ altta duruyor. Kökler derin; bugünkü tepkilerinin bir kısmı oradan besleniyor.'
-        : 'Geçmişinle barışıksın; geride bıraktığın şeyler bugünü fazla yormuyor.',
+  const kademe = yogunluk > 0.35 ? 0 : yogunluk > 0.18 ? 1 : 2
+  const anlamCumle = BOLGE_ANLAMI[bolge][kademe]
+  const oneri = BOLGE_ONERISI[bolge][kademe === 2 ? 1 : 0]
+
+  let sembolCumle: string
+  if (buradakiler.length === 0) {
+    sembolCumle = ' Burada bilinen bir sembole oturan iz çıkmadı; bu bölgenin sözü tamamen telvenin dağılımından okunuyor.'
+  } else {
+    const enGuclu = buradakiler.reduce((a, b) => (b.guven > a.guven ? b : a))
+    const kehanet = sembolKehaneti(enGuclu.sembol.id)
+    sembolCumle = ` Burada ${adlar.join(', ')} okundu.`
+    if (kehanet) {
+      sembolCumle += ` En güçlü eşleşme ${enGuclu.sembol.ad.toLocaleLowerCase('tr-TR')} (%${Math.round(
+        enGuclu.guven * 100,
+      )}); geleneksel okumada bu, ${kehanet.olay} anlamına gelir.`
+    }
   }
 
-  const sembolCumle = adlar.length
-    ? ` Burada ${adlar.join(', ')} okundu.`
-    : ' Burada belirgin bir sembol çıkmadı.'
+  return `${yogunlukCumle} ${anlamCumle}${dagilimCumlesi(bolge, analiz)}${sembolCumle} ${oneri}`
+}
 
-  return `${yogunlukCumle} ${anlamCumle[bolge]}${sembolCumle}`
+/** Kaç ayrı iz okunduğu, okumanın ne kadar dağınık olduğunu söyler. */
+function detayCumlesi(analiz: FincanAnalizi, okunanSembol: number): string {
+  const l = analiz.lekeSayisi
+  if (l === 0) {
+    return 'Ayrı ayrı okunabilecek belirgin bir iz çıkmadı; bu okuma tamamen telvenin genel dağılımı üzerinden yapıldı.'
+  }
+  if (l >= 14) {
+    return `Fincanda ${l} ayrı iz saydım, ${okunanSembol} tanesi bilinen bir sembole oturdu. Bu kadar parçalı bir fincan tek bir büyük olayı değil, üst üste binen birçok küçük olayı anlatır.`
+  }
+  if (l >= 6) {
+    return `Fincanda ${l} ayrı iz var, ${okunanSembol} tanesi okunabilir bir sembole oturdu. Bu sayı konuların birbirinden ayrışabildiğini gösterir: hangisine öncelik vereceğini seçebilecek durumdasın.`
+  }
+  return `Fincanda yalnızca ${l} belirgin iz var${
+    okunanSembol ? ` ve ${okunanSembol} tanesi sembole oturdu` : ''
+  }. Az ama net iz, tek bir konunun diğer her şeyin önüne geçtiği anlamına gelir.`
 }
 
 export function faliYorumla(analiz: FincanAnalizi): KahveFali {
@@ -186,15 +257,21 @@ export function faliYorumla(analiz: FincanAnalizi): KahveFali {
         ? 'Telve sağ yarıda daha yoğun. Geleneksel okumada bu, gelenlerin gidenlerden çok olduğu anlamına gelir: hayatına yeni insanlar ve yeni işler giriyor.'
         : 'Telve sol yarıda toplanmış. Bu, bir dönemin kapanmakta olduğuna işaret eder: bazı insanlar ve alışkanlıklar geride kalıyor.'
 
+  const ihtimaller = kahveIhtimalleri(analiz, eslesmeler)
+
   const ozet = [
     dolulukYorumu(analiz.doluluk, sec),
     yanCumle,
     simetriYorumu(analiz.simetri),
-  ].join(' ')
+    detayCumlesi(analiz, eslesmeler.length),
+    ihtimalOzeti(ihtimaller),
+  ]
+    .filter(Boolean)
+    .join(' ')
 
   const bolumler: Bolum[] = (['kenar', 'orta', 'dip'] as Bolge[]).map((b) => ({
     baslik: BOLGE_BASLIK[b],
-    metin: bolumMetni(b, analiz.bolgeler[b], eslesmeler),
+    metin: bolumMetni(b, analiz, eslesmeler),
   }))
 
   bolumler.push({
@@ -229,6 +306,7 @@ export function faliYorumla(analiz: FincanAnalizi): KahveFali {
     ozet,
     bolumler,
     semboller,
+    ihtimaller,
     kapanis,
     olcumler: {
       doluluk: analiz.doluluk,

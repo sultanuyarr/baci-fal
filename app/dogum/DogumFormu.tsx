@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { haritaCikar, type DogumHaritasi } from '@/lib/dogum/harita'
 import { Baslik, Dugme, Hata, Olcum, Panel } from '@/components/Panel'
+import { Ihtimaller } from '@/components/Ihtimaller'
 
 type IlSecenegi = { plaka: number; ad: string }
 
@@ -172,6 +173,11 @@ function HaritaSonucu({ harita: h }: { harita: DogumHaritasi }) {
           </ul>
         )}
       </Panel>
+
+      <Ihtimaller
+        ihtimaller={h.ihtimaller}
+        aciklama="Zamanı kişisel yılın veriyor; haritanın element dengesi, Güneş-Ay ilişkisi ve Çin elementi bu konuların hangisinin destekli olduğunu belirliyor."
+      />
 
       <div className="grid gap-5 md:grid-cols-3">
         {yerlesimler.map((y, i) => (

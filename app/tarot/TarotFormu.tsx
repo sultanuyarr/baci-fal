@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { varlik } from '@/lib/altyol'
 import { acilimYap, type Acilim, type AcilimTuru } from '@/lib/tarot/acilim'
 import { Baslik, Dugme, Hata, Panel } from '@/components/Panel'
+import { Ihtimaller } from '@/components/Ihtimaller'
 
 type AcilimSecenegi = { tur: AcilimTuru; ad: string; ozet: string; kartSayisi: number }
 
@@ -191,6 +192,11 @@ function AcilimSonucu({ acilim }: { acilim: Acilim }) {
         )}
         <p className="mt-4 leading-relaxed text-[#ded4f0]">{acilim.ozet}</p>
       </Panel>
+
+      <Ihtimaller
+        ihtimaller={acilim.ihtimaller}
+        aciklama="Her kartın takımı, mertebesi, düştüğü pozisyon ve düz/ters oluşu birlikte hesaplandı. Geleceğe bakan pozisyonlardaki kartlar listenin üstüne çıkar."
+      />
 
       <div className="grid gap-6 lg:grid-cols-2">
         {acilim.kartlar.map((k, i) => (
